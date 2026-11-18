@@ -13,68 +13,68 @@
         "plötzlich"
       ],
       "sprechtext": "Nur noch ein Video … und plötzlich ist eine Stunde weg. Warum eigentlich?",
-      "dauer": 5.92,
+      "dauer": 5.03,
       "audio": "audio/folge-02/szene-1.mp3",
       "woerter": [
         {
           "wort": "Nur",
-          "start": 0.2,
-          "ende": 0.5
+          "start": 0.14,
+          "ende": 0.42
         },
         {
           "wort": "noch",
-          "start": 0.5,
-          "ende": 0.87
+          "start": 0.42,
+          "ende": 0.76
         },
         {
           "wort": "ein",
-          "start": 0.87,
-          "ende": 1.16
+          "start": 0.76,
+          "ende": 1.04
         },
         {
           "wort": "Video",
-          "start": 1.16,
-          "ende": 1.61
+          "start": 1.04,
+          "ende": 1.46
         },
         {
           "wort": "und",
-          "start": 2.04,
-          "ende": 2.25
+          "start": 1.74,
+          "ende": 1.94
         },
         {
           "wort": "plötzlich",
-          "start": 2.25,
-          "ende": 2.78
+          "start": 1.94,
+          "ende": 2.43
         },
         {
           "wort": "ist",
-          "start": 2.78,
-          "ende": 2.99
+          "start": 2.43,
+          "ende": 2.63
         },
         {
           "wort": "eine",
-          "start": 2.99,
-          "ende": 3.26
+          "start": 2.63,
+          "ende": 2.88
         },
         {
           "wort": "Stunde",
-          "start": 3.26,
-          "ende": 3.63
+          "start": 2.88,
+          "ende": 3.22
         },
         {
           "wort": "weg.",
-          "start": 3.63,
-          "ende": 3.84
+          "start": 3.22,
+          "ende": 3.42
         },
         {
           "wort": "Warum",
-          "start": 4.54,
-          "ende": 4.85
+          "start": 3.7,
+          "ende": 3.99
         },
         {
           "wort": "eigentlich?",
-          "start": 4.85,
-          "ende": 5.42
+          "start": 3.99,
+          "ende": 4.52
         }
       ]
     },
@@ -88,163 +88,163 @@
         "genial"
       ],
       "sprechtext": "Beim Scrollen weißt du nie, was als Nächstes kommt. Mal langweilig, mal genial. Genau diese Unvorhersehbarkeit hält dich fest, denn dein Gehirn will wissen, ob das nächste Video der Treffer ist.",
-      "dauer": 12.99,
+      "dauer": 11.98,
       "audio": "audio/folge-02/szene-2.mp3",
       "woerter": [
         {
           "wort": "Beim",
-          "start": 0.2,
-          "ende": 0.44
+          "start": 0.14,
+          "ende": 0.36
         },
         {
           "wort": "Scrollen",
-          "start": 0.44,
-          "ende": 0.87
+          "start": 0.36,
+          "ende": 0.77
         },
         {
           "wort": "weißt",
-          "start": 0.87,
-          "ende": 1.16
+          "start": 0.77,
+          "ende": 1.03
         },
         {
           "wort": "du",
-          "start": 1.16,
-          "ende": 1.3
+          "start": 1.03,
+          "ende": 1.17
         },
         {
           "wort": "nie,",
-          "start": 1.3,
-          "ende": 1.49
+          "start": 1.17,
+          "ende": 1.35
         },
         {
           "wort": "was",
-          "start": 1.49,
-          "ende": 1.68
+          "start": 1.35,
+          "ende": 1.53
         },
         {
           "wort": "als",
-          "start": 1.68,
-          "ende": 1.87
+          "start": 1.53,
+          "ende": 1.7
         },
         {
           "wort": "Nächstes",
-          "start": 1.87,
-          "ende": 2.3
+          "start": 1.7,
+          "ende": 2.11
         },
         {
           "wort": "kommt.",
-          "start": 2.3,
-          "ende": 2.59
+          "start": 2.11,
+          "ende": 2.37
         },
         {
           "wort": "Mal",
-          "start": 2.73,
-          "ende": 3.03
+          "start": 2.5,
+          "ende": 2.78
         },
         {
           "wort": "langweilig,",
-          "start": 3.03,
-          "ende": 3.84
+          "start": 2.78,
+          "ende": 3.55
         },
         {
           "wort": "mal",
-          "start": 3.84,
-          "ende": 4.14
+          "start": 3.55,
+          "ende": 3.82
         },
         {
           "wort": "genial.",
-          "start": 4.14,
-          "ende": 4.66
+          "start": 3.82,
+          "ende": 4.31
         },
         {
           "wort": "Genau",
-          "start": 4.97,
-          "ende": 5.39
+          "start": 4.59,
+          "ende": 4.98
         },
         {
           "wort": "diese",
-          "start": 5.39,
-          "ende": 5.82
+          "start": 4.98,
+          "ende": 5.38
         },
         {
           "wort": "Unvorhersehbarkeit",
-          "start": 5.82,
-          "ende": 7.15
+          "start": 5.38,
+          "ende": 6.63
         },
         {
           "wort": "hält",
-          "start": 7.15,
-          "ende": 7.51
+          "start": 6.63,
+          "ende": 6.96
         },
         {
           "wort": "dich",
-          "start": 7.51,
-          "ende": 7.86
+          "start": 6.96,
+          "ende": 7.29
         },
         {
           "wort": "fest,",
-          "start": 7.86,
-          "ende": 8.21
+          "start": 7.29,
+          "ende": 7.62
         },
         {
           "wort": "denn",
-          "start": 8.34,
-          "ende": 8.63
+          "start": 7.74,
+          "ende": 8.01
         },
         {
           "wort": "dein",
-          "start": 8.63,
-          "ende": 8.93
+          "start": 8.01,
+          "ende": 8.29
         },
         {
           "wort": "Gehirn",
-          "start": 8.93,
-          "ende": 9.34
+          "start": 8.29,
+          "ende": 8.67
         },
         {
           "wort": "will",
-          "start": 9.34,
-          "ende": 9.63
+          "start": 8.67,
+          "ende": 8.95
         },
         {
           "wort": "wissen,",
-          "start": 9.63,
-          "ende": 10.04
+          "start": 8.95,
+          "ende": 9.33
         },
         {
           "wort": "ob",
-          "start": 10.04,
-          "ende": 10.22
+          "start": 9.33,
+          "ende": 9.5
         },
         {
           "wort": "das",
-          "start": 10.22,
-          "ende": 10.46
+          "start": 9.5,
+          "ende": 9.72
         },
         {
           "wort": "nächste",
-          "start": 10.46,
-          "ende": 10.93
+          "start": 9.72,
+          "ende": 10.16
         },
         {
           "wort": "Video",
-          "start": 10.93,
-          "ende": 11.28
+          "start": 10.16,
+          "ende": 10.49
         },
         {
           "wort": "der",
-          "start": 11.28,
-          "ende": 11.51
+          "start": 10.49,
+          "ende": 10.71
         },
         {
           "wort": "Treffer",
-          "start": 11.51,
-          "ende": 11.98
+          "start": 10.71,
+          "ende": 11.14
         },
         {
           "wort": "ist.",
-          "start": 11.98,
-          "ende": 12.22
+          "start": 11.14,
+          "ende": 11.36
         }
       ]
     },
@@ -257,163 +257,163 @@
         "treibt"
       ],
       "sprechtext": "Dabei spielt der Botenstoff Dopamin eine Rolle. Viele denken, er macht glücklich. Eigentlich treibt er dich an, etwas zu wollen. Er sorgt für die Vorfreude auf das, was vielleicht gleich kommt.",
-      "dauer": 13.36,
+      "dauer": 11.77,
       "audio": "audio/folge-02/szene-3.mp3",
       "woerter": [
         {
           "wort": "Dabei",
-          "start": 0.2,
-          "ende": 0.52
+          "start": 0.14,
+          "ende": 0.43
         },
         {
           "wort": "spielt",
-          "start": 0.52,
-          "ende": 0.88
+          "start": 0.43,
+          "ende": 0.78
         },
         {
           "wort": "der",
-          "start": 0.88,
-          "ende": 1.09
+          "start": 0.78,
+          "ende": 0.98
         },
         {
           "wort": "Botenstoff",
-          "start": 1.09,
-          "ende": 1.67
+          "start": 0.98,
+          "ende": 1.52
         },
         {
           "wort": "Dopamin",
-          "start": 1.67,
-          "ende": 2.09
+          "start": 1.52,
+          "ende": 1.91
         },
         {
           "wort": "eine",
-          "start": 2.09,
-          "ende": 2.35
+          "start": 1.91,
+          "ende": 2.15
         },
         {
           "wort": "Rolle.",
-          "start": 2.35,
-          "ende": 2.67
+          "start": 2.15,
+          "ende": 2.45
         },
         {
           "wort": "Viele",
-          "start": 3.07,
-          "ende": 3.44
+          "start": 2.73,
+          "ende": 3.08
         },
         {
           "wort": "denken,",
-          "start": 3.44,
-          "ende": 3.88
+          "start": 3.08,
+          "ende": 3.48
         },
         {
           "wort": "er",
-          "start": 3.88,
-          "ende": 4.06
+          "start": 3.48,
+          "ende": 3.66
         },
         {
           "wort": "macht",
-          "start": 4.06,
-          "ende": 4.44
+          "start": 3.66,
+          "ende": 4.01
         },
         {
           "wort": "glücklich.",
-          "start": 4.44,
-          "ende": 5.06
+          "start": 4.01,
+          "ende": 4.59
         },
         {
           "wort": "Eigentlich",
-          "start": 5.57,
-          "ende": 6.23
+          "start": 4.87,
+          "ende": 5.48
         },
         {
           "wort": "treibt",
-          "start": 6.23,
-          "ende": 6.65
+          "start": 5.48,
+          "ende": 5.87
         },
         {
           "wort": "er",
-          "start": 6.65,
-          "ende": 6.83
+          "start": 5.87,
+          "ende": 6.04
         },
         {
           "wort": "dich",
-          "start": 6.83,
-          "ende": 7.12
+          "start": 6.04,
+          "ende": 6.32
         },
         {
           "wort": "an,",
-          "start": 7.12,
-          "ende": 7.3
+          "start": 6.32,
+          "ende": 6.49
         },
         {
           "wort": "etwas",
-          "start": 7.3,
-          "ende": 7.66
+          "start": 6.49,
+          "ende": 6.82
         },
         {
           "wort": "zu",
-          "start": 7.66,
-          "ende": 7.84
+          "start": 6.82,
+          "ende": 6.99
         },
         {
           "wort": "wollen.",
-          "start": 7.84,
-          "ende": 8.26
+          "start": 6.99,
+          "ende": 7.38
         },
         {
           "wort": "Er",
-          "start": 8.81,
-          "ende": 8.99
+          "start": 7.66,
+          "ende": 7.83
         },
         {
           "wort": "sorgt",
-          "start": 8.99,
-          "ende": 9.35
+          "start": 7.83,
+          "ende": 8.17
         },
         {
           "wort": "für",
-          "start": 9.35,
-          "ende": 9.59
+          "start": 8.17,
+          "ende": 8.39
         },
         {
           "wort": "die",
-          "start": 9.59,
-          "ende": 9.82
+          "start": 8.39,
+          "ende": 8.61
         },
         {
           "wort": "Vorfreude",
-          "start": 9.82,
-          "ende": 10.42
+          "start": 8.61,
+          "ende": 9.17
         },
         {
           "wort": "auf",
-          "start": 10.42,
-          "ende": 10.66
+          "start": 9.17,
+          "ende": 9.39
         },
         {
           "wort": "das,",
-          "start": 10.66,
-          "ende": 10.9
+          "start": 9.39,
+          "ende": 9.62
         },
         {
           "wort": "was",
-          "start": 10.9,
-          "ende": 11.14
+          "start": 9.62,
+          "ende": 9.84
         },
         {
           "wort": "vielleicht",
-          "start": 11.14,
-          "ende": 11.79
+          "start": 9.84,
+          "ende": 10.45
         },
         {
           "wort": "gleich",
-          "start": 11.79,
-          "ende": 12.21
+          "start": 10.45,
+          "ende": 10.84
         },
         {
           "wort": "kommt.",
-          "start": 12.21,
-          "ende": 12.57
+          "start": 10.84,
+          "ende": 11.18
         }
       ]
     },
@@ -428,153 +428,153 @@
         "Jetzt"
       ],
       "sprechtext": "Dazu kommt: Ein Buch hat ein Kapitelende, eine Serie einen Abspann. Der Feed hat kein Ende. Es gibt keinen natürlichen Moment, an dem dein Gehirn sagt: Jetzt ist gut.",
-      "dauer": 12.29,
+      "dauer": 11.2,
       "audio": "audio/folge-02/szene-4.mp3",
       "woerter": [
         {
           "wort": "Dazu",
-          "start": 0.2,
-          "ende": 0.54
+          "start": 0.14,
+          "ende": 0.45
         },
         {
           "wort": "kommt:",
-          "start": 0.54,
-          "ende": 0.94
+          "start": 0.45,
+          "ende": 0.83
         },
         {
           "wort": "Ein",
-          "start": 0.94,
-          "ende": 1.21
+          "start": 0.83,
+          "ende": 1.08
         },
         {
           "wort": "Buch",
-          "start": 1.21,
-          "ende": 1.55
+          "start": 1.08,
+          "ende": 1.4
         },
         {
           "wort": "hat",
-          "start": 1.55,
-          "ende": 1.81
+          "start": 1.4,
+          "ende": 1.65
         },
         {
           "wort": "ein",
-          "start": 1.81,
-          "ende": 2.08
+          "start": 1.65,
+          "ende": 1.9
         },
         {
           "wort": "Kapitelende,",
-          "start": 2.08,
-          "ende": 2.89
+          "start": 1.9,
+          "ende": 2.65
         },
         {
           "wort": "eine",
-          "start": 3.02,
-          "ende": 3.39
+          "start": 2.78,
+          "ende": 3.13
         },
         {
           "wort": "Serie",
-          "start": 3.39,
-          "ende": 3.84
+          "start": 3.13,
+          "ende": 3.54
         },
         {
           "wort": "einen",
-          "start": 3.84,
-          "ende": 4.29
+          "start": 3.54,
+          "ende": 3.96
         },
         {
           "wort": "Abspann.",
-          "start": 4.29,
-          "ende": 4.89
+          "start": 3.96,
+          "ende": 4.52
         },
         {
           "wort": "Der",
-          "start": 5.3,
-          "ende": 5.54
+          "start": 4.8,
+          "ende": 5.02
         },
         {
           "wort": "Feed",
-          "start": 5.54,
-          "ende": 5.83
+          "start": 5.02,
+          "ende": 5.3
         },
         {
           "wort": "hat",
-          "start": 5.83,
-          "ende": 6.07
+          "start": 5.3,
+          "ende": 5.52
         },
         {
           "wort": "kein",
-          "start": 6.07,
-          "ende": 6.36
+          "start": 5.52,
+          "ende": 5.8
         },
         {
           "wort": "Ende.",
-          "start": 6.36,
-          "ende": 6.66
+          "start": 5.8,
+          "ende": 6.07
         },
         {
           "wort": "Es",
-          "start": 6.98,
-          "ende": 7.15
+          "start": 6.36,
+          "ende": 6.51
         },
         {
           "wort": "gibt",
-          "start": 7.15,
-          "ende": 7.43
+          "start": 6.51,
+          "ende": 6.78
         },
         {
           "wort": "keinen",
-          "start": 7.43,
-          "ende": 7.83
+          "start": 6.78,
+          "ende": 7.15
         },
         {
           "wort": "natürlichen",
-          "start": 7.83,
-          "ende": 8.51
+          "start": 7.15,
+          "ende": 7.78
         },
         {
           "wort": "Moment,",
-          "start": 8.51,
-          "ende": 8.9
+          "start": 7.78,
+          "ende": 8.15
         },
         {
           "wort": "an",
-          "start": 8.9,
-          "ende": 9.07
+          "start": 8.15,
+          "ende": 8.31
         },
         {
           "wort": "dem",
-          "start": 9.07,
-          "ende": 9.3
+          "start": 8.31,
+          "ende": 8.52
         },
         {
           "wort": "dein",
-          "start": 9.3,
-          "ende": 9.58
+          "start": 8.52,
+          "ende": 8.79
         },
         {
           "wort": "Gehirn",
-          "start": 9.58,
-          "ende": 9.98
+          "start": 8.79,
+          "ende": 9.16
         },
         {
           "wort": "sagt:",
-          "start": 9.98,
-          "ende": 10.26
+          "start": 9.16,
+          "ende": 9.42
         },
         {
           "wort": "Jetzt",
-          "start": 10.55,
-          "ende": 10.96
+          "start": 9.69,
+          "ende": 10.08
         },
         {
           "wort": "ist",
-          "start": 10.96,
-          "ende": 11.24
+          "start": 10.08,
+          "ende": 10.33
         },
         {
           "wort": "gut.",
-          "start": 11.24,
-          "ende": 11.51
+          "start": 10.33,
+          "ende": 10.59
         }
       ]
     },
@@ -589,103 +589,103 @@
         "Daumen"
       ],
       "sprechtext": "Das Prinzip kennt man vom Spielautomaten: Hebel ziehen, gespannt warten, manchmal gewinnen. Beim Scrollen ist dein Daumen der Hebel.",
-      "dauer": 9.57,
+      "dauer": 8.67,
       "audio": "audio/folge-02/szene-5.mp3",
       "woerter": [
         {
           "wort": "Das",
-          "start": 0.2,
-          "ende": 0.44
+          "start": 0.14,
+          "ende": 0.37
         },
         {
           "wort": "Prinzip",
-          "start": 0.44,
-          "ende": 0.93
+          "start": 0.37,
+          "ende": 0.82
         },
         {
           "wort": "kennt",
-          "start": 0.93,
-          "ende": 1.29
+          "start": 0.82,
+          "ende": 1.16
         },
         {
           "wort": "man",
-          "start": 1.29,
-          "ende": 1.54
+          "start": 1.16,
+          "ende": 1.39
         },
         {
           "wort": "vom",
-          "start": 1.54,
-          "ende": 1.78
+          "start": 1.39,
+          "ende": 1.62
         },
         {
           "wort": "Spielautomaten:",
-          "start": 1.78,
-          "ende": 2.69
+          "start": 1.62,
+          "ende": 2.47
         },
         {
           "wort": "Hebel",
-          "start": 2.84,
-          "ende": 3.3
+          "start": 2.61,
+          "ende": 3.03
         },
         {
           "wort": "ziehen,",
-          "start": 3.3,
-          "ende": 3.83
+          "start": 3.03,
+          "ende": 3.53
         },
         {
           "wort": "gespannt",
-          "start": 3.99,
-          "ende": 4.46
+          "start": 3.68,
+          "ende": 4.12
         },
         {
           "wort": "warten,",
-          "start": 4.46,
-          "ende": 4.83
+          "start": 4.12,
+          "ende": 4.47
         },
         {
           "wort": "manchmal",
-          "start": 5.07,
-          "ende": 5.54
+          "start": 4.69,
+          "ende": 5.13
         },
         {
           "wort": "gewinnen.",
-          "start": 5.54,
-          "ende": 6.0
+          "start": 5.13,
+          "ende": 5.56
         },
         {
           "wort": "Beim",
-          "start": 6.18,
-          "ende": 6.49
+          "start": 5.73,
+          "ende": 6.02
         },
         {
           "wort": "Scrollen",
-          "start": 6.49,
-          "ende": 7.05
+          "start": 6.02,
+          "ende": 6.54
         },
         {
           "wort": "ist",
-          "start": 7.05,
-          "ende": 7.3
+          "start": 6.54,
+          "ende": 6.78
         },
         {
           "wort": "dein",
-          "start": 7.3,
-          "ende": 7.61
+          "start": 6.78,
+          "ende": 7.07
         },
         {
           "wort": "Daumen",
-          "start": 7.61,
-          "ende": 8.05
+          "start": 7.07,
+          "ende": 7.47
         },
         {
           "wort": "der",
-          "start": 8.05,
-          "ende": 8.3
+          "start": 7.47,
+          "ende": 7.71
         },
         {
           "wort": "Hebel.",
-          "start": 8.3,
-          "ende": 8.67
+          "start": 7.71,
+          "ende": 8.06
         }
       ]
     },
@@ -699,168 +699,168 @@
         "Ende"
       ],
       "sprechtext": "Was hilft? Bau dir eigene Stopps ein: einen Timer stellen, die App vom Startbildschirm nehmen oder das Handy nachts außer Reichweite legen. Setz dir selbst ein Ende, der Feed tut es nicht.",
-      "dauer": 12.64,
+      "dauer": 11.41,
       "audio": "audio/folge-02/szene-6.mp3",
       "woerter": [
         {
           "wort": "Was",
-          "start": 0.2,
-          "ende": 0.57
+          "start": 0.14,
+          "ende": 0.48
         },
         {
           "wort": "hilft?",
-          "start": 0.57,
-          "ende": 1.12
+          "start": 0.48,
+          "ende": 1.0
         },
         {
           "wort": "Bau",
-          "start": 1.68,
-          "ende": 1.9
+          "start": 1.28,
+          "ende": 1.48
         },
         {
           "wort": "dir",
-          "start": 1.9,
-          "ende": 2.11
+          "start": 1.48,
+          "ende": 1.68
         },
         {
           "wort": "eigene",
-          "start": 2.11,
-          "ende": 2.49
+          "start": 1.68,
+          "ende": 2.04
         },
         {
           "wort": "Stopps",
-          "start": 2.49,
-          "ende": 2.87
+          "start": 2.04,
+          "ende": 2.39
         },
         {
           "wort": "ein:",
-          "start": 2.87,
-          "ende": 3.08
+          "start": 2.39,
+          "ende": 2.59
         },
         {
           "wort": "einen",
-          "start": 3.08,
-          "ende": 3.41
+          "start": 2.59,
+          "ende": 2.89
         },
         {
           "wort": "Timer",
-          "start": 3.41,
-          "ende": 3.73
+          "start": 2.89,
+          "ende": 3.2
         },
         {
           "wort": "stellen,",
-          "start": 3.73,
-          "ende": 4.16
+          "start": 3.2,
+          "ende": 3.6
         },
         {
           "wort": "die",
-          "start": 4.16,
-          "ende": 4.38
+          "start": 3.6,
+          "ende": 3.8
         },
         {
           "wort": "App",
-          "start": 4.38,
-          "ende": 4.59
+          "start": 3.8,
+          "ende": 4.0
         },
         {
           "wort": "vom",
-          "start": 4.59,
-          "ende": 4.81
+          "start": 4.0,
+          "ende": 4.21
         },
         {
           "wort": "Startbildschirm",
-          "start": 4.81,
-          "ende": 5.67
+          "start": 4.21,
+          "ende": 5.01
         },
         {
           "wort": "nehmen",
-          "start": 5.67,
-          "ende": 6.05
+          "start": 5.01,
+          "ende": 5.37
         },
         {
           "wort": "oder",
-          "start": 6.05,
-          "ende": 6.32
+          "start": 5.37,
+          "ende": 5.62
         },
         {
           "wort": "das",
-          "start": 6.32,
-          "ende": 6.54
+          "start": 5.62,
+          "ende": 5.82
         },
         {
           "wort": "Handy",
-          "start": 6.54,
-          "ende": 6.86
+          "start": 5.82,
+          "ende": 6.12
         },
         {
           "wort": "nachts",
-          "start": 6.86,
-          "ende": 7.24
+          "start": 6.12,
+          "ende": 6.48
         },
         {
           "wort": "außer",
-          "start": 7.24,
-          "ende": 7.56
+          "start": 6.48,
+          "ende": 6.78
         },
         {
           "wort": "Reichweite",
-          "start": 7.56,
-          "ende": 8.16
+          "start": 6.78,
+          "ende": 7.33
         },
         {
           "wort": "legen.",
-          "start": 8.16,
-          "ende": 8.48
+          "start": 7.33,
+          "ende": 7.64
         },
         {
           "wort": "Setz",
-          "start": 8.6,
-          "ende": 8.93
+          "start": 7.75,
+          "ende": 8.06
         },
         {
           "wort": "dir",
-          "start": 8.93,
-          "ende": 9.2
+          "start": 8.06,
+          "ende": 8.31
         },
         {
           "wort": "selbst",
-          "start": 9.2,
-          "ende": 9.67
+          "start": 8.31,
+          "ende": 8.75
         },
         {
           "wort": "ein",
-          "start": 9.67,
-          "ende": 9.94
+          "start": 8.75,
+          "ende": 9.0
         },
         {
           "wort": "Ende,",
-          "start": 9.94,
-          "ende": 10.27
+          "start": 9.0,
+          "ende": 9.31
         },
         {
           "wort": "der",
-          "start": 10.51,
-          "ende": 10.76
+          "start": 9.53,
+          "ende": 9.76
         },
         {
           "wort": "Feed",
-          "start": 10.76,
-          "ende": 11.06
+          "start": 9.76,
+          "ende": 10.05
         },
         {
           "wort": "tut",
-          "start": 11.06,
-          "ende": 11.31
+          "start": 10.05,
+          "ende": 10.28
         },
         {
           "wort": "es",
-          "start": 11.31,
-          "ende": 11.49
+          "start": 10.28,
+          "ende": 10.45
         },
         {
           "wort": "nicht.",
-          "start": 11.49,
-          "ende": 11.86
+          "start": 10.45,
+          "ende": 10.79
         }
       ]
     },
@@ -870,108 +870,108 @@
       "highlight": "am Tag",
       "betonung": "Bildschirmzeit",
       "sprechtext": "Wie viele Stunden zeigt deine Bildschirmzeit? Schreib es in die Kommentare. Und wenn du schon scrollst: Folg mir für mehr.",
-      "dauer": 7.6,
+      "dauer": 6.5,
       "audio": "audio/folge-02/szene-7.mp3",
       "woerter": [
         {
           "wort": "Wie",
-          "start": 0.2,
-          "ende": 0.38
+          "start": 0.14,
+          "ende": 0.31
         },
         {
           "wort": "viele",
-          "start": 0.38,
-          "ende": 0.66
+          "start": 0.31,
+          "ende": 0.57
         },
         {
           "wort": "Stunden",
-          "start": 0.66,
-          "ende": 1.02
+          "start": 0.57,
+          "ende": 0.91
         },
         {
           "wort": "zeigt",
-          "start": 1.02,
-          "ende": 1.3
+          "start": 0.91,
+          "ende": 1.17
         },
         {
           "wort": "deine",
-          "start": 1.3,
-          "ende": 1.57
+          "start": 1.17,
+          "ende": 1.42
         },
         {
           "wort": "Bildschirmzeit?",
-          "start": 1.57,
-          "ende": 2.26
+          "start": 1.42,
+          "ende": 2.07
         },
         {
           "wort": "Schreib",
-          "start": 2.41,
-          "ende": 2.82
+          "start": 2.21,
+          "ende": 2.59
         },
         {
           "wort": "es",
-          "start": 2.82,
-          "ende": 2.98
+          "start": 2.59,
+          "ende": 2.73
         },
         {
           "wort": "in",
-          "start": 2.98,
-          "ende": 3.13
+          "start": 2.73,
+          "ende": 2.88
         },
         {
           "wort": "die",
-          "start": 3.13,
-          "ende": 3.33
+          "start": 2.88,
+          "ende": 3.07
         },
         {
           "wort": "Kommentare.",
-          "start": 3.33,
-          "ende": 3.9
+          "start": 3.07,
+          "ende": 3.6
         },
         {
           "wort": "Und",
-          "start": 4.34,
-          "ende": 4.5
+          "start": 3.88,
+          "ende": 4.03
         },
         {
           "wort": "wenn",
-          "start": 4.5,
-          "ende": 4.71
+          "start": 4.03,
+          "ende": 4.22
         },
         {
           "wort": "du",
-          "start": 4.71,
-          "ende": 4.83
+          "start": 4.22,
+          "ende": 4.34
         },
         {
           "wort": "schon",
-          "start": 4.83,
-          "ende": 5.08
+          "start": 4.34,
+          "ende": 4.57
         },
         {
           "wort": "scrollst:",
-          "start": 5.08,
-          "ende": 5.45
+          "start": 4.57,
+          "ende": 4.92
         },
         {
           "wort": "Folg",
-          "start": 5.67,
-          "ende": 5.9
+          "start": 5.12,
+          "ende": 5.34
         },
         {
           "wort": "mir",
-          "start": 5.9,
-          "ende": 6.08
+          "start": 5.34,
+          "ende": 5.51
         },
         {
           "wort": "für",
-          "start": 6.08,
-          "ende": 6.27
+          "start": 5.51,
+          "ende": 5.68
         },
         {
           "wort": "mehr.",
-          "start": 6.27,
-          "ende": 6.5
+          "start": 5.68,
+          "ende": 5.9
         }
       ]
     }
