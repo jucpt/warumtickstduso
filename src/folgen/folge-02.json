@@ -1,0 +1,79 @@
+{
+  "nummer": 2,
+  "thema": "Warum du nicht aufhören kannst zu scrollen",
+  "szenen": [
+    {
+      "typ": "hook",
+      "titel": "Warum kannst du nicht aufhören zu scrollen?",
+      "highlight": "aufhören",
+      "grafik": "handy",
+      "betonung": "Stunde",
+      "momente": [
+        "Video",
+        "plötzlich"
+      ],
+      "sprechtext": "Nur noch ein Video … und plötzlich ist eine Stunde weg. Warum eigentlich?",
+      "dauer": 5.7
+    },
+    {
+      "typ": "schritt",
+      "titel": "Dein Gehirn liebt Überraschungen",
+      "highlight": "Überraschungen",
+      "grafik": "gehirn",
+      "betonung": "Unvorhersehbarkeit",
+      "momente": [
+        "genial"
+      ],
+      "sprechtext": "Beim Scrollen weißt du nie, was als Nächstes kommt. Mal langweilig, mal genial. Genau diese Unvorhersehbarkeit hält dich fest, denn dein Gehirn will wissen, ob das nächste Video der Treffer ist.",
+      "dauer": 14.0
+    },
+    {
+      "typ": "schritt",
+      "titel": "Dopamin ist Vorfreude, nicht Glück",
+      "highlight": "Vorfreude",
+      "grafik": "welle",
+      "momente": [
+        "treibt"
+      ],
+      "sprechtext": "Dabei spielt der Botenstoff Dopamin eine Rolle. Viele denken, er macht glücklich. Eigentlich treibt er dich an, etwas zu wollen. Er sorgt für die Vorfreude auf das, was vielleicht gleich kommt.",
+      "dauer": 14.0
+    },
+    {
+      "typ": "schritt",
+      "titel": "Der Feed hat kein Ende",
+      "highlight": "kein Ende",
+      "grafik": "handy",
+      "momente": [
+        "Feed",
+        "natürlichen",
+        "Jetzt"
+      ],
+      "sprechtext": "Dazu kommt: Ein Buch hat ein Kapitelende, eine Serie einen Abspann. Der Feed hat kein Ende. Es gibt keinen natürlichen Moment, an dem dein Gehirn sagt: Jetzt ist gut.",
+      "dauer": 13.1
+    },
+    {
+      "typ": "beispiel",
+      "titel": "Wie ein Spielautomat in deiner Hosentasche",
+      "highlight": "Spielautomat",
+      "grafik": "keine",
+      "sprechtext": "Das Prinzip kennt man vom Spielautomaten: Hebel ziehen, gespannt warten, manchmal gewinnen. Beim Scrollen ist dein Daumen der Hebel.",
+      "dauer": 8.8
+    },
+    {
+      "typ": "merke",
+      "titel": "Setz dir selbst ein Ende, der Feed tut es nicht.",
+      "highlight": "selbst ein Ende",
+      "grafik": "keine",
+      "sprechtext": "Was hilft? Bau dir eigene Stopps ein: einen Timer stellen, die App vom Startbildschirm nehmen oder das Handy nachts außer Reichweite legen. Setz dir selbst ein Ende, der Feed tut es nicht.",
+      "dauer": 14.4
+    },
+    {
+      "typ": "outro",
+      "titel": "Wie lange scrollst du am Tag?",
+      "highlight": "am Tag",
+      "betonung": "Bildschirmzeit",
+      "sprechtext": "Wie viele Stunden zeigt deine Bildschirmzeit? Schreib es in die Kommentare. Und wenn du schon scrollst: Folg mir für mehr.",
+      "dauer": 9.2
+    }
+  ]
+}

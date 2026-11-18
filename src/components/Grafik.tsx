@@ -3,7 +3,7 @@ import { interpolate, spring, useCurrentFrame, useVideoConfig } from 'remotion';
 import { FARBEN } from '../brand';
 import { GrafikName, Szene } from '../types';
 import { Gehirn } from './Gehirn';
-import { ab, ausschlag, wortStart, zucken } from './momente';
+import { ab, ausschlag, betonungsZeit, wortStart, zucken } from './momente';
 
 // Linien-Grafiken im Logo-Stil: runde Enden, einheitliche Strichstärke, zeichnen sich selbst.
 // Nach dem Zeichnen bleiben sie in Bewegung und reagieren auf Schlüsselwörter im Sprechtext,
@@ -27,14 +27,21 @@ const useZeichnen = (dauerSek = 1.2, sofort = false) => {
   });
 };
 
-/** Erstes passende Wort aus der Liste, das in der Szene gesprochen wird. */
-const moment = (szene: Szene | undefined, ...woerter: string[]): number | null => {
+/**
+ * Zeitpunkt des k-ten Ereignisses einer Grafik:
+ * 1. Wort aus `szene.momente[k]` (in der Folgen-JSON festgelegt),
+ * 2. sonst das erste gesprochene Wort aus `standard`,
+ * 3. sonst für das erste Ereignis das Betonungswort der Szene.
+ */
+const ereignis = (szene: Szene | undefined, k: number, ...standard: string[]): number | null => {
   if (!szene) return null;
-  for (const w of woerter) {
+  const eigen = wortStart(szene, szene.momente?.[k]);
+  if (eigen !== null) return eigen;
+  for (const w of standard) {
     const z = wortStart(szene, w);
     if (z !== null) return z;
   }
-  return null;
+  return k === 0 ? betonungsZeit(szene) : null;
 };
 
 const Svg: React.FC<{ groesse: number; children: React.ReactNode; style?: React.CSSProperties }> = ({
@@ -59,8 +66,9 @@ const Svg: React.FC<{ groesse: number; children: React.ReactNode; style?: React.
 const Welle: React.FC<GrafikProps> = ({ groesse, szene, sofort }) => {
   const { t } = useZeit();
   const p = useZeichnen(1.6, sofort);
-  const hoch = ab(t, moment(szene, 'Hochtouren', 'stark', 'Wut'), 0.5);
-  const kick = ausschlag(t, moment(szene, 'Hochtouren', 'stark', 'Wut'), 0.9);
+  const welle = ereignis(szene, 0, 'Hochtouren');
+  const hoch = ab(t, welle, 0.5);
+  const kick = ausschlag(t, welle, 0.9);
   const amp = 1 + 0.25 * hoch + 0.2 * kick;
   const phase = t * 2.2;
   const punkte: string[] = [];
@@ -88,7 +96,7 @@ const Welle: React.FC<GrafikProps> = ({ groesse, szene, sofort }) => {
 const Sprechblase: React.FC<GrafikProps> = ({ groesse, szene, sofort }) => {
   const { frame, fps, t } = useZeit();
   const p = useZeichnen(1, sofort);
-  const ausbruch = moment(szene, 'Schreien', 'zeigt', 'Körper');
+  const ausbruch = ereignis(szene, 0, 'Schreien');
   const wechsel = ab(t, ausbruch, 0.3);
   const wackeln = zucken(t, ausbruch, 7);
   const punkt = (i: number) => spring({ frame: frame - (1.1 + i * 0.25) * fps, fps, config: { damping: 12 } });
@@ -150,9 +158,9 @@ const GehirnVorne: React.FC<GrafikProps> = ({ groesse, szene, sofort }) => {
   const p = useZeichnen(1.4, sofort);
   const leuchten = interpolate(frame, [1.4 * fps, 1.9 * fps], [0, 1], { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' });
   const puls = 0.5 + 0.5 * Math.sin(t * Math.PI * 1.4);
-  const bremse = moment(szene, 'Bremse', 'vordere', 'Impulse');
+  const bremse = ereignis(szene, 0, 'Bremse');
   const blitz = ausschlag(t, bremse, 0.8);
-  const reifen = moment(szene, 'reift', 'Jahre', 'Erwachsenenalter');
+  const reifen = ereignis(szene, 1, 'reift');
   const leiste = ab(t, reifen, 0.4);
   const fuellung = reifen === null ? 0 : interpolate(t, [reifen, reifen + 3], [0, 1], { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' });
   return (
@@ -180,11 +188,18 @@ const GehirnVorne: React.FC<GrafikProps> = ({ groesse, szene, sofort }) => {
 };
 
 // Großes Gehirn: atmet leicht, damit es nie ganz stillsteht.
-const GehirnGross: React.FC<GrafikProps> = ({ groesse, sofort }) => {
+const GehirnGross: React.FC<GrafikProps> = ({ groesse, szene, sofort }) => {
   const { t } = useZeit();
   const p = useZeichnen(1.4, sofort);
+  // Beim Ereignis (Standard: Betonungswort) leuchtet das Gehirn kurz auf
+  const puls = szene?.typ === 'hook' ? 0 : ausschlag(t, ereignis(szene, 0), 0.8);
   return (
-    <div style={{ transform: `scale(${1 + 0.025 * Math.sin(t * 2.4)})` }}>
+    <div
+      style={{
+        transform: `scale(${1 + 0.025 * Math.sin(t * 2.4) + 0.1 * puls})`,
+        filter: puls > 0 ? `drop-shadow(0 0 ${30 * puls}px ${FARBEN.akzent})` : undefined,
+      }}
+    >
       <Gehirn groesse={groesse} fortschritt={p} />
     </div>
   );
@@ -200,8 +215,8 @@ const KRUEMEL: [number, number, number][] = [[-14, 0, 4], [10, 0.08, 5], [-4, 0.
 const Keks: React.FC<GrafikProps> = ({ groesse, szene, sofort }) => {
   const { t } = useZeit();
   const p = useZeichnen(1, sofort);
-  const bruch = moment(szene, 'zerbrochen', 'Keks') ?? 1.2;
-  const unter = moment(szene, 'Welt', 'unter');
+  const bruch = ereignis(szene, 0, 'zerbrochen') ?? 1.2;
+  const unter = ereignis(szene, 1, 'Welt');
   const auf = ab(t, bruch, 0.35);
   const sinken = ab(t, unter, 0.6);
   const wackeln = Math.sin(t * 3) * 1.5;
@@ -243,9 +258,9 @@ const Zusammen: React.FC<GrafikProps> = ({ groesse, szene, sofort }) => {
   const { t } = useZeit();
   const p = useZeichnen(1.4, sofort);
   const arm = sofort ? 1 : interpolate(t, [1.2, 1.8], [0, 1], { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' });
-  const herzAuf = moment(szene, 'an uns', 'beruhigen') ?? 1.8;
+  const herzAuf = ereignis(szene, 0, 'an uns') ?? 1.8;
   const herz = ab(t, herzAuf, 0.4);
-  const schlaege = [moment(szene, 'ruhig'), moment(szene, 'benennen', 'Gefühl'), moment(szene, 'da sein')];
+  const schlaege = [ereignis(szene, 1, 'ruhig'), ereignis(szene, 2, 'benennen'), ereignis(szene, 3, 'da sein')];
   const schlag = Math.max(ausschlag(t, herzAuf, 0.6), ...schlaege.map((s) => ausschlag(t, s, 0.6)));
   const atmen = Math.sin(t * 2) * 1.5;
   const strich = (farbe: string, d: string) => (
@@ -276,6 +291,59 @@ const Zusammen: React.FC<GrafikProps> = ({ groesse, szene, sofort }) => {
   );
 };
 
+// Smartphone mit endlosem Feed: Umriss zeichnet sich zuerst, dann wandern Inhaltsbalken langsam nach oben.
+// Bei den Ereignissen (Standard: Betonungswort) rast der Feed kurz los, wie ein schneller Wisch.
+const FEED_ABSTAND = 46;
+const FEED_OBEN = 44;
+const FEED_UNTEN = 158;
+
+const Handy: React.FC<GrafikProps> = ({ groesse, szene, sofort }) => {
+  const { t } = useZeit();
+  const p = useZeichnen(1, sofort);
+  const inhalt = sofort ? 1 : ab(t, 1.05, 0.4);
+  const clipId = `handy-${React.useId().replace(/[^a-zA-Z0-9]/g, '')}`;
+  const wische = [ereignis(szene, 0), ereignis(szene, 1), ereignis(szene, 2)];
+  // Weg des Feeds: gleichmäßiges Wandern plus ein Sprung um ein Element pro Wisch
+  const weg = 14 * t + wische.reduce<number>((summe, w) => summe + FEED_ABSTAND * 2 * ab(t, w, 0.45), 0);
+  const wackeln = Math.max(...wische.map((w) => ausschlag(t, w, 0.5)));
+  const elemente = [];
+  for (let i = -1; i < 5; i++) {
+    const y = FEED_OBEN + 6 + i * FEED_ABSTAND - (weg % FEED_ABSTAND);
+    elemente.push(
+      <g key={i}>
+        <line x1="80" y1={y + 10} x2="120" y2={y + 10} stroke={FARBEN.akzent} strokeWidth={16} />
+        <line x1="80" y1={y + 30} x2="104" y2={y + 30} stroke={FARBEN.akzent} strokeWidth={6} opacity={0.7} />
+      </g>,
+    );
+  }
+  return (
+    <Svg groesse={groesse} style={{ transform: `translateY(${-6 * wackeln}px)` }}>
+      <defs>
+        <clipPath id={clipId}>
+          <rect x="68" y={FEED_OBEN} width="64" height={FEED_UNTEN - FEED_OBEN} />
+        </clipPath>
+      </defs>
+      <rect
+        x="58"
+        y="20"
+        width="84"
+        height="160"
+        rx="18"
+        stroke={FARBEN.neben}
+        strokeWidth={7}
+        pathLength={1}
+        strokeDasharray={1}
+        strokeDashoffset={1 - p}
+      />
+      <line x1="90" y1="32" x2="110" y2="32" stroke={FARBEN.neben} strokeWidth={5} opacity={p} />
+      <line x1="92" y1="168" x2="108" y2="168" stroke={FARBEN.neben} strokeWidth={5} opacity={p} />
+      <g clipPath={`url(#${clipId})`} opacity={inhalt}>
+        {elemente}
+      </g>
+    </Svg>
+  );
+};
+
 export const Grafik: React.FC<{ name?: GrafikName; groesse?: number; szene?: Szene; sofort?: boolean }> = ({
   name = 'keine',
   groesse = 520,
@@ -297,6 +365,8 @@ export const Grafik: React.FC<{ name?: GrafikName; groesse?: number; szene?: Sze
       return <Keks {...props} />;
     case 'zusammen':
       return <Zusammen {...props} />;
+    case 'handy':
+      return <Handy {...props} />;
     default:
       return null;
   }

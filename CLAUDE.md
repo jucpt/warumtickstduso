@@ -21,9 +21,11 @@ Juli ist angehender Erzieher und hat Erfahrung in der Kinder- und Jugendpsychiat
    - `beispiel` – Alltagssituation
    - `merke` – der eine Satz, der hängen bleibt
    - `outro` – Frage an die Zuschauer
-3. Felder pro Szene: `typ`, `titel` (kurz, steht im Bild), `highlight` (genau so geschrieben wie im Titel, max. 1–3 Wörter), `grafik` (`gehirn`, `gehirn-vorne`, `welle`, `sprechblase`, `herz`, `keks`, `zusammen`, `keine`), `sprechtext`, `dauer` (Sekunden, grob schätzen: Wörter ÷ 2,3).
+3. Felder pro Szene: `typ`, `titel` (kurz, steht im Bild), `highlight` (genau so geschrieben wie im Titel, max. 1–3 Wörter), `grafik` (`gehirn`, `gehirn-vorne`, `welle`, `sprechblase`, `herz`, `keks`, `zusammen`, `handy`, `keine`), `sprechtext`, `dauer` (Sekunden, grob schätzen: Wörter ÷ 2,3).
    - Optional `betonung`: gesprochenes Wort, bei dem das gelbe Highlight aufleuchtet. Nur nötig, wenn das Highlight selbst nicht im Sprechtext vorkommt.
    - `beispiel` und `merke` möglichst auch mit Grafik, damit dort nicht nur Text steht.
+   - Optional `momente`: gesprochene Wörter, bei denen die Grafik reagiert. Ohne Angabe reagiert sie beim Betonungswort. Reihenfolge je Grafik:
+     `gehirn` [aufleuchten] · `gehirn-vorne` [Bremse blitzt, Zeitleiste startet] · `welle` [schlägt hoch] · `sprechblase` [„!!!“] · `keks` [bricht, Hälften kippen] · `zusammen` [Herz erscheint, Schlag 1–3] · `handy` [Wisch 1–3]
 4. Gesamtlänge 61–90 Sekunden (TikTok vergütet nur Videos über 1 Minute). Sprechtext gesamt ca. 150–200 Wörter.
    - Das Outro (Logo + „Folge für mehr“) steht automatisch mind. 1,5 s nach. Ist die Folge kürzer, wird es so verlängert, dass das Video 61 s erreicht (`src/Folge.tsx`). Das ist nur die Notlösung: lieber genug Sprechtext schreiben.
 5. Zuerst das **Storyboard** als Tabelle zeigen (Szene, Titel, Highlight, Grafik, Sprechtext) und auf Julis OK warten.
