@@ -45,12 +45,20 @@ export const Branding: React.FC<{ nummer: number }> = ({ nummer }) => (
   </div>
 );
 
-// Sanftes Ein- und Ausblenden jeder Szene.
-export const SzenenRahmen: React.FC<{ dauerFrames: number; children: React.ReactNode }> = ({ dauerFrames, children }) => {
+// Sanftes Ein- und Ausblenden jeder Szene plus langsames Heranzoomen, damit nie etwas ganz stillsteht.
+// `sofort`: ohne Einblenden (erste Szene – in der ersten Sekunde muss alles da sein).
+export const SzenenRahmen: React.FC<{ dauerFrames: number; sofort?: boolean; children: React.ReactNode }> = ({
+  dauerFrames,
+  sofort,
+  children,
+}) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
-  const ein = interpolate(frame, [0, 0.3 * fps], [0, 1], { extrapolateRight: 'clamp' });
+  const ein = sofort ? 1 : interpolate(frame, [0, 0.3 * fps], [0, 1], { extrapolateRight: 'clamp' });
   const aus = interpolate(frame, [dauerFrames - 0.25 * fps, dauerFrames], [1, 0], { extrapolateLeft: 'clamp' });
   const y = interpolate(ein, [0, 1], [30, 0]);
-  return <AbsoluteFill style={{ opacity: Math.min(ein, aus), transform: `translateY(${y}px)` }}>{children}</AbsoluteFill>;
+  const zoom = 1 + 0.04 * (frame / dauerFrames);
+  return (
+    <AbsoluteFill style={{ opacity: Math.min(ein, aus), transform: `translateY(${y}px) scale(${zoom})` }}>{children}</AbsoluteFill>
+  );
 };

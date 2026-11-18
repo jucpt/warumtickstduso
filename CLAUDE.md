@@ -21,9 +21,11 @@ Juli ist angehender Erzieher und hat Erfahrung in der Kinder- und Jugendpsychiat
    - `beispiel` – Alltagssituation
    - `merke` – der eine Satz, der hängen bleibt
    - `outro` – Frage an die Zuschauer
-3. Felder pro Szene: `typ`, `titel` (kurz, steht im Bild), `highlight` (genau so geschrieben wie im Titel, max. 1–3 Wörter), `grafik` (`gehirn`, `gehirn-vorne`, `welle`, `sprechblase`, `herz`, `keine`), `sprechtext`, `dauer` (Sekunden, grob schätzen: Wörter ÷ 2,3).
+3. Felder pro Szene: `typ`, `titel` (kurz, steht im Bild), `highlight` (genau so geschrieben wie im Titel, max. 1–3 Wörter), `grafik` (`gehirn`, `gehirn-vorne`, `welle`, `sprechblase`, `herz`, `keks`, `zusammen`, `keine`), `sprechtext`, `dauer` (Sekunden, grob schätzen: Wörter ÷ 2,3).
+   - Optional `betonung`: gesprochenes Wort, bei dem das gelbe Highlight aufleuchtet. Nur nötig, wenn das Highlight selbst nicht im Sprechtext vorkommt.
+   - `beispiel` und `merke` möglichst auch mit Grafik, damit dort nicht nur Text steht.
 4. Gesamtlänge 61–90 Sekunden (TikTok vergütet nur Videos über 1 Minute). Sprechtext gesamt ca. 150–200 Wörter.
-   - Am Ende hängt automatisch ein Logo-Abspann (`src/components/Abspann.tsx`, mind. 3 s). Ist die Folge kürzer, wird er so verlängert, dass das Video 61 s erreicht. Das ist nur die Notlösung: lieber genug Sprechtext schreiben.
+   - Das Outro (Logo + „Folge für mehr“) steht automatisch mind. 1,5 s nach. Ist die Folge kürzer, wird es so verlängert, dass das Video 61 s erreicht (`src/Folge.tsx`). Das ist nur die Notlösung: lieber genug Sprechtext schreiben.
 5. Zuerst das **Storyboard** als Tabelle zeigen (Szene, Titel, Highlight, Grafik, Sprechtext) und auf Julis OK warten.
 6. **ElevenLabs-Fassung immer mitliefern:** nach dem OK zusätzlich `skripte/folge-XX-elevenlabs.txt` anlegen und den Text im Chat als Codeblock zeigen.
    - Nur reiner Sprechtext, keine Szenennamen, Überschriften oder Dateinamen (ElevenLabs liest alles vor).
@@ -42,6 +44,12 @@ Juli ist angehender Erzieher und hat Erfahrung in der Kinder- und Jugendpsychiat
 
 - Eigene Sprachaufnahme statt ElevenLabs: MP3s nach `public/audio/folge-XX/szene-N.mp3` legen und bei jeder Szene `"audio"` eintragen; `dauer` an die Aufnahme anpassen.
 - Hintergrundmusik (optional, lizenzfrei, z. B. YouTube Audio Library): nach `public/musik/` legen und in der Folge `"musik": "musik/datei.mp3"` setzen. Lautstärke steht in `src/Folge.tsx`.
+
+## Bewegung (damit die Aufmerksamkeit bleibt)
+
+- Alle 2–3 Sekunden soll sich sichtbar etwas tun. Die Grafiken in `Grafik.tsx` reagieren auf Schlüsselwörter im Sprechtext (Zeiten aus `src/components/momente.ts`). Bei neuen Grafiken genauso vorgehen.
+- Der Hook ist ab dem ersten Bild voll sichtbar, ohne Einblenden.
+- Bei jedem Szenenwechsel läuft ein Wusch-Sound (`public/sounds/wusch-1…7.mp3`, Lautstärke in `src/Folge.tsx`).
 
 ## Sicherer Bereich (nicht ändern)
 

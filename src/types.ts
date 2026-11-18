@@ -1,4 +1,12 @@
-export type GrafikName = 'gehirn' | 'gehirn-vorne' | 'welle' | 'sprechblase' | 'herz' | 'keine';
+export type GrafikName =
+  | 'gehirn'
+  | 'gehirn-vorne'
+  | 'welle'
+  | 'sprechblase'
+  | 'herz'
+  | 'keks'
+  | 'zusammen'
+  | 'keine';
 
 export type SzenenTyp = 'hook' | 'schritt' | 'beispiel' | 'merke' | 'outro';
 
@@ -11,6 +19,8 @@ export type Szene = {
   /** Teil des Titels, der gelb hervorgehoben wird (genau so geschrieben wie im Titel) */
   highlight?: string;
   grafik?: GrafikName;
+  /** Gesprochenes Wort, bei dem das Highlight aufleuchtet (Standard: das Highlight selbst, falls gesprochen) */
+  betonung?: string;
   /** Was gesprochen wird – daraus entstehen die Untertitel */
   sprechtext: string;
   /** Länge in Sekunden (wird von `npm run stimme` automatisch gesetzt) */

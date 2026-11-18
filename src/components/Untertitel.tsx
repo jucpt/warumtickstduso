@@ -1,11 +1,12 @@
 import React, { useMemo } from 'react';
 import { useCurrentFrame, useVideoConfig } from 'remotion';
 import { FARBEN, RAND, SCHRIFT, INHALT_BREITE } from '../brand';
-import { Wort } from '../types';
+import { Szene, Wort } from '../types';
+import { wortZeiten } from './momente';
 
 // Untertitel: 1–3 Wörter gleichzeitig, das gerade gesprochene Wort leuchtet lila.
 // Mit Zeitstempeln aus `npm run stimme` laufen sie synchron zur Stimme,
-// ohne werden die Wörter gleichmäßig über die Szene verteilt.
+// ohne werden die Wörter gleichmäßig über die Szene verteilt (siehe momente.ts).
 
 const MAX_WOERTER = 3;
 
@@ -34,17 +35,13 @@ export const Untertitel: React.FC<{ text: string; woerter?: Wort[]; dauer: numbe
   const { fps } = useVideoConfig();
   const t = frame / fps;
 
-  const zeiten = useMemo<Wort[]>(() => {
-    if (woerter && woerter.length) return woerter;
-    const teile = text.split(/\s+/).filter(Boolean);
-    const sprechzeit = Math.max(0.5, dauer - 0.6);
-    const proWort = sprechzeit / teile.length;
-    return teile.map((wort, i) => ({ wort, start: 0.2 + i * proWort, ende: 0.2 + (i + 1) * proWort }));
-  }, [text, woerter, dauer]);
+  const zeiten = useMemo<Wort[]>(() => wortZeiten({ sprechtext: text, woerter, dauer } as Szene), [text, woerter, dauer]);
 
   const gruppen = useMemo(() => gruppiere(zeiten), [zeiten]);
   const gruppe = [...gruppen].reverse().find((g) => g[0].start <= t);
   if (!gruppe) return null;
+  // Nach dem letzten Wort kurz stehen lassen, dann ausblenden (wichtig für lange Outros)
+  if (t > zeiten[zeiten.length - 1].ende + 1) return null;
   const aktiv = [...gruppe].reverse().find((w) => w.start <= t);
 
   return (

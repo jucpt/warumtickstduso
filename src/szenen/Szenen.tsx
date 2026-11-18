@@ -5,6 +5,7 @@ import { Grafik } from '../components/Grafik';
 import { Gehirn } from '../components/Gehirn';
 import { HighlightText } from '../components/HighlightText';
 import { Untertitel } from '../components/Untertitel';
+import { ausschlag, betonungsZeit, wortStart, zucken } from '../components/momente';
 import { Szene } from '../types';
 
 type Props = { szene: Szene; schrittNr?: number; schritteGesamt?: number };
@@ -56,26 +57,51 @@ const Etikett: React.FC<{ text: string; hell?: boolean }> = ({ text, hell }) => 
   </div>
 );
 
-const Titel: React.FC<{ szene: Szene; groesse: number; verzoegerung?: number }> = ({ szene, groesse, verzoegerung = 0 }) => {
+/** 0–1: das gelbe Wort leuchtet auf, wenn es gesprochen wird. */
+const useBetonung = (szene: Szene) => {
+  const frame = useCurrentFrame();
+  const { fps } = useVideoConfig();
+  return ausschlag(frame / fps, betonungsZeit(szene), 0.8);
+};
+
+const Titel: React.FC<{ szene: Szene; groesse: number; verzoegerung?: number; sofort?: boolean }> = ({
+  szene,
+  groesse,
+  verzoegerung = 0,
+  sofort,
+}) => {
   const s = useAuftauchen(verzoegerung);
+  const puls = useBetonung(szene);
+  // sofort: ab dem ersten Bild voll sichtbar, nur ein kleiner „Punch“ (für den Hook)
+  const skala = sofort ? 1.06 - 0.06 * s : 0.85 + 0.15 * s;
   return (
-    <div style={{ fontSize: groesse, lineHeight: 1.08, letterSpacing: -1, textWrap: 'balance', transform: `scale(${0.85 + 0.15 * s})`, opacity: s }}>
-      <HighlightText text={szene.titel} highlight={szene.highlight} />
+    <div style={{ fontSize: groesse, lineHeight: 1.08, letterSpacing: -1, textWrap: 'balance', transform: `scale(${skala})`, opacity: sofort ? 1 : s }}>
+      <HighlightText text={szene.titel} highlight={szene.highlight} puls={puls} />
     </div>
   );
 };
 
-export const Hook: React.FC<Props> = ({ szene }) => (
-  <>
-    <Block oben={330}>
-      <Grafik name={szene.grafik ?? 'gehirn'} groesse={400} />
-    </Block>
-    <Block oben={780}>
-      <Titel szene={szene} groesse={88} verzoegerung={0.1} />
-    </Block>
-    <Untertitel text={szene.sprechtext} woerter={szene.woerter} dauer={szene.dauer} />
-  </>
-);
+const hatGrafik = (szene: Szene) => !!szene.grafik && szene.grafik !== 'keine';
+
+export const Hook: React.FC<Props> = ({ szene }) => {
+  const frame = useCurrentFrame();
+  const { fps } = useVideoConfig();
+  const t = frame / fps;
+  // Gehirn zuckt sofort und noch einmal beim Ausrasten
+  const ausraster = wortStart(szene, szene.betonung) ?? wortStart(szene, 'komplett');
+  const dreh = zucken(t, 0, 7) + zucken(t, ausraster, 6);
+  return (
+    <>
+      <Block oben={330} style={{ transform: `rotate(${dreh}deg)` }}>
+        <Grafik name={szene.grafik ?? 'gehirn'} groesse={400} szene={szene} sofort />
+      </Block>
+      <Block oben={780}>
+        <Titel szene={szene} groesse={88} sofort />
+      </Block>
+      <Untertitel text={szene.sprechtext} woerter={szene.woerter} dauer={szene.dauer} />
+    </>
+  );
+};
 
 export const Schritt: React.FC<Props> = ({ szene, schrittNr = 1, schritteGesamt = 1 }) => (
   <>
@@ -84,7 +110,7 @@ export const Schritt: React.FC<Props> = ({ szene, schrittNr = 1, schritteGesamt 
       <Titel szene={szene} groesse={78} />
     </Block>
     <Block oben={620}>
-      <Grafik name={szene.grafik} groesse={540} />
+      <Grafik name={szene.grafik} groesse={540} szene={szene} />
     </Block>
     <Untertitel text={szene.sprechtext} woerter={szene.woerter} dauer={szene.dauer} />
   </>
@@ -92,13 +118,13 @@ export const Schritt: React.FC<Props> = ({ szene, schrittNr = 1, schritteGesamt 
 
 export const Beispiel: React.FC<Props> = ({ szene }) => (
   <>
-    <Block oben={szene.grafik && szene.grafik !== 'keine' ? 320 : 560} style={{ gap: 48 }}>
+    <Block oben={hatGrafik(szene) ? 320 : 560} style={{ gap: 48 }}>
       <Etikett text="Im Alltag" />
       <Titel szene={szene} groesse={84} verzoegerung={0.15} />
     </Block>
-    {szene.grafik && szene.grafik !== 'keine' ? (
-      <Block oben={780}>
-        <Grafik name={szene.grafik} groesse={400} />
+    {hatGrafik(szene) ? (
+      <Block oben={790}>
+        <Grafik name={szene.grafik} groesse={420} szene={szene} />
       </Block>
     ) : null}
     <Untertitel text={szene.sprechtext} woerter={szene.woerter} dauer={szene.dauer} />
@@ -107,9 +133,11 @@ export const Beispiel: React.FC<Props> = ({ szene }) => (
 
 export const Merke: React.FC<Props> = ({ szene }) => {
   const s = useAuftauchen(0.1);
+  const puls = useBetonung(szene);
+  const mitGrafik = hatGrafik(szene);
   return (
     <>
-      <Block oben={480}>
+      <Block oben={mitGrafik ? 330 : 480}>
         <div
           style={{
             width: '100%',
@@ -128,10 +156,15 @@ export const Merke: React.FC<Props> = ({ szene }) => {
         >
           <Etikett text="Merke" hell />
           <div style={{ fontSize: 76, lineHeight: 1.12, letterSpacing: -1, textWrap: 'balance' }}>
-            <HighlightText text={szene.titel} highlight={szene.highlight} />
+            <HighlightText text={szene.titel} highlight={szene.highlight} puls={puls} />
           </div>
         </div>
       </Block>
+      {mitGrafik ? (
+        <Block oben={860}>
+          <Grafik name={szene.grafik} groesse={400} szene={szene} />
+        </Block>
+      ) : null}
       <Untertitel text={szene.sprechtext} woerter={szene.woerter} dauer={szene.dauer} />
     </>
   );
@@ -140,11 +173,15 @@ export const Merke: React.FC<Props> = ({ szene }) => {
 export const Outro: React.FC<Props> = ({ szene }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
+  const t = frame / fps;
   const logo = Math.min(1, frame / (1.2 * fps));
   const knopf = useAuftauchen(0.8);
+  // Logo schwebt leicht, der Knopf pulsiert – das Outro bleibt lebendig, auch wenn es länger steht
+  const schweben = Math.sin(t * 2.2) * 10;
+  const knopfPuls = t > 1.5 ? 1 + 0.05 * Math.max(0, Math.sin((t - 1.5) * 4)) : 1;
   return (
     <>
-      <Block oben={340}>
+      <Block oben={340} style={{ transform: `translateY(${schweben}px)` }}>
         <Gehirn groesse={340} fortschritt={logo} />
       </Block>
       <Block oben={760}>
@@ -159,6 +196,7 @@ export const Outro: React.FC<Props> = ({ szene }) => {
             borderRadius: 999,
             backgroundColor: FARBEN.akzent,
             color: FARBEN.hintergrund,
+            transform: `scale(${knopfPuls})`,
           }}
         >
           Folge für mehr
