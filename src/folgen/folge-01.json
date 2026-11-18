@@ -1,0 +1,60 @@
+{
+  "nummer": 1,
+  "thema": "Warum Kleinkinder Wutanfälle bekommen",
+  "szenen": [
+    {
+      "typ": "hook",
+      "titel": "Warum bekommen Kleinkinder Wutanfälle?",
+      "highlight": "Wutanfälle",
+      "grafik": "gehirn",
+      "sprechtext": "Warum rasten Kleinkinder wegen einer Kleinigkeit komplett aus?",
+      "dauer": 4.5
+    },
+    {
+      "typ": "schritt",
+      "titel": "Gefühle sind schon voll da",
+      "highlight": "voll da",
+      "grafik": "welle",
+      "sprechtext": "Kleinkinder fühlen Wut, Frust und Enttäuschung genauso stark wie wir. Die Teile des Gehirns, die Gefühle auslösen, arbeiten schon auf Hochtouren.",
+      "dauer": 10
+    },
+    {
+      "typ": "schritt",
+      "titel": "Die Bremse ist noch im Bau",
+      "highlight": "Bremse",
+      "grafik": "gehirn-vorne",
+      "sprechtext": "Was noch fehlt, ist die Bremse: der vordere Teil des Gehirns, der Impulse kontrolliert. Er reift über viele Jahre, bis ins junge Erwachsenenalter.",
+      "dauer": 11
+    },
+    {
+      "typ": "schritt",
+      "titel": "Die Worte fehlen noch",
+      "highlight": "Worte",
+      "grafik": "sprechblase",
+      "sprechtext": "Dazu kommt: Mit zwei Jahren fehlen oft noch die Worte, um zu sagen, was los ist. Also zeigt der Körper es, mit Schreien, Weinen und Hinwerfen.",
+      "dauer": 11
+    },
+    {
+      "typ": "beispiel",
+      "titel": "Der Keks ist zerbrochen und die Welt geht unter.",
+      "highlight": "die Welt geht unter",
+      "grafik": "keine",
+      "sprechtext": "Der Keks ist zerbrochen, und für dein Kind geht die Welt unter. Das ist kein Theater. Das Gehirn kann es einfach noch nicht anders.",
+      "dauer": 10
+    },
+    {
+      "typ": "merke",
+      "titel": "Kinder beruhigen sich nicht allein, sondern an uns.",
+      "highlight": "an uns",
+      "sprechtext": "Deshalb hilft Schimpfen wenig. Kinder beruhigen sich nicht allein, sondern an uns: ruhig bleiben, das Gefühl benennen, da sein.",
+      "dauer": 10
+    },
+    {
+      "typ": "outro",
+      "titel": "Wie reagierst du bei Wutanfällen?",
+      "highlight": "Wutanfällen",
+      "sprechtext": "Wie reagierst du, wenn dein Kind ausrastet? Schreib es in die Kommentare.",
+      "dauer": 6
+    }
+  ]
+}
