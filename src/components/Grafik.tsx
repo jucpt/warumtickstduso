@@ -344,6 +344,180 @@ const Handy: React.FC<GrafikProps> = ({ groesse, szene, sofort }) => {
   );
 };
 
+// Spielautomat: Beim ersten Ereignis wird der Hebel gezogen und die Walzen drehen.
+// Sie halten nacheinander an, die letzte genau beim zweiten Ereignis – drei Herzen, Gewinn, es blinkt.
+// Beim dritten Ereignis wird der Hebel erneut gezogen (das Spiel geht immer weiter).
+const ZELLE = 40;
+const WALZEN_X = [62, 90, 118];
+const SYMBOLE = ['kreis', 'raute', 'herz', 'balken'] as const;
+
+const Symbol: React.FC<{ art: (typeof SYMBOLE)[number]; x: number; y: number }> = ({ art, x, y }) => {
+  const farbe = FARBEN.akzent;
+  switch (art) {
+    case 'kreis':
+      return <circle cx={x} cy={y} r={8} stroke={farbe} strokeWidth={5} />;
+    case 'raute':
+      return <path d={`M${x} ${y - 10} L${x + 9} ${y} L${x} ${y + 10} L${x - 9} ${y} Z`} stroke={farbe} strokeWidth={5} />;
+    case 'herz':
+      return (
+        <g transform={`translate(${x} ${y + 1}) scale(0.16) translate(-100 -105)`}>
+          <path d={HERZ_PFAD} stroke={farbe} strokeWidth={30} fill={farbe} />
+        </g>
+      );
+    default:
+      return <line x1={x - 9} y1={y} x2={x + 9} y2={y} stroke={farbe} strokeWidth={6} />;
+  }
+};
+
+const Spielautomat: React.FC<GrafikProps> = ({ groesse, szene, sofort }) => {
+  const { t } = useZeit();
+  const p = useZeichnen(1.1, sofort);
+  const inhalt = sofort ? 1 : ab(t, 1.0, 0.4);
+  const clipId = `walzen-${React.useId().replace(/[^a-zA-Z0-9]/g, '')}`;
+  const zug1 = ereignis(szene, 0, 'Hebel') ?? 1.5;
+  const gewinn = Math.max(zug1 + 1.2, ereignis(szene, 1, 'gewinnen') ?? zug1 + 2);
+  const zug2 = ereignis(szene, 2, 'Daumen');
+
+  // Walzen-Stellung als Index in SYMBOLE: [Start, Ziel 1 (Gewinn = 3× herz), Ziel 2 (nach dem zweiten Zug)]
+  const ziele = [
+    [0, 2, 3],
+    [2, 2, 0],
+    [1, 2, 1],
+  ];
+  const position = (r: number) => {
+    const stopp1 = gewinn - (2 - r) * 0.35;
+    let pos = ziele[r][0];
+    const lauf = (von: number, bis: number, start: number, stopp: number) => {
+      if (t < start) return null;
+      const x = Math.min(1, (t - start) / (stopp - start));
+      const runden = 3 + r;
+      const weg = ((bis - von + SYMBOLE.length) % SYMBOLE.length) + runden * SYMBOLE.length;
+      return von + weg * (1 - (1 - x) ** 3);
+    };
+    const l1 = lauf(ziele[r][0], ziele[r][1], zug1 + 0.15, stopp1);
+    if (l1 !== null) pos = l1;
+    if (zug2 !== null) {
+      const l2 = lauf(ziele[r][1], ziele[r][2], zug2 + 0.15, zug2 + 1.2 + r * 0.3);
+      if (l2 !== null) pos = l2;
+    }
+    return pos;
+  };
+  const hebel = Math.max(ausschlag(t, zug1, 0.8), ausschlag(t, zug2, 0.8));
+  const blinken = ausschlag(t, gewinn, 1.2);
+  const funkeln = ab(t, gewinn, 0.3) * (1 - ab(t, gewinn + 0.9, 0.3));
+  const knaufY = 62 + 70 * hebel;
+
+  return (
+    <Svg groesse={groesse} style={{ transform: `rotate(${zucken(t, gewinn, 3)}deg)` }}>
+      <defs>
+        <clipPath id={clipId}>
+          <rect x="44" y="80" width="92" height="44" />
+        </clipPath>
+      </defs>
+      <rect x="30" y="50" width="120" height="122" rx="18" stroke={FARBEN.neben} strokeWidth={7} pathLength={1} strokeDasharray={1} strokeDashoffset={1 - p} />
+      <rect
+        x="44"
+        y="78"
+        width="92"
+        height="48"
+        rx="10"
+        stroke={blinken > 0 ? FARBEN.akzent : FARBEN.neben}
+        strokeWidth={5 + 3 * blinken}
+        opacity={p}
+        style={{ filter: blinken > 0 ? `drop-shadow(0 0 ${14 * blinken}px ${FARBEN.akzent})` : undefined }}
+      />
+      <line x1="60" y1="150" x2="120" y2="150" stroke={FARBEN.neben} strokeWidth={5} opacity={0.5 * p} />
+      <g clipPath={`url(#${clipId})`} opacity={inhalt}>
+        {WALZEN_X.map((x, r) => {
+          const pos = position(r);
+          const basis = Math.floor(pos);
+          const rest = pos - basis;
+          return [-1, 0, 1, 2].map((k) => {
+            const index = (((basis + k) % SYMBOLE.length) + SYMBOLE.length) % SYMBOLE.length;
+            return <Symbol key={`${r}-${k}`} art={SYMBOLE[index]} x={x} y={102 + (k - rest) * ZELLE} />;
+          });
+        })}
+      </g>
+      {/* Hebel */}
+      <g opacity={p}>
+        <line x1="150" y1="122" x2="166" y2="122" stroke={FARBEN.neben} strokeWidth={7} />
+        <line x1="166" y1="122" x2="166" y2={knaufY} stroke={FARBEN.neben} strokeWidth={7} />
+        <circle cx="166" cy={knaufY} r="10" fill={FARBEN.akzent} />
+      </g>
+      {/* Funkeln beim Gewinn */}
+      <g opacity={funkeln} stroke={FARBEN.akzent} strokeWidth={5}>
+        {[
+          [90, 40, 90, 26],
+          [56, 46, 46, 36],
+          [124, 46, 134, 36],
+        ].map(([x1, y1, x2, y2], i) => (
+          <line key={i} x1={x1} y1={y1} x2={x2} y2={y2} />
+        ))}
+      </g>
+    </Svg>
+  );
+};
+
+// Stoppuhr: läuft ab dem ersten Ereignis (z. B. „Timer“), ein Bogen füllt sich mit.
+// Beim zweiten Ereignis (z. B. „Ende“) wird der Knopf gedrückt, sie stoppt und zuckt.
+const Stoppuhr: React.FC<GrafikProps> = ({ groesse, szene, sofort }) => {
+  const { t } = useZeit();
+  const p = useZeichnen(1.1, sofort);
+  const start = ereignis(szene, 0, 'Timer') ?? 1.2;
+  const stopp = ereignis(szene, 1, 'Ende');
+  const laufzeit = Math.max(0, Math.min(t, stopp ?? Infinity) - start);
+  const winkel = laufzeit * 120; // eine Umdrehung in 3 s
+  const fuellung = Math.min(0.999, laufzeit / 9);
+  const druck = Math.max(ausschlag(t, start, 0.4), ausschlag(t, stopp, 0.5));
+  const gestoppt = ausschlag(t, stopp, 1);
+  const r = 58;
+  const cx = 100;
+  const cy = 112;
+  const bogenEnde = (f: number) => {
+    const a = f * 2 * Math.PI - Math.PI / 2;
+    return [cx + r * Math.cos(a), cy + r * Math.sin(a)];
+  };
+  const [bx, by] = bogenEnde(fuellung);
+  const zeiger = (winkel - 90) * (Math.PI / 180);
+  return (
+    <Svg
+      groesse={groesse}
+      style={{ transform: `rotate(${zucken(t, stopp, 5)}deg) scale(${1 + 0.06 * gestoppt + 0.02 * Math.sin(t * 2.4)})` }}
+    >
+      <line x1={cx} y1={52 + 6 * druck} x2={cx} y2={40 + 6 * druck} stroke={FARBEN.neben} strokeWidth={7} opacity={p} />
+      <line x1={cx - 12} y1={36 + 6 * druck} x2={cx + 12} y2={36 + 6 * druck} stroke={FARBEN.neben} strokeWidth={7} opacity={p} />
+      <line x1="143" y1="70" x2="151" y2="62" stroke={FARBEN.neben} strokeWidth={7} opacity={p} />
+      <circle cx={cx} cy={cy} r={r} stroke={FARBEN.neben} strokeWidth={7} pathLength={1} strokeDasharray={1} strokeDashoffset={1 - p} />
+      {fuellung > 0 ? (
+        <path
+          d={`M${cx} ${cy - r} A${r} ${r} 0 ${fuellung > 0.5 ? 1 : 0} 1 ${bx.toFixed(2)} ${by.toFixed(2)}`}
+          stroke={FARBEN.akzent}
+          strokeWidth={7 + 3 * gestoppt}
+        />
+      ) : null}
+      {Array.from({ length: 12 }, (_, i) => {
+        const a = (i / 12) * 2 * Math.PI;
+        return (
+          <line
+            key={i}
+            x1={cx + 44 * Math.sin(a)}
+            y1={cy - 44 * Math.cos(a)}
+            x2={cx + 49 * Math.sin(a)}
+            y2={cy - 49 * Math.cos(a)}
+            stroke={FARBEN.neben}
+            strokeWidth={4}
+            opacity={0.5 * p}
+          />
+        );
+      })}
+      <g opacity={p}>
+        <line x1={cx} y1={cy} x2={cx + 38 * Math.cos(zeiger)} y2={cy + 38 * Math.sin(zeiger)} stroke={FARBEN.akzent} strokeWidth={7} />
+        <circle cx={cx} cy={cy} r={7} fill={FARBEN.akzent} />
+      </g>
+    </Svg>
+  );
+};
+
 export const Grafik: React.FC<{ name?: GrafikName; groesse?: number; szene?: Szene; sofort?: boolean }> = ({
   name = 'keine',
   groesse = 520,
@@ -367,6 +541,10 @@ export const Grafik: React.FC<{ name?: GrafikName; groesse?: number; szene?: Sze
       return <Zusammen {...props} />;
     case 'handy':
       return <Handy {...props} />;
+    case 'spielautomat':
+      return <Spielautomat {...props} />;
+    case 'stoppuhr':
+      return <Stoppuhr {...props} />;
     default:
       return null;
   }

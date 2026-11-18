@@ -7,6 +7,8 @@ export type GrafikName =
   | 'keks'
   | 'zusammen'
   | 'handy'
+  | 'spielautomat'
+  | 'stoppuhr'
   | 'keine';
 
 export type SzenenTyp = 'hook' | 'schritt' | 'beispiel' | 'merke' | 'outro';

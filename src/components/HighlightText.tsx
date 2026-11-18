@@ -11,29 +11,41 @@ export const HighlightText: React.FC<{ text: string; highlight?: string; farbe?:
 }) => {
   if (!highlight || !text.includes(highlight)) return <>{text}</>;
   const i = text.indexOf(highlight);
-  // Jedes Wort einzeln, damit der Zeilenumbruch gleich bleibt
-  const teile = highlight.split(/(\s+)/);
+  const davor = text.slice(0, i);
+  let danach = text.slice(i + highlight.length);
+  // Satzzeichen direkt hinter dem Highlight bleiben am letzten Wort kleben (kein Umbruch vor dem Komma)
+  const zeichen = danach.match(/^[.,!?:;…]+/)?.[0] ?? '';
+  danach = danach.slice(zeichen.length);
+  const woerter = highlight.split(/\s+/);
+  const wort = (w: string, key: number) => (
+    <span
+      key={key}
+      style={{
+        color: farbe,
+        display: 'inline-block',
+        transform: `scale(${1 + 0.16 * puls})`,
+        textShadow: puls > 0 ? `0 0 ${36 * puls}px rgba(250, 204, 21, ${0.75 * puls})` : undefined,
+      }}
+    >
+      {w}
+    </span>
+  );
   return (
     <>
-      {text.slice(0, i)}
-      {teile.map((teil, j) =>
-        /^\s+$/.test(teil) ? (
-          <span key={j}>{teil}</span>
+      {davor}
+      {woerter.map((w, j) =>
+        j < woerter.length - 1 ? (
+          <React.Fragment key={j}>
+            {wort(w, j)}{' '}
+          </React.Fragment>
         ) : (
-          <span
-            key={j}
-            style={{
-              color: farbe,
-              display: 'inline-block',
-              transform: `scale(${1 + 0.16 * puls})`,
-              textShadow: puls > 0 ? `0 0 ${36 * puls}px rgba(250, 204, 21, ${0.75 * puls})` : undefined,
-            }}
-          >
-            {teil}
+          <span key={j} style={{ whiteSpace: 'nowrap' }}>
+            {wort(w, j)}
+            {zeichen}
           </span>
         ),
       )}
-      {text.slice(i + highlight.length)}
+      {danach}
     </>
   );
 };
