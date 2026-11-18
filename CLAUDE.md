@@ -24,6 +24,11 @@ Juli ist angehender Erzieher und hat Erfahrung in der Kinder- und Jugendpsychiat
 3. Felder pro Szene: `typ`, `titel` (kurz, steht im Bild), `highlight` (genau so geschrieben wie im Titel, max. 1–3 Wörter), `grafik` (`gehirn`, `gehirn-vorne`, `welle`, `sprechblase`, `herz`, `keine`), `sprechtext`, `dauer` (Sekunden, grob schätzen: Wörter ÷ 2,3).
 4. Gesamtlänge 61–90 Sekunden (TikTok vergütet nur Videos über 1 Minute). Sprechtext gesamt ca. 150–200 Wörter.
 5. Zuerst das **Storyboard** als Tabelle zeigen (Szene, Titel, Highlight, Grafik, Sprechtext) und auf Julis OK warten.
+6. **ElevenLabs-Fassung immer mitliefern:** nach dem OK zusätzlich `skripte/folge-XX-elevenlabs.txt` anlegen und den Text im Chat als Codeblock zeigen.
+   - Nur reiner Sprechtext, keine Szenennamen, Überschriften oder Dateinamen (ElevenLabs liest alles vor).
+   - Ein Absatz pro Szene, Absätze durch eine Leerzeile getrennt.
+   - Sprechweise als englische Audio-Tags in eckigen Klammern vor dem Satz, z. B. `[curious]`, `[surprised]`, `[excited]`, `[calm]`, `[warm]`, `[serious]`, `[thoughtful]`, `[short pause]`. Sparsam, 1–2 pro Absatz.
+   - Hinweis an Juli: Modell „Eleven v3“ wählen, sonst werden die Tags mitgelesen. Absätze einzeln als `szene-N.mp3` nach `public/audio/folge-XX/` speichern.
 
 ## Befehle
 
