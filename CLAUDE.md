@@ -23,6 +23,7 @@ Juli ist angehender Erzieher und hat Erfahrung in der Kinder- und Jugendpsychiat
    - `outro` – Frage an die Zuschauer
 3. Felder pro Szene: `typ`, `titel` (kurz, steht im Bild), `highlight` (genau so geschrieben wie im Titel, max. 1–3 Wörter), `grafik` (`gehirn`, `gehirn-vorne`, `welle`, `sprechblase`, `herz`, `keine`), `sprechtext`, `dauer` (Sekunden, grob schätzen: Wörter ÷ 2,3).
 4. Gesamtlänge 61–90 Sekunden (TikTok vergütet nur Videos über 1 Minute). Sprechtext gesamt ca. 150–200 Wörter.
+   - Am Ende hängt automatisch ein Logo-Abspann (`src/components/Abspann.tsx`, mind. 3 s). Ist die Folge kürzer, wird er so verlängert, dass das Video 61 s erreicht. Das ist nur die Notlösung: lieber genug Sprechtext schreiben.
 5. Zuerst das **Storyboard** als Tabelle zeigen (Szene, Titel, Highlight, Grafik, Sprechtext) und auf Julis OK warten.
 6. **ElevenLabs-Fassung immer mitliefern:** nach dem OK zusätzlich `skripte/folge-XX-elevenlabs.txt` anlegen und den Text im Chat als Codeblock zeigen.
    - Nur reiner Sprechtext, keine Szenennamen, Überschriften oder Dateinamen (ElevenLabs liest alles vor).

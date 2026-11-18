@@ -1,12 +1,20 @@
 import React from 'react';
 import { AbsoluteFill, Audio, Sequence, staticFile } from 'remotion';
+import { Abspann } from './components/Abspann';
 import { Branding, Hintergrund, SzenenRahmen } from './components/Rahmen';
 import { Beispiel, Hook, Merke, Outro, Schritt } from './szenen/Szenen';
 import { Folge, Szene } from './types';
 import { FPS } from './brand';
 
 export const szenenFrames = (s: Szene) => Math.max(1, Math.round(s.dauer * FPS));
-export const folgenFrames = (f: Folge) => f.szenen.reduce((summe, s) => summe + szenenFrames(s), 0);
+const inhaltFrames = (f: Folge) => f.szenen.reduce((summe, s) => summe + szenenFrames(s), 0);
+
+// Logo-Abspann: mindestens 3 s, bei kurzen Folgen länger, damit das Video auf 61 s kommt
+// (TikTok vergütet nur Videos über 1 Minute).
+const ABSPANN_MIN = 3;
+const MINDESTLAENGE = 61;
+export const abspannFrames = (f: Folge) => Math.max(ABSPANN_MIN * FPS, MINDESTLAENGE * FPS - inhaltFrames(f));
+export const folgenFrames = (f: Folge) => inhaltFrames(f) + abspannFrames(f);
 
 const SZENEN = { hook: Hook, schritt: Schritt, beispiel: Beispiel, merke: Merke, outro: Outro };
 
@@ -18,7 +26,9 @@ export const FolgeVideo: React.FC<{ folge: Folge }> = ({ folge }) => {
   return (
     <AbsoluteFill>
       <Hintergrund />
-      <Branding nummer={folge.nummer} />
+      <Sequence durationInFrames={inhaltFrames(folge)} name="Branding">
+        <Branding nummer={folge.nummer} />
+      </Sequence>
       {folge.musik ? <Audio src={staticFile(folge.musik)} volume={0.08} loop /> : null}
       {folge.szenen.map((szene, i) => {
         const dauerFrames = szenenFrames(szene);
@@ -35,6 +45,9 @@ export const FolgeVideo: React.FC<{ folge: Folge }> = ({ folge }) => {
           </Sequence>
         );
       })}
+      <Sequence from={inhaltFrames(folge)} durationInFrames={abspannFrames(folge)} name="Abspann">
+        <Abspann />
+      </Sequence>
     </AbsoluteFill>
   );
 };
