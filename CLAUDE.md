@@ -8,7 +8,7 @@ Juli ist angehender Erzieher und hat Erfahrung in der Kinder- und Jugendpsychiat
 | Folge | Thema | Stand |
 |---|---|---|
 | #1 | Warum rastet DEIN Kind sofort aus? (Wutanfälle) | fertig (Julis Stimme, 61,9 s) |
-| #2 | Warum kannst DU nicht aufhören zu scrollen? | fertig |
+| #2 | Warum kannst DU nicht aufhören zu scrollen? | fertig (Julis Stimme, 69,8 s) |
 | #3 | Sagst DU auch „Hör auf zu weinen“? (Ko-Regulation) | Skript-Entwurf in `folge-03.json`, Juli prüft |
 
 Diese Tabelle nach jeder fertigen Folge aktualisieren. Themen im Wechsel: Kinder-Themen und Themen für alle (z. B. Spotlight-Effekt, Sunk Cost, Prokrastination, Teenager-Schlaf).
