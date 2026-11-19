@@ -8,7 +8,50 @@
       "highlight": "DEIN Kind",
       "grafik": "gehirn",
       "sprechtext": "Warum rastet dein Kind bei Kleinigkeiten sofort aus?",
-      "dauer": 4
+      "dauer": 3.83,
+      "audio": "audio/folge-01/szene-1.mp3",
+      "woerter": [
+        {
+          "wort": "Warum",
+          "start": 0.15,
+          "ende": 0.5
+        },
+        {
+          "wort": "rastet",
+          "start": 0.5,
+          "ende": 0.91
+        },
+        {
+          "wort": "dein",
+          "start": 0.91,
+          "ende": 1.21
+        },
+        {
+          "wort": "Kind",
+          "start": 1.21,
+          "ende": 1.5
+        },
+        {
+          "wort": "bei",
+          "start": 1.5,
+          "ende": 1.73
+        },
+        {
+          "wort": "Kleinigkeiten",
+          "start": 1.73,
+          "ende": 2.55
+        },
+        {
+          "wort": "sofort",
+          "start": 2.55,
+          "ende": 2.97
+        },
+        {
+          "wort": "aus?",
+          "start": 2.97,
+          "ende": 3.2
+        }
+      ]
     },
     {
       "typ": "schritt",
@@ -16,7 +59,115 @@
       "highlight": "voll da",
       "grafik": "welle",
       "sprechtext": "Kleinkinder fühlen Wut, Frust und Enttäuschung genauso stark wie wir. Die Teile des Gehirns, die Gefühle auslösen, arbeiten schon auf Hochtouren.",
-      "dauer": 10
+      "dauer": 9.27,
+      "audio": "audio/folge-01/szene-2.mp3",
+      "woerter": [
+        {
+          "wort": "Kleinkinder",
+          "start": 0.15,
+          "ende": 0.87
+        },
+        {
+          "wort": "fühlen",
+          "start": 0.87,
+          "ende": 1.29
+        },
+        {
+          "wort": "Wut,",
+          "start": 1.29,
+          "ende": 1.53
+        },
+        {
+          "wort": "Frust",
+          "start": 1.76,
+          "ende": 2.08
+        },
+        {
+          "wort": "und",
+          "start": 2.08,
+          "ende": 2.3
+        },
+        {
+          "wort": "Enttäuschung",
+          "start": 2.3,
+          "ende": 2.99
+        },
+        {
+          "wort": "genauso",
+          "start": 2.99,
+          "ende": 3.42
+        },
+        {
+          "wort": "stark",
+          "start": 3.42,
+          "ende": 3.74
+        },
+        {
+          "wort": "wie",
+          "start": 3.74,
+          "ende": 3.96
+        },
+        {
+          "wort": "wir.",
+          "start": 3.96,
+          "ende": 4.17
+        },
+        {
+          "wort": "Die",
+          "start": 4.59,
+          "ende": 4.81
+        },
+        {
+          "wort": "Teile",
+          "start": 4.81,
+          "ende": 5.14
+        },
+        {
+          "wort": "des",
+          "start": 5.14,
+          "ende": 5.37
+        },
+        {
+          "wort": "Gehirns,",
+          "start": 5.37,
+          "ende": 5.81
+        },
+        {
+          "wort": "die",
+          "start": 5.81,
+          "ende": 6.03
+        },
+        {
+          "wort": "Gefühle",
+          "start": 6.03,
+          "ende": 6.48
+        },
+        {
+          "wort": "auslösen,",
+          "start": 6.48,
+          "ende": 6.98
+        },
+        {
+          "wort": "arbeiten",
+          "start": 6.98,
+          "ende": 7.47
+        },
+        {
+          "wort": "schon",
+          "start": 7.47,
+          "ende": 7.81
+        },
+        {
+          "wort": "auf",
+          "start": 7.81,
+          "ende": 8.03
+        },
+        {
+          "wort": "Hochtouren.",
+          "start": 8.03,
+          "ende": 8.64
+        }
+      ]
     },
     {
       "typ": "schritt",
@@ -24,7 +175,125 @@
       "highlight": "Bremse",
       "grafik": "gehirn-vorne",
       "sprechtext": "Was noch fehlt, ist die Bremse: das Stirnhirn, direkt hinter deiner Stirn. Es kontrolliert Impulse und ist erst mit etwa 25 Jahren ausgereift.",
-      "dauer": 10.5
+      "dauer": 9.14,
+      "audio": "audio/folge-01/szene-3.mp3",
+      "woerter": [
+        {
+          "wort": "Was",
+          "start": 0.15,
+          "ende": 0.36
+        },
+        {
+          "wort": "noch",
+          "start": 0.36,
+          "ende": 0.62
+        },
+        {
+          "wort": "fehlt,",
+          "start": 0.62,
+          "ende": 0.93
+        },
+        {
+          "wort": "ist",
+          "start": 0.93,
+          "ende": 1.14
+        },
+        {
+          "wort": "die",
+          "start": 1.14,
+          "ende": 1.35
+        },
+        {
+          "wort": "Bremse:",
+          "start": 1.35,
+          "ende": 1.71
+        },
+        {
+          "wort": "das",
+          "start": 1.97,
+          "ende": 2.18
+        },
+        {
+          "wort": "Stirnhirn,",
+          "start": 2.18,
+          "ende": 2.71
+        },
+        {
+          "wort": "direkt",
+          "start": 2.71,
+          "ende": 3.08
+        },
+        {
+          "wort": "hinter",
+          "start": 3.08,
+          "ende": 3.45
+        },
+        {
+          "wort": "deiner",
+          "start": 3.45,
+          "ende": 3.82
+        },
+        {
+          "wort": "Stirn.",
+          "start": 3.82,
+          "ende": 4.14
+        },
+        {
+          "wort": "Es",
+          "start": 4.47,
+          "ende": 4.65
+        },
+        {
+          "wort": "kontrolliert",
+          "start": 4.65,
+          "ende": 5.43
+        },
+        {
+          "wort": "Impulse",
+          "start": 5.43,
+          "ende": 5.92
+        },
+        {
+          "wort": "und",
+          "start": 5.92,
+          "ende": 6.16
+        },
+        {
+          "wort": "ist",
+          "start": 6.16,
+          "ende": 6.4
+        },
+        {
+          "wort": "erst",
+          "start": 6.4,
+          "ende": 6.7
+        },
+        {
+          "wort": "mit",
+          "start": 6.7,
+          "ende": 6.94
+        },
+        {
+          "wort": "etwa",
+          "start": 6.94,
+          "ende": 7.24
+        },
+        {
+          "wort": "25",
+          "start": 7.24,
+          "ende": 7.42
+        },
+        {
+          "wort": "Jahren",
+          "start": 7.42,
+          "ende": 7.85
+        },
+        {
+          "wort": "ausgereift.",
+          "start": 7.85,
+          "ende": 8.51
+        }
+      ]
     },
     {
       "typ": "schritt",
@@ -32,29 +301,336 @@
       "highlight": "Worte",
       "grafik": "sprechblase",
       "sprechtext": "Dazu fehlen mit zwei, drei Jahren oft noch die Worte, um zu sagen, was los ist. Also zeigt der Körper es. Deshalb sind Wutanfälle in diesem Alter am häufigsten und werden ab etwa vier Jahren seltener.",
-      "dauer": 14.5
+      "dauer": 12.01,
+      "audio": "audio/folge-01/szene-4.mp3",
+      "woerter": [
+        {
+          "wort": "Dazu",
+          "start": 0.15,
+          "ende": 0.42
+        },
+        {
+          "wort": "fehlen",
+          "start": 0.42,
+          "ende": 0.8
+        },
+        {
+          "wort": "mit",
+          "start": 0.8,
+          "ende": 1.02
+        },
+        {
+          "wort": "zwei,",
+          "start": 1.02,
+          "ende": 1.29
+        },
+        {
+          "wort": "drei",
+          "start": 1.29,
+          "ende": 1.56
+        },
+        {
+          "wort": "Jahren",
+          "start": 1.56,
+          "ende": 1.94
+        },
+        {
+          "wort": "oft",
+          "start": 1.94,
+          "ende": 2.16
+        },
+        {
+          "wort": "noch",
+          "start": 2.16,
+          "ende": 2.43
+        },
+        {
+          "wort": "die",
+          "start": 2.43,
+          "ende": 2.65
+        },
+        {
+          "wort": "Worte,",
+          "start": 2.65,
+          "ende": 2.98
+        },
+        {
+          "wort": "um",
+          "start": 2.98,
+          "ende": 3.14
+        },
+        {
+          "wort": "zu",
+          "start": 3.14,
+          "ende": 3.3
+        },
+        {
+          "wort": "sagen,",
+          "start": 3.3,
+          "ende": 3.63
+        },
+        {
+          "wort": "was",
+          "start": 3.63,
+          "ende": 3.85
+        },
+        {
+          "wort": "los",
+          "start": 3.85,
+          "ende": 4.06
+        },
+        {
+          "wort": "ist.",
+          "start": 4.06,
+          "ende": 4.28
+        },
+        {
+          "wort": "Also",
+          "start": 4.65,
+          "ende": 4.93
+        },
+        {
+          "wort": "zeigt",
+          "start": 4.93,
+          "ende": 5.26
+        },
+        {
+          "wort": "der",
+          "start": 5.26,
+          "ende": 5.48
+        },
+        {
+          "wort": "Körper",
+          "start": 5.48,
+          "ende": 5.87
+        },
+        {
+          "wort": "es.",
+          "start": 5.87,
+          "ende": 6.04
+        },
+        {
+          "wort": "Deshalb",
+          "start": 6.41,
+          "ende": 6.8
+        },
+        {
+          "wort": "sind",
+          "start": 6.8,
+          "ende": 7.04
+        },
+        {
+          "wort": "Wutanfälle",
+          "start": 7.04,
+          "ende": 7.57
+        },
+        {
+          "wort": "in",
+          "start": 7.57,
+          "ende": 7.71
+        },
+        {
+          "wort": "diesem",
+          "start": 7.71,
+          "ende": 8.05
+        },
+        {
+          "wort": "Alter",
+          "start": 8.05,
+          "ende": 8.34
+        },
+        {
+          "wort": "am",
+          "start": 8.34,
+          "ende": 8.48
+        },
+        {
+          "wort": "häufigsten",
+          "start": 8.48,
+          "ende": 9.01
+        },
+        {
+          "wort": "und",
+          "start": 9.2,
+          "ende": 9.42
+        },
+        {
+          "wort": "werden",
+          "start": 9.42,
+          "ende": 9.79
+        },
+        {
+          "wort": "ab",
+          "start": 9.79,
+          "ende": 9.96
+        },
+        {
+          "wort": "etwa",
+          "start": 9.96,
+          "ende": 10.23
+        },
+        {
+          "wort": "vier",
+          "start": 10.23,
+          "ende": 10.5
+        },
+        {
+          "wort": "Jahren",
+          "start": 10.5,
+          "ende": 10.87
+        },
+        {
+          "wort": "seltener.",
+          "start": 10.87,
+          "ende": 11.36
+        }
+      ]
     },
     {
       "typ": "beispiel",
       "titel": "Der Keks ist zerbrochen und die Welt geht unter.",
       "highlight": "die Welt geht unter",
-      "grafik": "keine",
+      "grafik": "keks",
       "sprechtext": "Der Keks ist zerbrochen, und für dein Kind geht die Welt unter. Das ist kein Theater. Das Gehirn kann es einfach noch nicht anders.",
-      "dauer": 10.5
+      "dauer": 7.36,
+      "audio": "audio/folge-01/szene-5.mp3",
+      "woerter": [
+        {
+          "wort": "Der",
+          "start": 0.15,
+          "ende": 0.35
+        },
+        {
+          "wort": "Keks",
+          "start": 0.35,
+          "ende": 0.59
+        },
+        {
+          "wort": "ist",
+          "start": 0.59,
+          "ende": 0.79
+        },
+        {
+          "wort": "zerbrochen,",
+          "start": 0.79,
+          "ende": 1.32
+        },
+        {
+          "wort": "und",
+          "start": 1.32,
+          "ende": 1.52
+        },
+        {
+          "wort": "für",
+          "start": 1.52,
+          "ende": 1.71
+        },
+        {
+          "wort": "dein",
+          "start": 1.71,
+          "ende": 1.96
+        },
+        {
+          "wort": "Kind",
+          "start": 1.96,
+          "ende": 2.2
+        },
+        {
+          "wort": "geht",
+          "start": 2.2,
+          "ende": 2.45
+        },
+        {
+          "wort": "die",
+          "start": 2.45,
+          "ende": 2.64
+        },
+        {
+          "wort": "Welt",
+          "start": 2.64,
+          "ende": 2.89
+        },
+        {
+          "wort": "unter.",
+          "start": 2.89,
+          "ende": 3.18
+        },
+        {
+          "wort": "Das",
+          "start": 3.49,
+          "ende": 3.74
+        },
+        {
+          "wort": "ist",
+          "start": 3.74,
+          "ende": 3.98
+        },
+        {
+          "wort": "kein",
+          "start": 3.98,
+          "ende": 4.29
+        },
+        {
+          "wort": "Theater.",
+          "start": 4.29,
+          "ende": 4.78
+        },
+        {
+          "wort": "Das",
+          "start": 4.93,
+          "ende": 5.09
+        },
+        {
+          "wort": "Gehirn",
+          "start": 5.09,
+          "ende": 5.37
+        },
+        {
+          "wort": "kann",
+          "start": 5.37,
+          "ende": 5.57
+        },
+        {
+          "wort": "es",
+          "start": 5.57,
+          "ende": 5.69
+        },
+        {
+          "wort": "einfach",
+          "start": 5.69,
+          "ende": 6.01
+        },
+        {
+          "wort": "noch",
+          "start": 6.01,
+          "ende": 6.21
+        },
+        {
+          "wort": "nicht",
+          "start": 6.21,
+          "ende": 6.45
+        },
+        {
+          "wort": "anders.",
+          "start": 6.45,
+          "ende": 6.73
+        }
+      ]
     },
     {
       "typ": "merke",
       "titel": "Kinder beruhigen sich nicht allein, sondern an uns.",
       "highlight": "an uns",
-      "sprechtext": "Deshalb hilft Schimpfen wenig. Kinder beruhigen sich nicht allein, sondern an uns: ruhig bleiben, das Gefühl benennen, da sein.",
-      "dauer": 9.5
+      "grafik": "zusammen",
+      "sprechtext": "Deshalb hilft Schimpfen wenig. Kinder beruhigen sich nicht allein, sondern an uns: ruhig bleiben, das Gefühl benennen, da sein. Deine Ruhe ist der Anker, an dem sich dein Kind festhält.",
+      "dauer": 13.5
     },
     {
       "typ": "outro",
       "titel": "Wie reagierst du bei Wutanfällen?",
       "highlight": "du",
-      "sprechtext": "Wie reagierst du, wenn dein Kind ausrastet? Schreib es in die Kommentare.",
-      "dauer": 5.5
+      "sprechtext": "Wie reagierst du, wenn dein Kind ausrastet? Schreib es in die Kommentare. Und folg mir, wenn du verstehen willst, warum Kinder so ticken.",
+      "dauer": 10.5
     }
   ]
 }
