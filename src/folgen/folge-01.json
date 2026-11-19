@@ -301,7 +301,7 @@
       "highlight": "Worte",
       "grafik": "sprechblase",
       "sprechtext": "Dazu fehlen mit zwei, drei Jahren oft noch die Worte, um zu sagen, was los ist. Also zeigt der Körper es. Deshalb sind Wutanfälle in diesem Alter am häufigsten und werden ab etwa vier Jahren seltener.",
-      "dauer": 12.01,
+      "dauer": 13.08,
       "audio": "audio/folge-01/szene-4.mp3",
       "woerter": [
         {
@@ -386,103 +386,103 @@
         },
         {
           "wort": "Also",
-          "start": 4.65,
-          "ende": 4.93
+          "start": 5.26,
+          "ende": 5.54
         },
         {
           "wort": "zeigt",
-          "start": 4.93,
-          "ende": 5.26
-        },
-        {
-          "wort": "der",
-          "start": 5.26,
-          "ende": 5.48
-        },
-        {
-          "wort": "Körper",
-          "start": 5.48,
+          "start": 5.54,
           "ende": 5.87
         },
         {
-          "wort": "es.",
+          "wort": "der",
           "start": 5.87,
-          "ende": 6.04
+          "ende": 6.09
+        },
+        {
+          "wort": "Körper",
+          "start": 6.09,
+          "ende": 6.48
+        },
+        {
+          "wort": "es.",
+          "start": 6.48,
+          "ende": 6.65
         },
         {
           "wort": "Deshalb",
-          "start": 6.41,
-          "ende": 6.8
+          "start": 7.48,
+          "ende": 7.87
         },
         {
           "wort": "sind",
-          "start": 6.8,
-          "ende": 7.04
+          "start": 7.87,
+          "ende": 8.11
         },
         {
           "wort": "Wutanfälle",
-          "start": 7.04,
-          "ende": 7.57
+          "start": 8.11,
+          "ende": 8.64
         },
         {
           "wort": "in",
-          "start": 7.57,
-          "ende": 7.71
+          "start": 8.64,
+          "ende": 8.78
         },
         {
           "wort": "diesem",
-          "start": 7.71,
-          "ende": 8.05
+          "start": 8.78,
+          "ende": 9.12
         },
         {
           "wort": "Alter",
-          "start": 8.05,
-          "ende": 8.34
+          "start": 9.12,
+          "ende": 9.41
         },
         {
           "wort": "am",
-          "start": 8.34,
-          "ende": 8.48
+          "start": 9.41,
+          "ende": 9.55
         },
         {
           "wort": "häufigsten",
-          "start": 8.48,
-          "ende": 9.01
+          "start": 9.55,
+          "ende": 10.08
         },
         {
           "wort": "und",
-          "start": 9.2,
-          "ende": 9.42
+          "start": 10.27,
+          "ende": 10.49
         },
         {
           "wort": "werden",
-          "start": 9.42,
-          "ende": 9.79
+          "start": 10.49,
+          "ende": 10.86
         },
         {
           "wort": "ab",
-          "start": 9.79,
-          "ende": 9.96
+          "start": 10.86,
+          "ende": 11.03
         },
         {
           "wort": "etwa",
-          "start": 9.96,
-          "ende": 10.23
+          "start": 11.03,
+          "ende": 11.3
         },
         {
           "wort": "vier",
-          "start": 10.23,
-          "ende": 10.5
+          "start": 11.3,
+          "ende": 11.57
         },
         {
           "wort": "Jahren",
-          "start": 10.5,
-          "ende": 10.87
+          "start": 11.57,
+          "ende": 11.94
         },
         {
           "wort": "seltener.",
-          "start": 10.87,
-          "ende": 11.36
+          "start": 11.94,
+          "ende": 12.43
         }
       ]
     },
@@ -623,14 +623,285 @@
       "highlight": "an uns",
       "grafik": "zusammen",
       "sprechtext": "Deshalb hilft Schimpfen wenig. Kinder beruhigen sich nicht allein, sondern an uns: ruhig bleiben, das Gefühl benennen, da sein. Deine Ruhe ist der Anker, an dem sich dein Kind festhält.",
-      "dauer": 13.5
+      "dauer": 11.62,
+      "audio": "audio/folge-01/szene-6.mp3",
+      "woerter": [
+        {
+          "wort": "Deshalb",
+          "start": 0.15,
+          "ende": 0.59
+        },
+        {
+          "wort": "hilft",
+          "start": 0.59,
+          "ende": 0.92
+        },
+        {
+          "wort": "Schimpfen",
+          "start": 0.92,
+          "ende": 1.47
+        },
+        {
+          "wort": "wenig.",
+          "start": 1.47,
+          "ende": 1.8
+        },
+        {
+          "wort": "Kinder",
+          "start": 2.04,
+          "ende": 2.4
+        },
+        {
+          "wort": "beruhigen",
+          "start": 2.4,
+          "ende": 2.91
+        },
+        {
+          "wort": "sich",
+          "start": 2.91,
+          "ende": 3.17
+        },
+        {
+          "wort": "nicht",
+          "start": 3.17,
+          "ende": 3.47
+        },
+        {
+          "wort": "allein,",
+          "start": 3.47,
+          "ende": 3.83
+        },
+        {
+          "wort": "sondern",
+          "start": 3.83,
+          "ende": 4.24
+        },
+        {
+          "wort": "an",
+          "start": 4.24,
+          "ende": 4.4
+        },
+        {
+          "wort": "uns:",
+          "start": 4.4,
+          "ende": 4.6
+        },
+        {
+          "wort": "ruhig",
+          "start": 5.07,
+          "ende": 5.38
+        },
+        {
+          "wort": "bleiben,",
+          "start": 5.38,
+          "ende": 5.78
+        },
+        {
+          "wort": "das",
+          "start": 5.78,
+          "ende": 5.99
+        },
+        {
+          "wort": "Gefühl",
+          "start": 5.99,
+          "ende": 6.34
+        },
+        {
+          "wort": "benennen,",
+          "start": 6.34,
+          "ende": 6.8
+        },
+        {
+          "wort": "da",
+          "start": 7.14,
+          "ende": 7.36
+        },
+        {
+          "wort": "sein.",
+          "start": 7.36,
+          "ende": 7.72
+        },
+        {
+          "wort": "Deine",
+          "start": 8.11,
+          "ende": 8.42
+        },
+        {
+          "wort": "Ruhe",
+          "start": 8.42,
+          "ende": 8.68
+        },
+        {
+          "wort": "ist",
+          "start": 8.68,
+          "ende": 8.88
+        },
+        {
+          "wort": "der",
+          "start": 8.88,
+          "ende": 9.09
+        },
+        {
+          "wort": "Anker,",
+          "start": 9.09,
+          "ende": 9.4
+        },
+        {
+          "wort": "an",
+          "start": 9.4,
+          "ende": 9.55
+        },
+        {
+          "wort": "dem",
+          "start": 9.55,
+          "ende": 9.76
+        },
+        {
+          "wort": "sich",
+          "start": 9.76,
+          "ende": 10.01
+        },
+        {
+          "wort": "dein",
+          "start": 10.01,
+          "ende": 10.27
+        },
+        {
+          "wort": "Kind",
+          "start": 10.27,
+          "ende": 10.53
+        },
+        {
+          "wort": "festhält.",
+          "start": 10.53,
+          "ende": 10.99
+        }
+      ]
     },
     {
       "typ": "outro",
       "titel": "Wie reagierst du bei Wutanfällen?",
       "highlight": "du",
       "sprechtext": "Wie reagierst du, wenn dein Kind ausrastet? Schreib es in die Kommentare. Und folg mir, wenn du verstehen willst, warum Kinder so ticken.",
-      "dauer": 10.5
+      "dauer": 7.62,
+      "audio": "audio/folge-01/szene-7.mp3",
+      "woerter": [
+        {
+          "wort": "Wie",
+          "start": 0.15,
+          "ende": 0.36
+        },
+        {
+          "wort": "reagierst",
+          "start": 0.36,
+          "ende": 0.89
+        },
+        {
+          "wort": "du,",
+          "start": 0.89,
+          "ende": 1.04
+        },
+        {
+          "wort": "wenn",
+          "start": 1.04,
+          "ende": 1.31
+        },
+        {
+          "wort": "dein",
+          "start": 1.31,
+          "ende": 1.57
+        },
+        {
+          "wort": "Kind",
+          "start": 1.57,
+          "ende": 1.83
+        },
+        {
+          "wort": "ausrastet?",
+          "start": 1.83,
+          "ende": 2.36
+        },
+        {
+          "wort": "Schreib",
+          "start": 2.73,
+          "ende": 3.09
+        },
+        {
+          "wort": "es",
+          "start": 3.09,
+          "ende": 3.22
+        },
+        {
+          "wort": "in",
+          "start": 3.22,
+          "ende": 3.35
+        },
+        {
+          "wort": "die",
+          "start": 3.35,
+          "ende": 3.53
+        },
+        {
+          "wort": "Kommentare.",
+          "start": 3.53,
+          "ende": 4.02
+        },
+        {
+          "wort": "Und",
+          "start": 4.15,
+          "ende": 4.34
+        },
+        {
+          "wort": "folg",
+          "start": 4.34,
+          "ende": 4.57
+        },
+        {
+          "wort": "mir,",
+          "start": 4.57,
+          "ende": 4.75
+        },
+        {
+          "wort": "wenn",
+          "start": 4.75,
+          "ende": 4.99
+        },
+        {
+          "wort": "du",
+          "start": 4.99,
+          "ende": 5.12
+        },
+        {
+          "wort": "verstehen",
+          "start": 5.12,
+          "ende": 5.59
+        },
+        {
+          "wort": "willst,",
+          "start": 5.59,
+          "ende": 5.91
+        },
+        {
+          "wort": "warum",
+          "start": 5.91,
+          "ende": 6.19
+        },
+        {
+          "wort": "Kinder",
+          "start": 6.19,
+          "ende": 6.52
+        },
+        {
+          "wort": "so",
+          "start": 6.52,
+          "ende": 6.66
+        },
+        {
+          "wort": "ticken.",
+          "start": 6.66,
+          "ende": 6.98
+        }
+      ]
     }
   ]
 }
