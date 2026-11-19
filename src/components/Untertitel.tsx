@@ -29,7 +29,7 @@ export const Untertitel: React.FC<{ text: string; woerter?: Wort[]; dauer: numbe
   text,
   woerter,
   dauer,
-  oben = 1330,
+  oben = 1290,
 }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();

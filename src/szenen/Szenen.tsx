@@ -204,9 +204,9 @@ export const Outro: React.FC<Props> = ({ szene }) => {
       <Block oben={760}>
         <Titel szene={szene} groesse={80} start={4} />
       </Block>
-      <Untertitel text={szene.sprechtext} woerter={szene.woerter} dauer={szene.dauer} oben={1110} />
+      <Untertitel text={szene.sprechtext} woerter={szene.woerter} dauer={szene.dauer} oben={1010} />
       <Sound name="pop" bei={Math.round(0.8 * fps)} />
-      <Block oben={1300} style={{ gap: 20, opacity: Math.min(1, knopf * 1.5), transform: `scale(${(0.6 + 0.4 * knopf) * puls})` }}>
+      <Block oben={1262} style={{ gap: 12, opacity: Math.min(1, knopf * 1.5), transform: `scale(${(0.6 + 0.4 * knopf) * puls})` }}>
         <div style={{ fontSize: 48, padding: '20px 48px', borderRadius: 999, backgroundColor: FARBEN.akzent, color: FARBEN.hintergrund }}>
           Folge für mehr
         </div>

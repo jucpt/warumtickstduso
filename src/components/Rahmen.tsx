@@ -55,12 +55,13 @@ export const Branding: React.FC<{ nummer: number }> = ({ nummer }) => (
   </div>
 );
 
-// Fortschrittsbalken unter dem Branding: zeigt, dass es weitergeht – hält Zuschauer bis zum Ende.
+// Fortschrittsbalken direkt unter den Untertiteln, wo der Blick ohnehin ist – zeigt, dass es weitergeht.
+// Liegt knapp über dem sicheren Bereich unten (RAND.unten), auch bei zweizeiligen Untertiteln frei.
 export const Fortschritt: React.FC<{ gesamtFrames: number }> = ({ gesamtFrames }) => {
   const frame = useCurrentFrame();
   const anteil = Math.min(1, frame / Math.max(1, gesamtFrames - 1));
   return (
-    <div style={{ position: 'absolute', top: 256, left: RAND.links, width: INHALT_BREITE, height: 8, borderRadius: 99, backgroundColor: FARBEN.linie, overflow: 'hidden' }}>
+    <div style={{ position: 'absolute', top: HOEHE - RAND.unten - 22, left: RAND.links, width: INHALT_BREITE, height: 8, borderRadius: 99, backgroundColor: FARBEN.linie, overflow: 'hidden' }}>
       <div style={{ width: `${anteil * 100}%`, height: '100%', borderRadius: 99, backgroundColor: FARBEN.akzent }} />
     </div>
   );

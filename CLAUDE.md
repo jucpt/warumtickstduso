@@ -27,7 +27,7 @@ Diese Tabelle nach jeder fertigen Folge aktualisieren. Themen im Wechsel: Kinder
 Ziel: Niemand wischt weg. Deshalb gilt in jedem Video:
 
 - **Kein Stillstand:** Jede Grafik zeichnet sich erst selbst und bewegt sich danach dauerhaft weiter (Impulse, Pulsieren, Fließen, Schweben). Spätestens alle 2–3 Sekunden passiert etwas Neues im Bild (neue Untertitel-Gruppe, Marker, Grafik-Punch, Szenenwechsel).
-- **Schon eingebaut (nicht entfernen):** kinetischer Titel Wort für Wort, gelber Marker über dem Highlight, springende Untertitel, Lichtpunkte im Hintergrund, leichter Kamera-Zoom, Zoom-Punch der Grafik zur Szenenmitte, drei abwechselnde Übergänge, Fortschrittsbalken oben.
+- **Schon eingebaut (nicht entfernen):** kinetischer Titel Wort für Wort, gelber Marker über dem Highlight, springende Untertitel, Lichtpunkte im Hintergrund, leichter Kamera-Zoom, Zoom-Punch der Grafik zur Szenenmitte, drei abwechselnde Übergänge, Fortschrittsbalken direkt unter den Untertiteln (knapp über dem sicheren Bereich unten).
 - **Szenen kurz halten:** eine Szene höchstens ca. 15 Sekunden. Ist ein Sprechtext länger, auf zwei Szenen aufteilen.
 - **Jeder Schritt bekommt eine passende Grafik.** Passt keine der vorhandenen (`gehirn`, `gehirn-vorne`, `welle`, `sprechblase`, `herz`, `handy`, `keks`, `zusammen`, `spielautomat`, `stoppuhr`), baue eine neue in `Grafik.tsx` nach dem gleichen Muster: Linien-Stil (runde Enden, Strichstärke 5–7, Farben aus `FARBEN`), erst selbst zeichnen, dann Dauerbewegung, gerne mit gelbem Lichtpunkt als Blickfang. Vorbilder: `Herz`, `Welle`, `Handy`. Neue Namen in `types.ts` bei `GrafikName` eintragen und hier in der Liste ergänzen.
 - **Grafiken, die auf Wörter reagieren:** `keks`, `zusammen`, `spielautomat` und `stoppuhr` lösen Ereignisse bei gesprochenen Wörtern aus (Zeiten aus `src/components/momente.ts`). Welche Wörter, steht optional in der Szene bei `momente` (sonst Standardwörter bzw. das Highlight):
@@ -102,7 +102,7 @@ Ziel: Niemand wischt weg. Deshalb gilt in jedem Video:
 | `src/components/Gehirn.tsx` | das Logo-Gehirn mit Lichtimpulsen |
 | `src/components/HighlightText.tsx` | kinetischer Text mit Marker |
 | `src/components/Untertitel.tsx` | Untertitel |
-| `src/components/Rahmen.tsx` | Hintergrund, Branding, Fortschrittsbalken, Übergänge |
+| `src/components/Rahmen.tsx` | Hintergrund, Branding, Fortschrittsbalken (unter den Untertiteln), Übergänge |
 | `src/components/Sound.tsx` | Soundeffekte |
 | `src/Cover.tsx` | Titelbild |
 | `scripts/stimme.mjs`, `scripts/render.mjs` | Stimme und Rendern |
