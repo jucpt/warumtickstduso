@@ -1,0 +1,60 @@
+{
+  "nummer": 3,
+  "thema": "Warum „Hör auf zu weinen“ nie funktioniert",
+  "szenen": [
+    {
+      "typ": "hook",
+      "titel": "Sagst DU auch „Hör auf zu weinen“?",
+      "highlight": "DU",
+      "grafik": "sprechblase",
+      "sprechtext": "Sagst du auch „Hör auf zu weinen“? Das macht es oft schlimmer.",
+      "dauer": 4.5
+    },
+    {
+      "typ": "schritt",
+      "titel": "Gefühle haben keinen Ausschalter",
+      "highlight": "Ausschalter",
+      "grafik": "welle",
+      "sprechtext": "Ein Gefühl lässt sich nicht auf Kommando abstellen, nicht mal bei Erwachsenen. Bei Kindern erst recht nicht: Wie in Folge eins erklärt, ist die Bremse im Gehirn noch im Bau.",
+      "dauer": 13
+    },
+    {
+      "typ": "schritt",
+      "titel": "Das Kind hört: Dein Gefühl ist falsch",
+      "highlight": "falsch",
+      "grafik": "gehirn",
+      "sprechtext": "Beim Kind kommt oft an: Was du fühlst, ist falsch. Das Gefühl verschwindet dadurch nicht. Es wird nur versteckt, oder es wird sogar noch größer.",
+      "dauer": 11
+    },
+    {
+      "typ": "schritt",
+      "titel": "Ruhe ist ansteckend",
+      "highlight": "ansteckend",
+      "grafik": "herz",
+      "sprechtext": "Was stattdessen hilft, heißt Ko-Regulation. Kinder leihen sich unsere Ruhe. Eine ruhige Stimme, Nähe, langsames Atmen: Das Nervensystem des Kindes orientiert sich an unserem.",
+      "dauer": 12
+    },
+    {
+      "typ": "beispiel",
+      "titel": "Statt „Hör auf!“ lieber: „Du bist gerade richtig traurig.“",
+      "highlight": "Du bist gerade richtig traurig.",
+      "grafik": "keine",
+      "sprechtext": "Statt „Hör auf zu weinen“ versuch mal: „Du bist gerade richtig traurig, weil dein Turm umgefallen ist. Ich bin da.“ Studien zeigen: Gefühle in Worte zu fassen, kann sie abschwächen.",
+      "dauer": 13
+    },
+    {
+      "typ": "merke",
+      "titel": "Erst verbinden, dann erklären.",
+      "highlight": "verbinden",
+      "sprechtext": "Merk dir: Erst verbinden, dann erklären. Ein Kind, das sich verstanden fühlt, beruhigt sich viel schneller. Und das gilt übrigens auch für Erwachsene.",
+      "dauer": 10.5
+    },
+    {
+      "typ": "outro",
+      "titel": "Welchen Satz hast DU als Kind oft gehört?",
+      "highlight": "DU",
+      "sprechtext": "Welchen Satz hast du als Kind oft gehört? Schreib es in die Kommentare und folg mir für mehr.",
+      "dauer": 6
+    }
+  ]
+}

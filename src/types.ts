@@ -4,9 +4,9 @@ export type GrafikName =
   | 'welle'
   | 'sprechblase'
   | 'herz'
+  | 'handy'
   | 'keks'
   | 'zusammen'
-  | 'handy'
   | 'spielautomat'
   | 'stoppuhr'
   | 'keine';
@@ -22,10 +22,10 @@ export type Szene = {
   /** Teil des Titels, der gelb hervorgehoben wird (genau so geschrieben wie im Titel) */
   highlight?: string;
   grafik?: GrafikName;
-  /** Gesprochenes Wort, bei dem das Highlight aufleuchtet (Standard: das Highlight selbst, falls gesprochen) */
-  betonung?: string;
-  /** Gesprochene Wörter, bei denen die Grafik reagiert (Reihenfolge je Grafik, siehe CLAUDE.md) */
+  /** Optional: gesprochene Wörter, bei denen die Grafik reagiert (Reihenfolge je Grafik, siehe CLAUDE.md) */
   momente?: string[];
+  /** Optional: Standard-Zeitpunkt für das erste Grafik-Ereignis, wenn das Highlight nicht gesprochen wird */
+  betonung?: string;
   /** Was gesprochen wird – daraus entstehen die Untertitel */
   sprechtext: string;
   /** Länge in Sekunden (wird von `npm run stimme` automatisch gesetzt) */

@@ -5,12 +5,10 @@ import { GrafikName, Szene } from '../types';
 import { Gehirn } from './Gehirn';
 import { ab, ausschlag, betonungsZeit, wortStart, zucken } from './momente';
 
-// Linien-Grafiken im Logo-Stil: runde Enden, einheitliche Strichstärke, zeichnen sich selbst.
-// Nach dem Zeichnen bleiben sie in Bewegung und reagieren auf Schlüsselwörter im Sprechtext,
-// damit in jeder Szene alle 2–3 Sekunden etwas passiert.
+// Linien-Grafiken im Logo-Stil: runde Enden, einheitliche Strichstärke.
+// Regel: Jede Grafik zeichnet sich erst selbst und bewegt sich danach DAUERHAFT weiter
+// (Impulse, Pulsieren, Fließen) – es gibt keinen Moment, in dem das Bild still steht.
 // Neue Grafiken hier ergänzen und in types.ts bei GrafikName eintragen.
-
-type GrafikProps = { groesse: number; szene?: Szene; sofort?: boolean };
 
 const useZeit = () => {
   const frame = useCurrentFrame();
@@ -18,191 +16,197 @@ const useZeit = () => {
   return { frame, fps, t: frame / fps };
 };
 
-const useZeichnen = (dauerSek = 1.2, sofort = false) => {
+const useZeichnen = (dauerSek = 1.2, startSek = 0.1) => {
   const { frame, fps } = useZeit();
-  if (sofort) return 1;
-  return interpolate(frame, [0.15 * fps, (0.15 + dauerSek) * fps], [0, 1], {
+  return interpolate(frame, [startSek * fps, (startSek + dauerSek) * fps], [0, 1], {
     extrapolateLeft: 'clamp',
     extrapolateRight: 'clamp',
   });
 };
 
-/**
- * Zeitpunkt des k-ten Ereignisses einer Grafik:
- * 1. Wort aus `szene.momente[k]` (in der Folgen-JSON festgelegt),
- * 2. sonst das erste gesprochene Wort aus `standard`,
- * 3. sonst für das erste Ereignis das Betonungswort der Szene.
- */
-const ereignis = (szene: Szene | undefined, k: number, ...standard: string[]): number | null => {
-  if (!szene) return null;
-  const eigen = wortStart(szene, szene.momente?.[k]);
-  if (eigen !== null) return eigen;
-  for (const w of standard) {
-    const z = wortStart(szene, w);
-    if (z !== null) return z;
-  }
-  return k === 0 ? betonungsZeit(szene) : null;
-};
-
-const Svg: React.FC<{ groesse: number; children: React.ReactNode; style?: React.CSSProperties }> = ({
-  groesse,
-  children,
-  style,
-}) => (
-  <svg
-    width={groesse}
-    height={groesse}
-    viewBox="0 0 200 200"
-    fill="none"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    style={{ overflow: 'visible', ...style }}
-  >
+const SVG: React.FC<{ groesse: number; children: React.ReactNode; style?: React.CSSProperties }> = ({ groesse, children, style }) => (
+  <svg width={groesse} height={groesse} viewBox="0 0 200 200" fill="none" strokeLinecap="round" strokeLinejoin="round" style={{ overflow: 'visible', ...style }}>
     {children}
   </svg>
 );
 
-// Gefühlswelle: fließt ständig weiter und schlägt beim Schlüsselwort hoch.
-const Welle: React.FC<GrafikProps> = ({ groesse, szene, sofort }) => {
+const HERZ = 'M100 160 C60 130 36 106 36 80 C36 60 52 46 70 46 C84 46 94 54 100 64 C106 54 116 46 130 46 C148 46 164 60 164 80 C164 106 140 130 100 160 Z';
+
+// Gefühl, das ansteigt und weiterfließt
+const Welle: React.FC<{ groesse: number }> = ({ groesse }) => {
   const { t } = useZeit();
-  const p = useZeichnen(1.6, sofort);
-  const welle = ereignis(szene, 0, 'Hochtouren');
-  const hoch = ab(t, welle, 0.5);
-  const kick = ausschlag(t, welle, 0.9);
-  const amp = 1 + 0.25 * hoch + 0.2 * kick;
-  const phase = t * 2.2;
-  const punkte: string[] = [];
+  const p = useZeichnen(1.2);
+  const anstieg = interpolate(t, [0, 3], [0.55, 1], { extrapolateRight: 'clamp' });
+  const punkte: [number, number][] = [];
   for (let x = 20; x <= 180; x += 2) {
-    const a = (4 + ((x - 20) / 160) ** 1.6 * 52) * amp;
-    const y = 110 - Math.min(95, a) * Math.sin((x - 20) / 9 - phase);
-    punkte.push(`${x},${y.toFixed(1)}`);
+    const amp = (4 + ((x - 20) / 160) ** 1.6 * 52) * anstieg;
+    const y = 110 - amp * Math.sin((x - 20) / 9 - t * 4);
+    punkte.push([x, y]);
   }
+  const ende = punkte[punkte.length - 1];
   return (
-    <Svg groesse={groesse}>
-      <line x1="20" y1="170" x2="180" y2="170" stroke={FARBEN.neben} strokeWidth={5} opacity={0.6} />
+    <SVG groesse={groesse}>
+      <line x1="20" y1="172" x2="180" y2="172" stroke={FARBEN.neben} strokeWidth={5} opacity={0.5} />
       <polyline
-        points={punkte.join(' ')}
+        points={punkte.map(([x, y]) => `${x},${y.toFixed(1)}`).join(' ')}
         stroke={FARBEN.akzent}
         strokeWidth={7}
         pathLength={1}
         strokeDasharray={1}
         strokeDashoffset={1 - p}
       />
-    </Svg>
-  );
-};
-
-// Sprechblase: Punkte tippen wie im Chat. Beim Schlüsselwort wackelt sie und zeigt „!!!“.
-const Sprechblase: React.FC<GrafikProps> = ({ groesse, szene, sofort }) => {
-  const { frame, fps, t } = useZeit();
-  const p = useZeichnen(1, sofort);
-  const ausbruch = ereignis(szene, 0, 'Schreien');
-  const wechsel = ab(t, ausbruch, 0.3);
-  const wackeln = zucken(t, ausbruch, 7);
-  const punkt = (i: number) => spring({ frame: frame - (1.1 + i * 0.25) * fps, fps, config: { damping: 12 } });
-  const tippen = (i: number) => Math.max(0, Math.sin(t * 7 - i * 0.9)) * 8;
-  return (
-    <Svg groesse={groesse} style={{ transform: `rotate(${wackeln}deg)` }}>
-      <path
-        d="M40 50 H160 Q176 50 176 66 V122 Q176 138 160 138 H92 L64 164 L70 138 H40 Q24 138 24 122 V66 Q24 50 40 50 Z"
-        stroke={wechsel > 0 && t - (ausbruch ?? 0) < 0.6 ? FARBEN.akzent : FARBEN.neben}
-        strokeWidth={7}
-        pathLength={1}
-        strokeDasharray={1}
-        strokeDashoffset={1 - p}
-      />
-      {[0, 1, 2].map((i) => (
-        <circle
-          key={i}
-          cx={70 + i * 30}
-          cy={94 - (t > 1.8 ? tippen(i) : 0)}
-          r={9 * (sofort ? 1 : punkt(i)) * (1 - wechsel)}
-          fill={FARBEN.akzent}
-        />
-      ))}
-      {wechsel > 0
-        ? [0, 1, 2].map((i) => {
-            const s = ab(t, (ausbruch ?? 0) + i * 0.08, 0.25);
-            return (
-              <g key={i} transform={`translate(${70 + i * 30} 94) scale(${s}) translate(0 -4)`}>
-                <line x1="0" y1="-20" x2="0" y2="4" stroke={FARBEN.akzent} strokeWidth={8} />
-                <circle cx="0" cy="20" r="5" fill={FARBEN.akzent} />
-              </g>
-            );
-          })
-        : null}
-    </Svg>
-  );
-};
-
-const HERZ_PFAD =
-  'M100 160 C60 130 36 106 36 80 C36 60 52 46 70 46 C84 46 94 54 100 64 C106 54 116 46 130 46 C148 46 164 60 164 80 C164 106 140 130 100 160 Z';
-
-const Herz: React.FC<GrafikProps> = ({ groesse, sofort }) => {
-  const { t } = useZeit();
-  const p = useZeichnen(1.2, sofort);
-  const puls = 1 + 0.05 * Math.max(0, Math.sin(t * Math.PI * 1.6)) * (p >= 1 ? 1 : 0);
-  return (
-    <Svg groesse={groesse}>
-      <g transform={`translate(100 105) scale(${puls}) translate(-100 -105)`}>
-        <path d={HERZ_PFAD} stroke={FARBEN.akzent} strokeWidth={7} pathLength={1} strokeDasharray={1} strokeDashoffset={1 - p} />
+      <g opacity={p >= 1 ? 1 : 0}>
+        <circle cx={ende[0]} cy={ende[1]} r={14} fill={FARBEN.highlight} opacity={0.25} />
+        <circle cx={ende[0]} cy={ende[1]} r={7} fill={FARBEN.highlight} />
       </g>
-    </Svg>
+    </SVG>
   );
 };
 
-// Gehirn mit markiertem Stirnbereich („Bremse“). Beim Schlüsselwort zuckt es und die Markierung blitzt,
-// danach füllt sich eine Zeitleiste („reift über viele Jahre“).
-const GehirnVorne: React.FC<GrafikProps> = ({ groesse, szene, sofort }) => {
-  const { frame, fps, t } = useZeit();
-  const p = useZeichnen(1.4, sofort);
-  const leuchten = interpolate(frame, [1.4 * fps, 1.9 * fps], [0, 1], { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' });
-  const puls = 0.5 + 0.5 * Math.sin(t * Math.PI * 1.4);
-  const bremse = ereignis(szene, 0, 'Bremse');
-  const blitz = ausschlag(t, bremse, 0.8);
-  const reifen = ereignis(szene, 1, 'reift');
-  const leiste = ab(t, reifen, 0.4);
-  const fuellung = reifen === null ? 0 : interpolate(t, [reifen, reifen + 3], [0, 1], { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' });
+// Sprechblase, in der die Worte „hängen“
+const Sprechblase: React.FC<{ groesse: number }> = ({ groesse }) => {
+  const { t, frame, fps } = useZeit();
+  const p = useZeichnen(0.9);
+  const schweben = Math.sin(t * 2) * 4;
   return (
-    <div style={{ transform: `rotate(${zucken(t, bremse, 5)}deg) scale(${1 + 0.06 * blitz})` }}>
-      <Gehirn groesse={groesse} fortschritt={p}>
-        <ellipse
-          cx="100"
-          cy="60"
-          rx={54 + puls * 10 + blitz * 8}
-          ry={26 + puls * 5 + blitz * 4}
-          stroke={FARBEN.highlight}
-          strokeWidth={5 + blitz * 3}
-          strokeDasharray="10 12"
-          strokeDashoffset={-t * 20}
-          opacity={leuchten}
+    <SVG groesse={groesse}>
+      <g transform={`translate(0 ${schweben})`}>
+        <path
+          d="M40 50 H160 Q176 50 176 66 V122 Q176 138 160 138 H92 L64 164 L70 138 H40 Q24 138 24 122 V66 Q24 50 40 50 Z"
+          stroke={FARBEN.neben}
+          strokeWidth={7}
+          pathLength={1}
+          strokeDasharray={1}
+          strokeDashoffset={1 - p}
         />
-        <g opacity={leiste}>
-          <line x1="40" y1="184" x2="160" y2="184" stroke={FARBEN.neben} strokeWidth={6} opacity={0.35} />
-          <line x1="40" y1="184" x2={40 + 120 * fuellung} y2="184" stroke={FARBEN.akzent} strokeWidth={6} />
-          <circle cx={40 + 120 * fuellung} cy="184" r={7} fill={FARBEN.akzent} />
-        </g>
-      </Gehirn>
-    </div>
+        {[0, 1, 2].map((i) => {
+          const da = spring({ frame: frame - (0.9 + i * 0.15) * fps, fps, config: { damping: 12 } });
+          const huepfen = Math.max(0, Math.sin(2 * Math.PI * (t * 1.4 - i * 0.18))) * 12;
+          return <circle key={i} cx={70 + i * 30} cy={94 - huepfen * da} r={9 * da} fill={FARBEN.akzent} />;
+        })}
+      </g>
+    </SVG>
   );
 };
 
-// Großes Gehirn: atmet leicht, damit es nie ganz stillsteht.
-const GehirnGross: React.FC<GrafikProps> = ({ groesse, szene, sofort }) => {
+// Herz mit Doppelschlag und Ringen, die nach außen laufen
+const Herz: React.FC<{ groesse: number }> = ({ groesse }) => {
   const { t } = useZeit();
-  const p = useZeichnen(1.4, sofort);
-  // Beim Ereignis (Standard: Betonungswort) leuchtet das Gehirn kurz auf
-  const puls = szene?.typ === 'hook' ? 0 : ausschlag(t, ereignis(szene, 0), 0.8);
+  const p = useZeichnen(1.1);
+  const takt = t % 1;
+  const schlag = Math.exp(-((takt - 0.05) ** 2) / 0.002) + 0.7 * Math.exp(-((takt - 0.3) ** 2) / 0.002);
+  const fertig = p >= 1 ? 1 : 0;
+  const skala = 1 + 0.08 * schlag * fertig;
+  const ringe = [0, 0.5].map((v) => ((t + v) % 1));
   return (
-    <div
-      style={{
-        transform: `scale(${1 + 0.025 * Math.sin(t * 2.4) + 0.1 * puls})`,
-        filter: puls > 0 ? `drop-shadow(0 0 ${30 * puls}px ${FARBEN.akzent})` : undefined,
-      }}
-    >
-      <Gehirn groesse={groesse} fortschritt={p} />
-    </div>
+    <SVG groesse={groesse}>
+      {fertig
+        ? ringe.map((r, i) => (
+            <path
+              key={i}
+              d={HERZ}
+              stroke={FARBEN.akzent}
+              strokeWidth={4}
+              opacity={(1 - r) * 0.5}
+              transform={`translate(100 105) scale(${1 + r * 0.6}) translate(-100 -105)`}
+            />
+          ))
+        : null}
+      <g transform={`translate(100 105) scale(${skala}) translate(-100 -105)`}>
+        <path d={HERZ} stroke={FARBEN.akzent} strokeWidth={7} pathLength={1} strokeDasharray={1} strokeDashoffset={1 - p} />
+      </g>
+    </SVG>
   );
+};
+
+// Gehirn mit markiertem Stirnhirn (der „Bremse“)
+const GehirnVorne: React.FC<{ groesse: number }> = ({ groesse }) => {
+  const { t, frame, fps } = useZeit();
+  const p = useZeichnen(1.3);
+  const leuchten = interpolate(frame, [1.3 * fps, 1.8 * fps], [0, 1], { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' });
+  const puls = 0.5 + 0.5 * Math.sin(t * Math.PI * 1.4);
+  return (
+    <Gehirn groesse={groesse} fortschritt={p} impulse anzahlImpulse={4}>
+      <ellipse
+        cx="100"
+        cy="60"
+        rx={54 + puls * 8}
+        ry={26 + puls * 4}
+        stroke={FARBEN.highlight}
+        strokeWidth={5}
+        strokeDasharray="10 12"
+        strokeDashoffset={-t * 30}
+        opacity={leuchten}
+      />
+    </Gehirn>
+  );
+};
+
+const GehirnGross: React.FC<{ groesse: number }> = ({ groesse }) => {
+  const p = useZeichnen(1.3);
+  return <Gehirn groesse={groesse} fortschritt={p} impulse />;
+};
+
+// Handy mit endlosem Feed und wischendem Daumen
+const Handy: React.FC<{ groesse: number }> = ({ groesse }) => {
+  const { t } = useZeit();
+  const p = useZeichnen(0.9);
+  const da = p >= 1 ? 1 : 0;
+  const versatz = (t * 46) % 42;
+  const wisch = (t % 0.9) / 0.9;
+  return (
+    <SVG groesse={groesse}>
+      <defs>
+        <clipPath id="bildschirm">
+          <rect x="70" y="34" width="60" height="132" rx="6" />
+        </clipPath>
+      </defs>
+      <g clipPath="url(#bildschirm)" opacity={da}>
+        {Array.from({ length: 5 }).map((_, i) => {
+          const y = 36 + i * 42 - versatz;
+          return (
+            <g key={i}>
+              <rect x="74" y={y} width="52" height="34" rx="6" stroke={FARBEN.akzent} strokeWidth={4} />
+              <line x1="82" y1={y + 24} x2={i % 2 ? 104 : 114} y2={y + 24} stroke={FARBEN.neben} strokeWidth={4} opacity={0.7} />
+            </g>
+          );
+        })}
+      </g>
+      <rect x="62" y="20" width="76" height="160" rx="16" stroke={FARBEN.neben} strokeWidth={7} pathLength={1} strokeDasharray={1} strokeDashoffset={1 - p} />
+      <line x1="90" y1="27" x2="110" y2="27" stroke={FARBEN.neben} strokeWidth={4} opacity={p} />
+      <g opacity={da * Math.sin(Math.PI * wisch)}>
+        <circle cx={156} cy={150 - wisch * 80} r={14} fill={FARBEN.highlight} opacity={0.25} />
+        <circle cx={156} cy={150 - wisch * 80} r={7} fill={FARBEN.highlight} />
+      </g>
+    </SVG>
+  );
+};
+
+
+// ---------------------------------------------------------------------------
+// Grafiken, die auf gesprochene Wörter reagieren (Zeitpunkte aus momente.ts).
+// Welches Wort welche Reaktion auslöst, steht optional in der Folgen-JSON bei `momente`.
+
+type GrafikProps = { groesse: number; szene?: Szene; versatz?: number };
+
+/**
+ * Zeitpunkt (Sekunden ab Start der Grafik) des k-ten Ereignisses:
+ * 1. Wort aus `szene.momente[k]`, 2. sonst das erste gesprochene Wort aus `standard`,
+ * 3. sonst für das erste Ereignis das Highlight bzw. `betonung` der Szene.
+ * `versatz`: um so viele Sekunden startet die Grafik nach dem Szenenbeginn.
+ */
+const ereignis = (szene: Szene | undefined, versatz: number, k: number, ...standard: string[]): number | null => {
+  if (!szene) return null;
+  const roh = (() => {
+    const eigen = wortStart(szene, szene.momente?.[k]);
+    if (eigen !== null) return eigen;
+    for (const w of standard) {
+      const z = wortStart(szene, w);
+      if (z !== null) return z;
+    }
+    return k === 0 ? betonungsZeit(szene) : null;
+  })();
+  return roh === null ? null : roh - versatz;
 };
 
 // Keks: zeichnet sich, zerbricht beim Schlüsselwort in zwei Hälften, Krümel fallen.
@@ -212,11 +216,11 @@ const STUECKE_LINKS: [number, number][] = [[72, 82], [66, 112], [82, 136]];
 const STUECKE_RECHTS: [number, number][] = [[128, 76], [134, 108], [118, 138]];
 const KRUEMEL: [number, number, number][] = [[-14, 0, 4], [10, 0.08, 5], [-4, 0.15, 3.5], [18, 0.05, 3], [-22, 0.12, 3]];
 
-const Keks: React.FC<GrafikProps> = ({ groesse, szene, sofort }) => {
+const Keks: React.FC<GrafikProps> = ({ groesse, szene, versatz = 0 }) => {
   const { t } = useZeit();
-  const p = useZeichnen(1, sofort);
-  const bruch = ereignis(szene, 0, 'zerbrochen') ?? 1.2;
-  const unter = ereignis(szene, 1, 'Welt');
+  const p = useZeichnen(1);
+  const bruch = ereignis(szene, versatz, 0, 'zerbrochen') ?? 1.2;
+  const unter = ereignis(szene, versatz, 1, 'Welt');
   const auf = ab(t, bruch, 0.35);
   const sinken = ab(t, unter, 0.6);
   const wackeln = Math.sin(t * 3) * 1.5;
@@ -224,17 +228,17 @@ const Keks: React.FC<GrafikProps> = ({ groesse, szene, sofort }) => {
     liste.map(([x, y]) => <circle key={`${x}-${y}`} cx={x} cy={y} r={6} fill={FARBEN.akzent} />);
   if (t < bruch) {
     return (
-      <Svg groesse={groesse} style={{ transform: `rotate(${wackeln}deg)` }}>
+      <SVG groesse={groesse} style={{ transform: `rotate(${wackeln}deg)` }}>
         <circle cx="100" cy="100" r="60" stroke={FARBEN.neben} strokeWidth={7} pathLength={1} strokeDasharray={1} strokeDashoffset={1 - p} />
         <g opacity={p}>{stuecke([...STUECKE_LINKS, ...STUECKE_RECHTS])}</g>
-      </Svg>
+      </SVG>
     );
   }
   const dx = 16 * auf + 6 * sinken;
   const dy = 14 * sinken;
   const dreh = 9 * auf + 8 * sinken;
   return (
-    <Svg groesse={groesse} style={{ transform: `rotate(${zucken(t, bruch, 4)}deg)` }}>
+    <SVG groesse={groesse} style={{ transform: `rotate(${zucken(t, bruch, 4)}deg)` }}>
       <g transform={`translate(${-dx} ${dy}) rotate(${-dreh} 100 160)`}>
         <path d={KEKS_LINKS} stroke={FARBEN.neben} strokeWidth={7} />
         {stuecke(STUECKE_LINKS)}
@@ -248,26 +252,26 @@ const Keks: React.FC<GrafikProps> = ({ groesse, szene, sofort }) => {
         const y = 120 + 90 * z * z + 25 * z;
         return y < 196 ? <circle key={i} cx={100 + x * (1 + z)} cy={y} r={r} fill={FARBEN.akzent} /> : null;
       })}
-    </Svg>
+    </SVG>
   );
 };
 
 // Zwei Figuren: Erwachsener legt den Arm um ein Kind. Über ihnen erscheint ein Herz,
 // das bei jedem Schlüsselwort schlägt (z. B. „ruhig bleiben“, „benennen“, „da sein“).
-const Zusammen: React.FC<GrafikProps> = ({ groesse, szene, sofort }) => {
+const Zusammen: React.FC<GrafikProps> = ({ groesse, szene, versatz = 0 }) => {
   const { t } = useZeit();
-  const p = useZeichnen(1.4, sofort);
-  const arm = sofort ? 1 : interpolate(t, [1.2, 1.8], [0, 1], { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' });
-  const herzAuf = ereignis(szene, 0, 'an uns') ?? 1.8;
+  const p = useZeichnen(1.4);
+  const arm = interpolate(t, [1.2, 1.8], [0, 1], { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' });
+  const herzAuf = ereignis(szene, versatz, 0, 'an uns') ?? 1.8;
   const herz = ab(t, herzAuf, 0.4);
-  const schlaege = [ereignis(szene, 1, 'ruhig'), ereignis(szene, 2, 'benennen'), ereignis(szene, 3, 'da sein')];
+  const schlaege = [ereignis(szene, versatz, 1, 'ruhig'), ereignis(szene, versatz, 2, 'benennen'), ereignis(szene, versatz, 3, 'da sein')];
   const schlag = Math.max(ausschlag(t, herzAuf, 0.6), ...schlaege.map((s) => ausschlag(t, s, 0.6)));
   const atmen = Math.sin(t * 2) * 1.5;
   const strich = (farbe: string, d: string) => (
     <path d={d} stroke={farbe} strokeWidth={7} pathLength={1} strokeDasharray={1} strokeDashoffset={1 - p} />
   );
   return (
-    <Svg groesse={groesse}>
+    <SVG groesse={groesse}>
       <g transform={`translate(0 ${atmen * 0.5})`}>
         <circle cx="76" cy="70" r="17" stroke={FARBEN.neben} strokeWidth={7} pathLength={1} strokeDasharray={1} strokeDashoffset={1 - p} />
         {strich(FARBEN.neben, 'M46 178 C46 128 56 102 76 102 C96 102 106 128 106 178')}
@@ -285,62 +289,9 @@ const Zusammen: React.FC<GrafikProps> = ({ groesse, szene, sofort }) => {
         strokeDashoffset={1 - arm}
       />
       <g transform={`translate(110 34) scale(${0.28 * herz * (1 + 0.25 * schlag)}) translate(-100 -105)`} opacity={herz}>
-        <path d={HERZ_PFAD} stroke={FARBEN.akzent} strokeWidth={22} fill={schlag > 0.3 ? FARBEN.akzent : 'none'} />
+        <path d={HERZ} stroke={FARBEN.akzent} strokeWidth={22} fill={schlag > 0.3 ? FARBEN.akzent : 'none'} />
       </g>
-    </Svg>
-  );
-};
-
-// Smartphone mit endlosem Feed: Umriss zeichnet sich zuerst, dann wandern Inhaltsbalken langsam nach oben.
-// Bei den Ereignissen (Standard: Betonungswort) rast der Feed kurz los, wie ein schneller Wisch.
-const FEED_ABSTAND = 46;
-const FEED_OBEN = 44;
-const FEED_UNTEN = 158;
-
-const Handy: React.FC<GrafikProps> = ({ groesse, szene, sofort }) => {
-  const { t } = useZeit();
-  const p = useZeichnen(1, sofort);
-  const inhalt = sofort ? 1 : ab(t, 1.05, 0.4);
-  const clipId = `handy-${React.useId().replace(/[^a-zA-Z0-9]/g, '')}`;
-  const wische = [ereignis(szene, 0), ereignis(szene, 1), ereignis(szene, 2)];
-  // Weg des Feeds: gleichmäßiges Wandern plus ein Sprung um ein Element pro Wisch
-  const weg = 14 * t + wische.reduce<number>((summe, w) => summe + FEED_ABSTAND * 2 * ab(t, w, 0.45), 0);
-  const wackeln = Math.max(...wische.map((w) => ausschlag(t, w, 0.5)));
-  const elemente = [];
-  for (let i = -1; i < 5; i++) {
-    const y = FEED_OBEN + 6 + i * FEED_ABSTAND - (weg % FEED_ABSTAND);
-    elemente.push(
-      <g key={i}>
-        <line x1="80" y1={y + 10} x2="120" y2={y + 10} stroke={FARBEN.akzent} strokeWidth={16} />
-        <line x1="80" y1={y + 30} x2="104" y2={y + 30} stroke={FARBEN.akzent} strokeWidth={6} opacity={0.7} />
-      </g>,
-    );
-  }
-  return (
-    <Svg groesse={groesse} style={{ transform: `translateY(${-6 * wackeln}px)` }}>
-      <defs>
-        <clipPath id={clipId}>
-          <rect x="68" y={FEED_OBEN} width="64" height={FEED_UNTEN - FEED_OBEN} />
-        </clipPath>
-      </defs>
-      <rect
-        x="58"
-        y="20"
-        width="84"
-        height="160"
-        rx="18"
-        stroke={FARBEN.neben}
-        strokeWidth={7}
-        pathLength={1}
-        strokeDasharray={1}
-        strokeDashoffset={1 - p}
-      />
-      <line x1="90" y1="32" x2="110" y2="32" stroke={FARBEN.neben} strokeWidth={5} opacity={p} />
-      <line x1="92" y1="168" x2="108" y2="168" stroke={FARBEN.neben} strokeWidth={5} opacity={p} />
-      <g clipPath={`url(#${clipId})`} opacity={inhalt}>
-        {elemente}
-      </g>
-    </Svg>
+    </SVG>
   );
 };
 
@@ -361,7 +312,7 @@ const Symbol: React.FC<{ art: (typeof SYMBOLE)[number]; x: number; y: number }> 
     case 'herz':
       return (
         <g transform={`translate(${x} ${y + 1}) scale(0.16) translate(-100 -105)`}>
-          <path d={HERZ_PFAD} stroke={farbe} strokeWidth={30} fill={farbe} />
+          <path d={HERZ} stroke={farbe} strokeWidth={30} fill={farbe} />
         </g>
       );
     default:
@@ -369,14 +320,14 @@ const Symbol: React.FC<{ art: (typeof SYMBOLE)[number]; x: number; y: number }> 
   }
 };
 
-const Spielautomat: React.FC<GrafikProps> = ({ groesse, szene, sofort }) => {
+const Spielautomat: React.FC<GrafikProps> = ({ groesse, szene, versatz = 0 }) => {
   const { t } = useZeit();
-  const p = useZeichnen(1.1, sofort);
-  const inhalt = sofort ? 1 : ab(t, 1.0, 0.4);
+  const p = useZeichnen(1.1);
+  const inhalt = ab(t, 1.0, 0.4);
   const clipId = `walzen-${React.useId().replace(/[^a-zA-Z0-9]/g, '')}`;
-  const zug1 = ereignis(szene, 0, 'Hebel') ?? 1.5;
-  const gewinn = Math.max(zug1 + 1.2, ereignis(szene, 1, 'gewinnen') ?? zug1 + 2);
-  const zug2 = ereignis(szene, 2, 'Daumen');
+  const zug1 = ereignis(szene, versatz, 0, 'Hebel') ?? 1.5;
+  const gewinn = Math.max(zug1 + 1.2, ereignis(szene, versatz, 1, 'gewinnen') ?? zug1 + 2);
+  const zug2 = ereignis(szene, versatz, 2, 'Daumen');
 
   // Walzen-Stellung als Index in SYMBOLE: [Start, Ziel 1 (Gewinn = 3× herz), Ziel 2 (nach dem zweiten Zug)]
   const ziele = [
@@ -408,7 +359,7 @@ const Spielautomat: React.FC<GrafikProps> = ({ groesse, szene, sofort }) => {
   const knaufY = 62 + 70 * hebel;
 
   return (
-    <Svg groesse={groesse} style={{ transform: `rotate(${zucken(t, gewinn, 3)}deg)` }}>
+    <SVG groesse={groesse} style={{ transform: `rotate(${zucken(t, gewinn, 3)}deg)` }}>
       <defs>
         <clipPath id={clipId}>
           <rect x="44" y="80" width="92" height="44" />
@@ -454,17 +405,17 @@ const Spielautomat: React.FC<GrafikProps> = ({ groesse, szene, sofort }) => {
           <line key={i} x1={x1} y1={y1} x2={x2} y2={y2} />
         ))}
       </g>
-    </Svg>
+    </SVG>
   );
 };
 
 // Stoppuhr: läuft ab dem ersten Ereignis (z. B. „Timer“), ein Bogen füllt sich mit.
 // Beim zweiten Ereignis (z. B. „Ende“) wird der Knopf gedrückt, sie stoppt und zuckt.
-const Stoppuhr: React.FC<GrafikProps> = ({ groesse, szene, sofort }) => {
+const Stoppuhr: React.FC<GrafikProps> = ({ groesse, szene, versatz = 0 }) => {
   const { t } = useZeit();
-  const p = useZeichnen(1.1, sofort);
-  const start = ereignis(szene, 0, 'Timer') ?? 1.2;
-  const stopp = ereignis(szene, 1, 'Ende');
+  const p = useZeichnen(1.1);
+  const start = ereignis(szene, versatz, 0, 'Timer') ?? 1.2;
+  const stopp = ereignis(szene, versatz, 1, 'Ende');
   const laufzeit = Math.max(0, Math.min(t, stopp ?? Infinity) - start);
   const winkel = laufzeit * 120; // eine Umdrehung in 3 s
   const fuellung = Math.min(0.999, laufzeit / 9);
@@ -480,7 +431,7 @@ const Stoppuhr: React.FC<GrafikProps> = ({ groesse, szene, sofort }) => {
   const [bx, by] = bogenEnde(fuellung);
   const zeiger = (winkel - 90) * (Math.PI / 180);
   return (
-    <Svg
+    <SVG
       groesse={groesse}
       style={{ transform: `rotate(${zucken(t, stopp, 5)}deg) scale(${1 + 0.06 * gestoppt + 0.02 * Math.sin(t * 2.4)})` }}
     >
@@ -514,38 +465,45 @@ const Stoppuhr: React.FC<GrafikProps> = ({ groesse, szene, sofort }) => {
         <line x1={cx} y1={cy} x2={cx + 38 * Math.cos(zeiger)} y2={cy + 38 * Math.sin(zeiger)} stroke={FARBEN.akzent} strokeWidth={7} />
         <circle cx={cx} cy={cy} r={7} fill={FARBEN.akzent} />
       </g>
-    </Svg>
+    </SVG>
   );
 };
 
-export const Grafik: React.FC<{ name?: GrafikName; groesse?: number; szene?: Szene; sofort?: boolean }> = ({
+export const Grafik: React.FC<{ name?: GrafikName; groesse?: number; szene?: Szene; versatz?: number }> = ({
   name = 'keine',
   groesse = 520,
-  ...rest
+  szene,
+  versatz = 0,
 }) => {
-  const props = { groesse, ...rest };
-  switch (name) {
-    case 'gehirn':
-      return <GehirnGross {...props} />;
-    case 'gehirn-vorne':
-      return <GehirnVorne {...props} />;
-    case 'welle':
-      return <Welle {...props} />;
-    case 'sprechblase':
-      return <Sprechblase {...props} />;
-    case 'herz':
-      return <Herz {...props} />;
-    case 'keks':
-      return <Keks {...props} />;
-    case 'zusammen':
-      return <Zusammen {...props} />;
-    case 'handy':
-      return <Handy {...props} />;
-    case 'spielautomat':
-      return <Spielautomat {...props} />;
-    case 'stoppuhr':
-      return <Stoppuhr {...props} />;
-    default:
-      return null;
-  }
+  const { frame, fps, t } = useZeit();
+  if (!name || name === 'keine') return null;
+  const auftritt = spring({ frame, fps, config: { damping: 13, mass: 0.7 } });
+  const schweben = Math.sin(t * 1.3) * 6;
+  const inhalt = (() => {
+    switch (name) {
+      case 'gehirn':
+        return <GehirnGross groesse={groesse} />;
+      case 'gehirn-vorne':
+        return <GehirnVorne groesse={groesse} />;
+      case 'welle':
+        return <Welle groesse={groesse} />;
+      case 'sprechblase':
+        return <Sprechblase groesse={groesse} />;
+      case 'herz':
+        return <Herz groesse={groesse} />;
+      case 'handy':
+        return <Handy groesse={groesse} />;
+      case 'keks':
+        return <Keks groesse={groesse} szene={szene} versatz={versatz} />;
+      case 'zusammen':
+        return <Zusammen groesse={groesse} szene={szene} versatz={versatz} />;
+      case 'spielautomat':
+        return <Spielautomat groesse={groesse} szene={szene} versatz={versatz} />;
+      case 'stoppuhr':
+        return <Stoppuhr groesse={groesse} szene={szene} versatz={versatz} />;
+      default:
+        return null;
+    }
+  })();
+  return <div style={{ transform: `translateY(${schweben}px) scale(${0.6 + 0.4 * auftritt})` }}>{inhalt}</div>;
 };

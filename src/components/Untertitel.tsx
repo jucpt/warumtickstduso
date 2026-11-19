@@ -1,12 +1,12 @@
 import React, { useMemo } from 'react';
-import { useCurrentFrame, useVideoConfig } from 'remotion';
+import { spring, useCurrentFrame, useVideoConfig } from 'remotion';
 import { FARBEN, RAND, SCHRIFT, INHALT_BREITE } from '../brand';
-import { Szene, Wort } from '../types';
-import { wortZeiten } from './momente';
+import { Wort } from '../types';
 
-// Untertitel: 1–3 Wörter gleichzeitig, das gerade gesprochene Wort leuchtet lila.
+// Untertitel: 1–3 Wörter gleichzeitig. Jede neue Gruppe springt ins Bild,
+// das gerade gesprochene Wort leuchtet lila und ist etwas größer.
 // Mit Zeitstempeln aus `npm run stimme` laufen sie synchron zur Stimme,
-// ohne werden die Wörter gleichmäßig über die Szene verteilt (siehe momente.ts).
+// ohne werden die Wörter gleichmäßig über die Szene verteilt.
 
 const MAX_WOERTER = 3;
 
@@ -35,14 +35,21 @@ export const Untertitel: React.FC<{ text: string; woerter?: Wort[]; dauer: numbe
   const { fps } = useVideoConfig();
   const t = frame / fps;
 
-  const zeiten = useMemo<Wort[]>(() => wortZeiten({ sprechtext: text, woerter, dauer } as Szene), [text, woerter, dauer]);
+  const zeiten = useMemo<Wort[]>(() => {
+    if (woerter && woerter.length) return woerter;
+    const teile = text.split(/\s+/).filter(Boolean);
+    const sprechzeit = Math.max(0.5, dauer - 0.6);
+    const proWort = sprechzeit / teile.length;
+    return teile.map((wort, i) => ({ wort, start: 0.2 + i * proWort, ende: 0.2 + (i + 1) * proWort }));
+  }, [text, woerter, dauer]);
 
   const gruppen = useMemo(() => gruppiere(zeiten), [zeiten]);
   const gruppe = [...gruppen].reverse().find((g) => g[0].start <= t);
   if (!gruppe) return null;
-  // Nach dem letzten Wort kurz stehen lassen, dann ausblenden (wichtig für lange Outros)
+  // Nach dem letzten Wort kurz stehen lassen, dann ausblenden (Outro bleibt sonst mit altem Untertitel stehen)
   if (t > zeiten[zeiten.length - 1].ende + 1) return null;
   const aktiv = [...gruppe].reverse().find((w) => w.start <= t);
+  const pop = spring({ frame: frame - Math.round(gruppe[0].start * fps), fps, config: { damping: 11, mass: 0.5 } });
 
   return (
     <div
@@ -57,13 +64,22 @@ export const Untertitel: React.FC<{ text: string; woerter?: Wort[]; dauer: numbe
         fontSize: 72,
         lineHeight: 1.15,
         color: FARBEN.text,
+        transform: `scale(${0.75 + 0.25 * pop}) translateY(${(1 - pop) * 20}px)`,
       }}
     >
       {gruppe.map((w, i) => (
-        <span key={i} style={{ color: w === aktiv ? FARBEN.akzent : FARBEN.text }}>
-          {w.wort}
-          {i < gruppe.length - 1 ? ' ' : ''}
-        </span>
+        <React.Fragment key={i}>
+          <span
+            style={{
+              display: 'inline-block',
+              margin: '0 0.22em',
+              color: w === aktiv ? FARBEN.akzent : FARBEN.text,
+              transform: `scale(${w === aktiv ? 1.05 : 1})`,
+            }}
+          >
+            {w.wort}
+          </span>
+        </React.Fragment>
       ))}
     </div>
   );
