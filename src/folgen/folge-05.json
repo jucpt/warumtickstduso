@@ -8,7 +8,65 @@
       "highlight": "DEIN Kind",
       "grafik": "uhr",
       "sprechtext": "Dein Teenager ist morgens nicht faul. Seine innere Uhr tickt anders.",
-      "dauer": 5.3
+      "dauer": 4.8,
+      "audio": "audio/folge-05/szene-1.mp3",
+      "woerter": [
+        {
+          "wort": "Dein",
+          "start": 0.15,
+          "ende": 0.41
+        },
+        {
+          "wort": "Teenager",
+          "start": 0.41,
+          "ende": 0.87
+        },
+        {
+          "wort": "ist",
+          "start": 0.87,
+          "ende": 1.08
+        },
+        {
+          "wort": "morgens",
+          "start": 1.08,
+          "ende": 1.5
+        },
+        {
+          "wort": "nicht",
+          "start": 1.5,
+          "ende": 1.81
+        },
+        {
+          "wort": "faul.",
+          "start": 1.81,
+          "ende": 2.07
+        },
+        {
+          "wort": "Seine",
+          "start": 2.43,
+          "ende": 2.77
+        },
+        {
+          "wort": "innere",
+          "start": 2.77,
+          "ende": 3.17
+        },
+        {
+          "wort": "Uhr",
+          "start": 3.17,
+          "ende": 3.4
+        },
+        {
+          "wort": "tickt",
+          "start": 3.4,
+          "ende": 3.74
+        },
+        {
+          "wort": "anders.",
+          "start": 3.74,
+          "ende": 4.15
+        }
+      ]
     },
     {
       "typ": "schritt",
@@ -19,7 +77,140 @@
         "später"
       ],
       "sprechtext": "In der Pubertät verschiebt sich die innere Uhr. Das Schlafhormon Melatonin wird abends später ausgeschüttet, oft ein bis zwei Stunden. Müde wird man also erst spät.",
-      "dauer": 11.8
+      "dauer": 10.44,
+      "audio": "audio/folge-05/szene-2.mp3",
+      "woerter": [
+        {
+          "wort": "In",
+          "start": 0.15,
+          "ende": 0.29
+        },
+        {
+          "wort": "der",
+          "start": 0.29,
+          "ende": 0.49
+        },
+        {
+          "wort": "Pubertät",
+          "start": 0.49,
+          "ende": 0.94
+        },
+        {
+          "wort": "verschiebt",
+          "start": 0.94,
+          "ende": 1.48
+        },
+        {
+          "wort": "sich",
+          "start": 1.48,
+          "ende": 1.73
+        },
+        {
+          "wort": "die",
+          "start": 1.73,
+          "ende": 1.92
+        },
+        {
+          "wort": "innere",
+          "start": 1.92,
+          "ende": 2.27
+        },
+        {
+          "wort": "Uhr.",
+          "start": 2.27,
+          "ende": 2.47
+        },
+        {
+          "wort": "Das",
+          "start": 2.83,
+          "ende": 3.07
+        },
+        {
+          "wort": "Schlafhormon",
+          "start": 3.07,
+          "ende": 3.88
+        },
+        {
+          "wort": "Melatonin",
+          "start": 3.88,
+          "ende": 4.5
+        },
+        {
+          "wort": "wird",
+          "start": 4.71,
+          "ende": 4.98
+        },
+        {
+          "wort": "abends",
+          "start": 4.98,
+          "ende": 5.36
+        },
+        {
+          "wort": "später",
+          "start": 5.36,
+          "ende": 5.74
+        },
+        {
+          "wort": "ausgeschüttet,",
+          "start": 5.74,
+          "ende": 6.5
+        },
+        {
+          "wort": "oft",
+          "start": 6.5,
+          "ende": 6.72
+        },
+        {
+          "wort": "ein",
+          "start": 6.72,
+          "ende": 6.93
+        },
+        {
+          "wort": "bis",
+          "start": 6.93,
+          "ende": 7.15
+        },
+        {
+          "wort": "zwei",
+          "start": 7.15,
+          "ende": 7.42
+        },
+        {
+          "wort": "Stunden.",
+          "start": 7.42,
+          "ende": 7.85
+        },
+        {
+          "wort": "Müde",
+          "start": 8.21,
+          "ende": 8.49
+        },
+        {
+          "wort": "wird",
+          "start": 8.49,
+          "ende": 8.76
+        },
+        {
+          "wort": "man",
+          "start": 8.76,
+          "ende": 8.98
+        },
+        {
+          "wort": "also",
+          "start": 8.98,
+          "ende": 9.26
+        },
+        {
+          "wort": "erst",
+          "start": 9.26,
+          "ende": 9.53
+        },
+        {
+          "wort": "spät.",
+          "start": 9.53,
+          "ende": 9.81
+        }
+      ]
     },
     {
       "typ": "schritt",
@@ -30,7 +221,160 @@
         "zu wenig"
       ],
       "sprechtext": "Gleichzeitig brauchen Jugendliche acht bis zehn Stunden Schlaf. Wer erst um elf müde wird und um sechs aufstehen muss, schläft also regelmäßig zu wenig. Und Schlafmangel macht reizbar und unkonzentriert.",
-      "dauer": 13.5
+      "dauer": 12.51,
+      "audio": "audio/folge-05/szene-3.mp3",
+      "woerter": [
+        {
+          "wort": "Gleichzeitig",
+          "start": 0.15,
+          "ende": 0.76
+        },
+        {
+          "wort": "brauchen",
+          "start": 0.76,
+          "ende": 1.19
+        },
+        {
+          "wort": "Jugendliche",
+          "start": 1.19,
+          "ende": 1.76
+        },
+        {
+          "wort": "acht",
+          "start": 1.93,
+          "ende": 2.21
+        },
+        {
+          "wort": "bis",
+          "start": 2.21,
+          "ende": 2.43
+        },
+        {
+          "wort": "zehn",
+          "start": 2.43,
+          "ende": 2.71
+        },
+        {
+          "wort": "Stunden",
+          "start": 2.71,
+          "ende": 3.15
+        },
+        {
+          "wort": "Schlaf.",
+          "start": 3.15,
+          "ende": 3.53
+        },
+        {
+          "wort": "Wer",
+          "start": 3.89,
+          "ende": 4.09
+        },
+        {
+          "wort": "erst",
+          "start": 4.09,
+          "ende": 4.34
+        },
+        {
+          "wort": "um",
+          "start": 4.34,
+          "ende": 4.49
+        },
+        {
+          "wort": "elf",
+          "start": 4.49,
+          "ende": 4.69
+        },
+        {
+          "wort": "müde",
+          "start": 4.69,
+          "ende": 4.94
+        },
+        {
+          "wort": "wird",
+          "start": 4.94,
+          "ende": 5.18
+        },
+        {
+          "wort": "und",
+          "start": 5.35,
+          "ende": 5.55
+        },
+        {
+          "wort": "um",
+          "start": 5.55,
+          "ende": 5.69
+        },
+        {
+          "wort": "sechs",
+          "start": 5.69,
+          "ende": 5.99
+        },
+        {
+          "wort": "aufstehen",
+          "start": 5.99,
+          "ende": 6.48
+        },
+        {
+          "wort": "muss,",
+          "start": 6.48,
+          "ende": 6.73
+        },
+        {
+          "wort": "schläft",
+          "start": 7.09,
+          "ende": 7.5
+        },
+        {
+          "wort": "also",
+          "start": 7.5,
+          "ende": 7.76
+        },
+        {
+          "wort": "regelmäßig",
+          "start": 7.76,
+          "ende": 8.32
+        },
+        {
+          "wort": "zu",
+          "start": 8.32,
+          "ende": 8.48
+        },
+        {
+          "wort": "wenig.",
+          "start": 8.48,
+          "ende": 8.79
+        },
+        {
+          "wort": "Und",
+          "start": 9.15,
+          "ende": 9.36
+        },
+        {
+          "wort": "Schlafmangel",
+          "start": 9.36,
+          "ende": 10.07
+        },
+        {
+          "wort": "macht",
+          "start": 10.07,
+          "ende": 10.4
+        },
+        {
+          "wort": "reizbar",
+          "start": 10.4,
+          "ende": 10.83
+        },
+        {
+          "wort": "und",
+          "start": 10.83,
+          "ende": 11.05
+        },
+        {
+          "wort": "unkonzentriert.",
+          "start": 11.05,
+          "ende": 11.86
+        }
+      ]
     },
     {
       "typ": "schritt",
@@ -42,7 +386,150 @@
         "länger"
       ],
       "sprechtext": "Das zeigt auch eine Studie aus Seattle: Als die Schulen später anfingen, schliefen die Jugendlichen im Schnitt über eine halbe Stunde länger. Und ihre Noten wurden etwas besser.",
-      "dauer": 12.7
+      "dauer": 9.53,
+      "audio": "audio/folge-05/szene-4.mp3",
+      "woerter": [
+        {
+          "wort": "Das",
+          "start": 0.15,
+          "ende": 0.33
+        },
+        {
+          "wort": "zeigt",
+          "start": 0.33,
+          "ende": 0.6
+        },
+        {
+          "wort": "auch",
+          "start": 0.6,
+          "ende": 0.83
+        },
+        {
+          "wort": "eine",
+          "start": 0.83,
+          "ende": 1.05
+        },
+        {
+          "wort": "Studie",
+          "start": 1.05,
+          "ende": 1.37
+        },
+        {
+          "wort": "aus",
+          "start": 1.37,
+          "ende": 1.55
+        },
+        {
+          "wort": "Seattle:",
+          "start": 1.55,
+          "ende": 1.91
+        },
+        {
+          "wort": "Als",
+          "start": 2.27,
+          "ende": 2.47
+        },
+        {
+          "wort": "die",
+          "start": 2.47,
+          "ende": 2.66
+        },
+        {
+          "wort": "Schulen",
+          "start": 2.66,
+          "ende": 3.05
+        },
+        {
+          "wort": "später",
+          "start": 3.05,
+          "ende": 3.39
+        },
+        {
+          "wort": "anfingen,",
+          "start": 3.39,
+          "ende": 3.83
+        },
+        {
+          "wort": "schliefen",
+          "start": 3.98,
+          "ende": 4.4
+        },
+        {
+          "wort": "die",
+          "start": 4.4,
+          "ende": 4.57
+        },
+        {
+          "wort": "Jugendlichen",
+          "start": 4.57,
+          "ende": 5.12
+        },
+        {
+          "wort": "im",
+          "start": 5.12,
+          "ende": 5.24
+        },
+        {
+          "wort": "Schnitt",
+          "start": 5.24,
+          "ende": 5.58
+        },
+        {
+          "wort": "über",
+          "start": 5.58,
+          "ende": 5.79
+        },
+        {
+          "wort": "eine",
+          "start": 5.79,
+          "ende": 6.0
+        },
+        {
+          "wort": "halbe",
+          "start": 6.0,
+          "ende": 6.25
+        },
+        {
+          "wort": "Stunde",
+          "start": 6.25,
+          "ende": 6.55
+        },
+        {
+          "wort": "länger.",
+          "start": 6.55,
+          "ende": 6.84
+        },
+        {
+          "wort": "Und",
+          "start": 7.2,
+          "ende": 7.4
+        },
+        {
+          "wort": "ihre",
+          "start": 7.4,
+          "ende": 7.64
+        },
+        {
+          "wort": "Noten",
+          "start": 7.64,
+          "ende": 7.93
+        },
+        {
+          "wort": "wurden",
+          "start": 7.93,
+          "ende": 8.27
+        },
+        {
+          "wort": "etwas",
+          "start": 8.27,
+          "ende": 8.56
+        },
+        {
+          "wort": "besser.",
+          "start": 8.56,
+          "ende": 8.89
+        }
+      ]
     },
     {
       "typ": "beispiel",
@@ -54,7 +541,165 @@
         "sieben"
       ],
       "sprechtext": "Dein Kind ist um elf Uhr abends hellwach und um sieben Uhr morgens kaum ansprechbar? Und am Wochenende schläft es bis mittags, um nachzuholen. Das ist kein Trotz, das ist Biologie.",
-      "dauer": 14.0
+      "dauer": 11.3,
+      "audio": "audio/folge-05/szene-5.mp3",
+      "woerter": [
+        {
+          "wort": "Dein",
+          "start": 0.15,
+          "ende": 0.36
+        },
+        {
+          "wort": "Kind",
+          "start": 0.36,
+          "ende": 0.57
+        },
+        {
+          "wort": "ist",
+          "start": 0.57,
+          "ende": 0.74
+        },
+        {
+          "wort": "um",
+          "start": 0.89,
+          "ende": 1.08
+        },
+        {
+          "wort": "elf",
+          "start": 1.08,
+          "ende": 1.33
+        },
+        {
+          "wort": "Uhr",
+          "start": 1.33,
+          "ende": 1.58
+        },
+        {
+          "wort": "abends",
+          "start": 1.58,
+          "ende": 2.02
+        },
+        {
+          "wort": "hellwach",
+          "start": 2.02,
+          "ende": 2.58
+        },
+        {
+          "wort": "und",
+          "start": 2.71,
+          "ende": 2.9
+        },
+        {
+          "wort": "um",
+          "start": 2.9,
+          "ende": 3.05
+        },
+        {
+          "wort": "sieben",
+          "start": 3.05,
+          "ende": 3.39
+        },
+        {
+          "wort": "Uhr",
+          "start": 3.39,
+          "ende": 3.58
+        },
+        {
+          "wort": "morgens",
+          "start": 3.58,
+          "ende": 3.97
+        },
+        {
+          "wort": "kaum",
+          "start": 3.97,
+          "ende": 4.21
+        },
+        {
+          "wort": "ansprechbar?",
+          "start": 4.21,
+          "ende": 4.79
+        },
+        {
+          "wort": "Und",
+          "start": 5.15,
+          "ende": 5.36
+        },
+        {
+          "wort": "am",
+          "start": 5.36,
+          "ende": 5.52
+        },
+        {
+          "wort": "Wochenende",
+          "start": 5.52,
+          "ende": 6.11
+        },
+        {
+          "wort": "schläft",
+          "start": 6.11,
+          "ende": 6.54
+        },
+        {
+          "wort": "es",
+          "start": 6.54,
+          "ende": 6.7
+        },
+        {
+          "wort": "bis",
+          "start": 6.7,
+          "ende": 6.92
+        },
+        {
+          "wort": "mittags,",
+          "start": 6.92,
+          "ende": 7.35
+        },
+        {
+          "wort": "um",
+          "start": 7.35,
+          "ende": 7.51
+        },
+        {
+          "wort": "nachzuholen.",
+          "start": 7.51,
+          "ende": 8.16
+        },
+        {
+          "wort": "Das",
+          "start": 8.51,
+          "ende": 8.71
+        },
+        {
+          "wort": "ist",
+          "start": 8.71,
+          "ende": 8.91
+        },
+        {
+          "wort": "kein",
+          "start": 8.91,
+          "ende": 9.16
+        },
+        {
+          "wort": "Trotz,",
+          "start": 9.16,
+          "ende": 9.46
+        },
+        {
+          "wort": "das",
+          "start": 9.7,
+          "ende": 9.93
+        },
+        {
+          "wort": "ist",
+          "start": 9.93,
+          "ende": 10.16
+        },
+        {
+          "wort": "Biologie.",
+          "start": 10.16,
+          "ende": 10.67
+        }
+      ]
     },
     {
       "typ": "merke",
@@ -62,14 +707,240 @@
       "highlight": "anders getaktet",
       "grafik": "keine",
       "sprechtext": "Merk dir: nicht faul, sondern anders getaktet. Was helfen kann: feste Aufstehzeiten, auch am Wochenende, morgens viel Tageslicht und abends weniger Bildschirm.",
-      "dauer": 10.1
+      "dauer": 10.23,
+      "audio": "audio/folge-05/szene-6.mp3",
+      "woerter": [
+        {
+          "wort": "Merk",
+          "start": 0.15,
+          "ende": 0.44
+        },
+        {
+          "wort": "dir:",
+          "start": 0.44,
+          "ende": 0.68
+        },
+        {
+          "wort": "nicht",
+          "start": 0.87,
+          "ende": 1.22
+        },
+        {
+          "wort": "faul,",
+          "start": 1.22,
+          "ende": 1.51
+        },
+        {
+          "wort": "sondern",
+          "start": 1.51,
+          "ende": 1.98
+        },
+        {
+          "wort": "anders",
+          "start": 1.98,
+          "ende": 2.38
+        },
+        {
+          "wort": "getaktet.",
+          "start": 2.38,
+          "ende": 2.9
+        },
+        {
+          "wort": "Was",
+          "start": 3.23,
+          "ende": 3.42
+        },
+        {
+          "wort": "helfen",
+          "start": 3.42,
+          "ende": 3.74
+        },
+        {
+          "wort": "kann:",
+          "start": 3.74,
+          "ende": 3.97
+        },
+        {
+          "wort": "feste",
+          "start": 4.33,
+          "ende": 4.66
+        },
+        {
+          "wort": "Aufstehzeiten,",
+          "start": 4.66,
+          "ende": 5.43
+        },
+        {
+          "wort": "auch",
+          "start": 5.43,
+          "ende": 5.71
+        },
+        {
+          "wort": "am",
+          "start": 5.71,
+          "ende": 5.87
+        },
+        {
+          "wort": "Wochenende,",
+          "start": 5.87,
+          "ende": 6.48
+        },
+        {
+          "wort": "morgens",
+          "start": 6.83,
+          "ende": 7.24
+        },
+        {
+          "wort": "viel",
+          "start": 7.24,
+          "ende": 7.5
+        },
+        {
+          "wort": "Tageslicht",
+          "start": 7.5,
+          "ende": 8.06
+        },
+        {
+          "wort": "und",
+          "start": 8.06,
+          "ende": 8.26
+        },
+        {
+          "wort": "abends",
+          "start": 8.26,
+          "ende": 8.62
+        },
+        {
+          "wort": "weniger",
+          "start": 8.62,
+          "ende": 9.03
+        },
+        {
+          "wort": "Bildschirm.",
+          "start": 9.03,
+          "ende": 9.59
+        }
+      ]
     },
     {
       "typ": "outro",
       "titel": "Wann wird DEIN Kind abends müde?",
       "highlight": "DEIN Kind",
       "sprechtext": "Wann wird dein Kind abends müde, und wann muss es morgens raus? Schreib es in die Kommentare und folg mir für mehr.",
-      "dauer": 10.1
+      "dauer": 6.31,
+      "audio": "audio/folge-05/szene-7.mp3",
+      "woerter": [
+        {
+          "wort": "Wann",
+          "start": 0.15,
+          "ende": 0.37
+        },
+        {
+          "wort": "wird",
+          "start": 0.37,
+          "ende": 0.6
+        },
+        {
+          "wort": "dein",
+          "start": 0.6,
+          "ende": 0.82
+        },
+        {
+          "wort": "Kind",
+          "start": 0.82,
+          "ende": 1.05
+        },
+        {
+          "wort": "abends",
+          "start": 1.05,
+          "ende": 1.37
+        },
+        {
+          "wort": "müde,",
+          "start": 1.37,
+          "ende": 1.59
+        },
+        {
+          "wort": "und",
+          "start": 1.88,
+          "ende": 2.05
+        },
+        {
+          "wort": "wann",
+          "start": 2.05,
+          "ende": 2.26
+        },
+        {
+          "wort": "muss",
+          "start": 2.26,
+          "ende": 2.47
+        },
+        {
+          "wort": "es",
+          "start": 2.47,
+          "ende": 2.6
+        },
+        {
+          "wort": "morgens",
+          "start": 2.6,
+          "ende": 2.94
+        },
+        {
+          "wort": "raus?",
+          "start": 2.94,
+          "ende": 3.15
+        },
+        {
+          "wort": "Schreib",
+          "start": 3.5,
+          "ende": 3.83
+        },
+        {
+          "wort": "es",
+          "start": 3.83,
+          "ende": 3.95
+        },
+        {
+          "wort": "in",
+          "start": 3.95,
+          "ende": 4.07
+        },
+        {
+          "wort": "die",
+          "start": 4.07,
+          "ende": 4.23
+        },
+        {
+          "wort": "Kommentare",
+          "start": 4.23,
+          "ende": 4.68
+        },
+        {
+          "wort": "und",
+          "start": 4.84,
+          "ende": 5.0
+        },
+        {
+          "wort": "folg",
+          "start": 5.0,
+          "ende": 5.19
+        },
+        {
+          "wort": "mir",
+          "start": 5.19,
+          "ende": 5.34
+        },
+        {
+          "wort": "für",
+          "start": 5.34,
+          "ende": 5.49
+        },
+        {
+          "wort": "mehr.",
+          "start": 5.49,
+          "ende": 5.68
+        }
+      ]
     }
   ]
 }
