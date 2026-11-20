@@ -12,7 +12,7 @@ Juli ist angehender Erzieher und hat Erfahrung in der Kinder- und Jugendpsychiat
 | #3 | Sagst DU auch „Hör auf zu weinen“? (Ko-Regulation) | fertig (Julis Stimme, 63,1 s) |
 | #4 | Denkst DU, alle schauen dich an? (Spotlight-Effekt) | fertig (Julis Stimme, 63,0 s) |
 | #5 | Ist DEIN Kind morgens nur faul? (Teenager-Schlaf) | fertig (Julis Stimme, 65,1 s) |
-| #6 | Schaust DU schlechte Filme zu Ende? (Sunk Cost) | Skript fertig (`skripte/folge-06-aufnahme.txt`), Juli nimmt auf; Grafiken `fernseher`, `muenzen`, `waage` noch bauen |
+| #6 | Schaust DU schlechte Filme zu Ende? (Sunk Cost) | fertig (Julis Stimme, 65,3 s) |
 
 Diese Tabelle nach jeder fertigen Folge aktualisieren. Themen im Wechsel: Kinder-Themen und Themen für alle (z. B. Spotlight-Effekt, Sunk Cost, Prokrastination, Teenager-Schlaf).
 
