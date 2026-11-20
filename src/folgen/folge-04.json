@@ -8,7 +8,60 @@
       "highlight": "DU",
       "grafik": "scheinwerfer",
       "sprechtext": "Du denkst, alle haben deinen Fleck gesehen? Haben sie nicht.",
-      "dauer": 4.8
+      "dauer": 4.2,
+      "audio": "audio/folge-04/szene-1.mp3",
+      "woerter": [
+        {
+          "wort": "Du",
+          "start": 0.15,
+          "ende": 0.31
+        },
+        {
+          "wort": "denkst,",
+          "start": 0.31,
+          "ende": 0.69
+        },
+        {
+          "wort": "alle",
+          "start": 0.69,
+          "ende": 0.96
+        },
+        {
+          "wort": "haben",
+          "start": 0.96,
+          "ende": 1.29
+        },
+        {
+          "wort": "deinen",
+          "start": 1.29,
+          "ende": 1.67
+        },
+        {
+          "wort": "Fleck",
+          "start": 1.67,
+          "ende": 1.99
+        },
+        {
+          "wort": "gesehen?",
+          "start": 1.99,
+          "ende": 2.43
+        },
+        {
+          "wort": "Haben",
+          "start": 2.79,
+          "ende": 3.07
+        },
+        {
+          "wort": "sie",
+          "start": 3.07,
+          "ende": 3.27
+        },
+        {
+          "wort": "nicht.",
+          "start": 3.27,
+          "ende": 3.55
+        }
+      ]
     },
     {
       "typ": "schritt",
@@ -16,7 +69,120 @@
       "highlight": "Spotlight-Effekt",
       "grafik": "scheinwerfer",
       "sprechtext": "Psychologen nennen das den Spotlight-Effekt. Wir glauben, ein Scheinwerfer ist auf uns gerichtet und alle bemerken jeden Fehler, jedes Outfit, jeden Versprecher.",
-      "dauer": 10.1
+      "dauer": 10.31,
+      "audio": "audio/folge-04/szene-2.mp3",
+      "woerter": [
+        {
+          "wort": "Psychologen",
+          "start": 0.15,
+          "ende": 0.84
+        },
+        {
+          "wort": "nennen",
+          "start": 0.84,
+          "ende": 1.24
+        },
+        {
+          "wort": "das",
+          "start": 1.24,
+          "ende": 1.48
+        },
+        {
+          "wort": "den",
+          "start": 1.48,
+          "ende": 1.71
+        },
+        {
+          "wort": "Spotlight-Effekt.",
+          "start": 1.71,
+          "ende": 2.69
+        },
+        {
+          "wort": "Wir",
+          "start": 3.05,
+          "ende": 3.25
+        },
+        {
+          "wort": "glauben,",
+          "start": 3.25,
+          "ende": 3.64
+        },
+        {
+          "wort": "ein",
+          "start": 3.64,
+          "ende": 3.84
+        },
+        {
+          "wort": "Scheinwerfer",
+          "start": 3.84,
+          "ende": 4.48
+        },
+        {
+          "wort": "ist",
+          "start": 4.48,
+          "ende": 4.68
+        },
+        {
+          "wort": "auf",
+          "start": 4.68,
+          "ende": 4.88
+        },
+        {
+          "wort": "uns",
+          "start": 4.88,
+          "ende": 5.08
+        },
+        {
+          "wort": "gerichtet",
+          "start": 5.08,
+          "ende": 5.57
+        },
+        {
+          "wort": "und",
+          "start": 5.79,
+          "ende": 6.02
+        },
+        {
+          "wort": "alle",
+          "start": 6.02,
+          "ende": 6.31
+        },
+        {
+          "wort": "bemerken",
+          "start": 6.31,
+          "ende": 6.84
+        },
+        {
+          "wort": "jeden",
+          "start": 6.84,
+          "ende": 7.19
+        },
+        {
+          "wort": "Fehler,",
+          "start": 7.19,
+          "ende": 7.6
+        },
+        {
+          "wort": "jedes",
+          "start": 7.75,
+          "ende": 8.11
+        },
+        {
+          "wort": "Outfit,",
+          "start": 8.11,
+          "ende": 8.52
+        },
+        {
+          "wort": "jeden",
+          "start": 8.83,
+          "ende": 9.12
+        },
+        {
+          "wort": "Versprecher.",
+          "start": 9.12,
+          "ende": 9.68
+        }
+      ]
     },
     {
       "typ": "schritt",
@@ -28,15 +194,326 @@
         "Viertel"
       ],
       "sprechtext": "In einem bekannten Experiment mussten Studierende ein peinliches T-Shirt tragen. Sie dachten, etwa die Hälfte der anderen würde es bemerken. Tatsächlich war es nur rund ein Viertel.",
-      "dauer": 12.2
+      "dauer": 11.23,
+      "audio": "audio/folge-04/szene-3.mp3",
+      "woerter": [
+        {
+          "wort": "In",
+          "start": 0.15,
+          "ende": 0.31
+        },
+        {
+          "wort": "einem",
+          "start": 0.31,
+          "ende": 0.63
+        },
+        {
+          "wort": "bekannten",
+          "start": 0.63,
+          "ende": 1.17
+        },
+        {
+          "wort": "Experiment",
+          "start": 1.17,
+          "ende": 1.77
+        },
+        {
+          "wort": "mussten",
+          "start": 1.99,
+          "ende": 2.41
+        },
+        {
+          "wort": "Studierende",
+          "start": 2.41,
+          "ende": 3.03
+        },
+        {
+          "wort": "ein",
+          "start": 3.03,
+          "ende": 3.24
+        },
+        {
+          "wort": "peinliches",
+          "start": 3.24,
+          "ende": 3.82
+        },
+        {
+          "wort": "T-Shirt",
+          "start": 3.82,
+          "ende": 4.24
+        },
+        {
+          "wort": "tragen.",
+          "start": 4.24,
+          "ende": 4.6
+        },
+        {
+          "wort": "Sie",
+          "start": 4.96,
+          "ende": 5.2
+        },
+        {
+          "wort": "dachten,",
+          "start": 5.2,
+          "ende": 5.69
+        },
+        {
+          "wort": "etwa",
+          "start": 6.05,
+          "ende": 6.29
+        },
+        {
+          "wort": "die",
+          "start": 6.29,
+          "ende": 6.48
+        },
+        {
+          "wort": "Hälfte",
+          "start": 6.48,
+          "ende": 6.82
+        },
+        {
+          "wort": "der",
+          "start": 6.82,
+          "ende": 7.02
+        },
+        {
+          "wort": "anderen",
+          "start": 7.02,
+          "ende": 7.4
+        },
+        {
+          "wort": "würde",
+          "start": 7.4,
+          "ende": 7.69
+        },
+        {
+          "wort": "es",
+          "start": 7.69,
+          "ende": 7.84
+        },
+        {
+          "wort": "bemerken.",
+          "start": 7.84,
+          "ende": 8.27
+        },
+        {
+          "wort": "Tatsächlich",
+          "start": 8.63,
+          "ende": 9.21
+        },
+        {
+          "wort": "war",
+          "start": 9.21,
+          "ende": 9.41
+        },
+        {
+          "wort": "es",
+          "start": 9.41,
+          "ende": 9.55
+        },
+        {
+          "wort": "nur",
+          "start": 9.55,
+          "ende": 9.75
+        },
+        {
+          "wort": "rund",
+          "start": 9.75,
+          "ende": 9.99
+        },
+        {
+          "wort": "ein",
+          "start": 9.99,
+          "ende": 10.18
+        },
+        {
+          "wort": "Viertel.",
+          "start": 10.18,
+          "ende": 10.57
+        }
+      ]
     },
     {
       "typ": "schritt",
       "titel": "Alle sind mit sich selbst beschäftigt",
       "highlight": "sich selbst",
       "grafik": "gehirn",
-      "sprechtext": "Warum? Jeder Mensch ist in seinem eigenen Film die Hauptfigur. Die anderen sind gerade genauso mit sich beschäftigt: mit ihrem Aussehen, ihren Sorgen, ihrem nächsten Satz.",
-      "dauer": 11.8
+      "sprechtext": "Warum? Jeder Mensch ist in seinem eigenen Film die Hauptfigur. Die anderen sind gerade genauso mit sich beschäftigt: mit ihrem Aussehen, ihren Sorgen, ihrem nächsten Satz. Du bist für sie also eher eine Nebenfigur.",
+      "dauer": 12.87,
+      "audio": "audio/folge-04/szene-4.mp3",
+      "woerter": [
+        {
+          "wort": "Warum?",
+          "start": 0.15,
+          "ende": 0.65
+        },
+        {
+          "wort": "Jeder",
+          "start": 0.98,
+          "ende": 1.26
+        },
+        {
+          "wort": "Mensch",
+          "start": 1.26,
+          "ende": 1.59
+        },
+        {
+          "wort": "ist",
+          "start": 1.59,
+          "ende": 1.78
+        },
+        {
+          "wort": "in",
+          "start": 1.78,
+          "ende": 1.92
+        },
+        {
+          "wort": "seinem",
+          "start": 1.92,
+          "ende": 2.25
+        },
+        {
+          "wort": "eigenen",
+          "start": 2.25,
+          "ende": 2.62
+        },
+        {
+          "wort": "Film",
+          "start": 2.62,
+          "ende": 2.86
+        },
+        {
+          "wort": "die",
+          "start": 2.86,
+          "ende": 3.05
+        },
+        {
+          "wort": "Hauptfigur.",
+          "start": 3.05,
+          "ende": 3.56
+        },
+        {
+          "wort": "Die",
+          "start": 3.92,
+          "ende": 4.12
+        },
+        {
+          "wort": "anderen",
+          "start": 4.12,
+          "ende": 4.51
+        },
+        {
+          "wort": "sind",
+          "start": 4.51,
+          "ende": 4.76
+        },
+        {
+          "wort": "gerade",
+          "start": 4.76,
+          "ende": 5.1
+        },
+        {
+          "wort": "genauso",
+          "start": 5.1,
+          "ende": 5.49
+        },
+        {
+          "wort": "mit",
+          "start": 5.49,
+          "ende": 5.69
+        },
+        {
+          "wort": "sich",
+          "start": 5.69,
+          "ende": 5.94
+        },
+        {
+          "wort": "beschäftigt:",
+          "start": 5.94,
+          "ende": 6.52
+        },
+        {
+          "wort": "mit",
+          "start": 6.79,
+          "ende": 6.98
+        },
+        {
+          "wort": "ihrem",
+          "start": 6.98,
+          "ende": 7.28
+        },
+        {
+          "wort": "Aussehen,",
+          "start": 7.28,
+          "ende": 7.72
+        },
+        {
+          "wort": "ihren",
+          "start": 7.84,
+          "ende": 8.19
+        },
+        {
+          "wort": "Sorgen,",
+          "start": 8.19,
+          "ende": 8.59
+        },
+        {
+          "wort": "ihrem",
+          "start": 8.93,
+          "ende": 9.22
+        },
+        {
+          "wort": "nächsten",
+          "start": 9.22,
+          "ende": 9.65
+        },
+        {
+          "wort": "Satz.",
+          "start": 9.65,
+          "ende": 9.89
+        },
+        {
+          "wort": "Du",
+          "start": 10.25,
+          "ende": 10.39
+        },
+        {
+          "wort": "bist",
+          "start": 10.39,
+          "ende": 10.63
+        },
+        {
+          "wort": "für",
+          "start": 10.63,
+          "ende": 10.82
+        },
+        {
+          "wort": "sie",
+          "start": 10.82,
+          "ende": 11.01
+        },
+        {
+          "wort": "also",
+          "start": 11.01,
+          "ende": 11.24
+        },
+        {
+          "wort": "eher",
+          "start": 11.24,
+          "ende": 11.48
+        },
+        {
+          "wort": "eine",
+          "start": 11.48,
+          "ende": 11.71
+        },
+        {
+          "wort": "Nebenfigur.",
+          "start": 11.71,
+          "ende": 12.23
+        }
+      ]
     },
     {
       "typ": "beispiel",
@@ -48,7 +525,135 @@
         "vergessen"
       ],
       "sprechtext": "Du stolperst auf dem Weg zur Arbeit und denkst noch abends daran. Und die Leute, die es gesehen haben? Die haben es höchstwahrscheinlich längst vergessen.",
-      "dauer": 11.4
+      "dauer": 8.56,
+      "audio": "audio/folge-04/szene-5.mp3",
+      "woerter": [
+        {
+          "wort": "Du",
+          "start": 0.15,
+          "ende": 0.29
+        },
+        {
+          "wort": "stolperst",
+          "start": 0.29,
+          "ende": 0.79
+        },
+        {
+          "wort": "auf",
+          "start": 0.79,
+          "ende": 0.99
+        },
+        {
+          "wort": "dem",
+          "start": 0.99,
+          "ende": 1.19
+        },
+        {
+          "wort": "Weg",
+          "start": 1.19,
+          "ende": 1.39
+        },
+        {
+          "wort": "zur",
+          "start": 1.39,
+          "ende": 1.58
+        },
+        {
+          "wort": "Arbeit",
+          "start": 1.58,
+          "ende": 1.93
+        },
+        {
+          "wort": "und",
+          "start": 2.29,
+          "ende": 2.49
+        },
+        {
+          "wort": "denkst",
+          "start": 2.49,
+          "ende": 2.83
+        },
+        {
+          "wort": "noch",
+          "start": 2.83,
+          "ende": 3.07
+        },
+        {
+          "wort": "abends",
+          "start": 3.07,
+          "ende": 3.41
+        },
+        {
+          "wort": "daran.",
+          "start": 3.41,
+          "ende": 3.7
+        },
+        {
+          "wort": "Und",
+          "start": 4.06,
+          "ende": 4.22
+        },
+        {
+          "wort": "die",
+          "start": 4.22,
+          "ende": 4.39
+        },
+        {
+          "wort": "Leute,",
+          "start": 4.39,
+          "ende": 4.63
+        },
+        {
+          "wort": "die",
+          "start": 4.63,
+          "ende": 4.8
+        },
+        {
+          "wort": "es",
+          "start": 4.8,
+          "ende": 4.92
+        },
+        {
+          "wort": "gesehen",
+          "start": 4.92,
+          "ende": 5.25
+        },
+        {
+          "wort": "haben?",
+          "start": 5.25,
+          "ende": 5.5
+        },
+        {
+          "wort": "Die",
+          "start": 5.85,
+          "ende": 6.02
+        },
+        {
+          "wort": "haben",
+          "start": 6.02,
+          "ende": 6.26
+        },
+        {
+          "wort": "es",
+          "start": 6.26,
+          "ende": 6.38
+        },
+        {
+          "wort": "höchstwahrscheinlich",
+          "start": 6.38,
+          "ende": 7.23
+        },
+        {
+          "wort": "längst",
+          "start": 7.23,
+          "ende": 7.52
+        },
+        {
+          "wort": "vergessen.",
+          "start": 7.52,
+          "ende": 7.92
+        }
+      ]
     },
     {
       "typ": "merke",
@@ -56,14 +661,260 @@
       "highlight": "du selbst",
       "grafik": "herz",
       "sprechtext": "Merk dir: Niemand achtet so sehr auf dich wie du selbst. Das kann ganz schön entlasten, beim nächsten Vortrag oder beim nächsten Fleck auf dem Shirt.",
-      "dauer": 11.8
+      "dauer": 9.19,
+      "audio": "audio/folge-04/szene-6.mp3",
+      "woerter": [
+        {
+          "wort": "Merk",
+          "start": 0.15,
+          "ende": 0.45
+        },
+        {
+          "wort": "dir:",
+          "start": 0.45,
+          "ende": 0.7
+        },
+        {
+          "wort": "Niemand",
+          "start": 1.06,
+          "ende": 1.48
+        },
+        {
+          "wort": "achtet",
+          "start": 1.48,
+          "ende": 1.84
+        },
+        {
+          "wort": "so",
+          "start": 1.84,
+          "ende": 2.0
+        },
+        {
+          "wort": "sehr",
+          "start": 2.0,
+          "ende": 2.26
+        },
+        {
+          "wort": "auf",
+          "start": 2.26,
+          "ende": 2.47
+        },
+        {
+          "wort": "dich",
+          "start": 2.47,
+          "ende": 2.73
+        },
+        {
+          "wort": "wie",
+          "start": 2.73,
+          "ende": 2.94
+        },
+        {
+          "wort": "du",
+          "start": 2.94,
+          "ende": 3.1
+        },
+        {
+          "wort": "selbst.",
+          "start": 3.1,
+          "ende": 3.47
+        },
+        {
+          "wort": "Das",
+          "start": 3.83,
+          "ende": 4.02
+        },
+        {
+          "wort": "kann",
+          "start": 4.02,
+          "ende": 4.26
+        },
+        {
+          "wort": "ganz",
+          "start": 4.26,
+          "ende": 4.5
+        },
+        {
+          "wort": "schön",
+          "start": 4.5,
+          "ende": 4.78
+        },
+        {
+          "wort": "entlasten,",
+          "start": 4.78,
+          "ende": 5.26
+        },
+        {
+          "wort": "beim",
+          "start": 5.46,
+          "ende": 5.72
+        },
+        {
+          "wort": "nächsten",
+          "start": 5.72,
+          "ende": 6.2
+        },
+        {
+          "wort": "Vortrag",
+          "start": 6.2,
+          "ende": 6.62
+        },
+        {
+          "wort": "oder",
+          "start": 6.82,
+          "ende": 7.04
+        },
+        {
+          "wort": "beim",
+          "start": 7.04,
+          "ende": 7.26
+        },
+        {
+          "wort": "nächsten",
+          "start": 7.26,
+          "ende": 7.66
+        },
+        {
+          "wort": "Fleck",
+          "start": 7.66,
+          "ende": 7.93
+        },
+        {
+          "wort": "auf",
+          "start": 7.93,
+          "ende": 8.11
+        },
+        {
+          "wort": "dem",
+          "start": 8.11,
+          "ende": 8.29
+        },
+        {
+          "wort": "Shirt.",
+          "start": 8.29,
+          "ende": 8.55
+        }
+      ]
     },
     {
       "typ": "outro",
       "titel": "Was war DEIN peinlichster Moment?",
       "highlight": "DEIN",
       "sprechtext": "Was war dein peinlichster Moment, an den sich wahrscheinlich keiner mehr erinnert? Schreib es in die Kommentare und folg mir für mehr.",
-      "dauer": 10.1
+      "dauer": 6.68,
+      "audio": "audio/folge-04/szene-7.mp3",
+      "woerter": [
+        {
+          "wort": "Was",
+          "start": 0.15,
+          "ende": 0.32
+        },
+        {
+          "wort": "war",
+          "start": 0.32,
+          "ende": 0.5
+        },
+        {
+          "wort": "dein",
+          "start": 0.5,
+          "ende": 0.72
+        },
+        {
+          "wort": "peinlichster",
+          "start": 0.72,
+          "ende": 1.29
+        },
+        {
+          "wort": "Moment,",
+          "start": 1.29,
+          "ende": 1.6
+        },
+        {
+          "wort": "an",
+          "start": 1.73,
+          "ende": 1.84
+        },
+        {
+          "wort": "den",
+          "start": 1.84,
+          "ende": 1.98
+        },
+        {
+          "wort": "sich",
+          "start": 1.98,
+          "ende": 2.16
+        },
+        {
+          "wort": "wahrscheinlich",
+          "start": 2.16,
+          "ende": 2.71
+        },
+        {
+          "wort": "keiner",
+          "start": 2.71,
+          "ende": 2.96
+        },
+        {
+          "wort": "mehr",
+          "start": 2.96,
+          "ende": 3.14
+        },
+        {
+          "wort": "erinnert?",
+          "start": 3.14,
+          "ende": 3.47
+        },
+        {
+          "wort": "Schreib",
+          "start": 3.83,
+          "ende": 4.17
+        },
+        {
+          "wort": "es",
+          "start": 4.17,
+          "ende": 4.3
+        },
+        {
+          "wort": "in",
+          "start": 4.3,
+          "ende": 4.44
+        },
+        {
+          "wort": "die",
+          "start": 4.44,
+          "ende": 4.61
+        },
+        {
+          "wort": "Kommentare",
+          "start": 4.61,
+          "ende": 5.09
+        },
+        {
+          "wort": "und",
+          "start": 5.09,
+          "ende": 5.26
+        },
+        {
+          "wort": "folg",
+          "start": 5.26,
+          "ende": 5.48
+        },
+        {
+          "wort": "mir",
+          "start": 5.48,
+          "ende": 5.66
+        },
+        {
+          "wort": "für",
+          "start": 5.66,
+          "ende": 5.83
+        },
+        {
+          "wort": "mehr.",
+          "start": 5.83,
+          "ende": 6.05
+        }
+      ]
     }
   ]
 }
