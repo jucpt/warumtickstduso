@@ -670,6 +670,177 @@ const Stolpern: React.FC<GrafikProps> = ({ groesse, szene, versatz = 0 }) => {
   );
 };
 
+// Sonne (Strahlen) oder Mond (Sichel) – Hilfsgrafik für Uhr und Bett. `mond` 0–1 blendet über.
+const SonneMond: React.FC<{ x: number; y: number; mond: number; t: number }> = ({ x, y, mond, t }) => (
+  <g>
+    <g opacity={1 - mond} transform={`rotate(${t * 20} ${x} ${y})`}>
+      <circle cx={x} cy={y} r="10" stroke={FARBEN.highlight} strokeWidth={5} />
+      {Array.from({ length: 8 }, (_, i) => {
+        const a = (i / 8) * 2 * Math.PI;
+        return <line key={i} x1={x + 15 * Math.cos(a)} y1={y + 15 * Math.sin(a)} x2={x + 21 * Math.cos(a)} y2={y + 21 * Math.sin(a)} stroke={FARBEN.highlight} strokeWidth={4} />;
+      })}
+    </g>
+    <g opacity={mond}>
+      <path d={`M${x + 4} ${y - 14} A14 14 0 1 0 ${x + 12} ${y + 8} A11 11 0 1 1 ${x + 4} ${y - 14} Z`} stroke={FARBEN.neben} strokeWidth={5} />
+      <circle cx={x + 16} cy={y - 12} r={3 + Math.sin(t * 4)} fill={FARBEN.highlight} />
+    </g>
+  </g>
+);
+
+// Innere Uhr: Zeiger laufen ständig. Ereignis 1 (z. B. „später“): Zeiger drehen schnell zwei Stunden vor,
+// die Sonne wird zum Mond.
+const Uhr: React.FC<GrafikProps> = ({ groesse, szene, versatz = 0 }) => {
+  const { t } = useZeit();
+  const p = useZeichnen(1);
+  const vor = ab(t, ereignis(szene, versatz, 0, 'später'), 0.9);
+  const ruck = ausschlag(t, ereignis(szene, versatz, 0, 'später'), 0.6);
+  const cx = 96;
+  const cy = 112;
+  const minute = (t * 60 + vor * 720) % 360;
+  const stunde = 300 + t * 5 + vor * 60;
+  const zeiger = (w: number, l: number) => {
+    const a = ((w - 90) * Math.PI) / 180;
+    return { x2: cx + l * Math.cos(a), y2: cy + l * Math.sin(a) };
+  };
+  return (
+    <SVG groesse={groesse}>
+      <g transform={`translate(${cx} ${cy}) scale(${1 + 0.06 * ruck}) translate(${-cx} ${-cy})`}>
+        <circle cx={cx} cy={cy} r="62" stroke={FARBEN.neben} strokeWidth={7} pathLength={1} strokeDasharray={1} strokeDashoffset={1 - p} />
+        {Array.from({ length: 12 }, (_, i) => {
+          const a = (i / 12) * 2 * Math.PI;
+          const lang = i % 3 === 0 ? 10 : 5;
+          return <line key={i} x1={cx + (50 - lang) * Math.sin(a)} y1={cy - (50 - lang) * Math.cos(a)} x2={cx + 52 * Math.sin(a)} y2={cy - 52 * Math.cos(a)} stroke={FARBEN.neben} strokeWidth={4} opacity={0.6 * p} />;
+        })}
+        <g opacity={p}>
+          <line x1={cx} y1={cy} {...zeiger(stunde, 28)} stroke={FARBEN.neben} strokeWidth={7} />
+          <line x1={cx} y1={cy} {...zeiger(minute, 42)} stroke={FARBEN.akzent} strokeWidth={6} />
+          <circle cx={cx} cy={cy} r="6" fill={FARBEN.akzent} />
+        </g>
+      </g>
+      <g opacity={ab(t, 0.8, 0.3)}>
+        <SonneMond x={160} y={40} mond={vor} t={t} />
+      </g>
+    </SVG>
+  );
+};
+
+// Akku: lädt sich auf (gelber Blitz). Ereignis 1 (z. B. „zu wenig“): fällt schnell auf einen Rest und blinkt.
+const Akku: React.FC<GrafikProps> = ({ groesse, szene, versatz = 0 }) => {
+  const { t } = useZeit();
+  const p = useZeichnen(0.9);
+  const leer = ereignis(szene, versatz, 0, 'zu wenig');
+  const laden = Math.min(0.92, Math.max(0, (t - 0.8) * 0.45));
+  const fall = ab(t, leer, 0.6);
+  const stand = laden * (1 - fall) + 0.14 * fall;
+  const blinken = fall >= 1 ? 0.45 + 0.55 * Math.abs(Math.sin(t * 5)) : 1;
+  const wackeln = zucken(t, leer, 4);
+  const breite = 108 * stand;
+  return (
+    <SVG groesse={groesse}>
+      <g transform={`rotate(${wackeln} 100 100)`}>
+        <rect x="36" y="66" width="120" height="68" rx="12" stroke={FARBEN.neben} strokeWidth={7} pathLength={1} strokeDasharray={1} strokeDashoffset={1 - p} />
+        <rect x="160" y="88" width="10" height="24" rx="4" stroke={FARBEN.neben} strokeWidth={6} opacity={p} />
+        {breite > 1 ? <rect x="42" y="72" width={breite} height="56" rx="7" fill={FARBEN.akzent} opacity={blinken} /> : null}
+        {/* Strichmarken auf dem Akku */}
+        {[1, 2, 3].map((i) => (
+          <line key={i} x1={42 + i * 27} y1="76" x2={42 + i * 27} y2="124" stroke={FARBEN.hintergrund} strokeWidth={4} opacity={0.5} />
+        ))}
+      </g>
+      {fall < 0.5 && t > 0.8 ? (
+        <g opacity={1 - fall * 2}>
+          <path d="M106 26 L90 52 H104 L94 78 L118 46 H104 L114 26 Z" fill={FARBEN.highlight} opacity={0.85 + 0.15 * Math.sin(t * 6)} />
+        </g>
+      ) : null}
+      {fall > 0 ? (
+        <g opacity={fall} stroke={FARBEN.neben} strokeWidth={5}>
+          <line x1="96" y1="150" x2="96" y2={168 + 2 * Math.sin(t * 5)} />
+          <circle cx="96" cy="182" r="3" fill={FARBEN.neben} />
+        </g>
+      ) : null}
+    </SVG>
+  );
+};
+
+// Bett: Figur liegt im Bett, nachts mit Mond und Handy-Leuchten. Ereignis 1 (z. B. „hellwach“): Augen weit auf.
+// Ereignis 2 (z. B. „sieben“): Wecker klingelt, Mond wird Sonne, Augen zu, „Z“ steigen auf.
+const Bett: React.FC<GrafikProps> = ({ groesse, szene, versatz = 0 }) => {
+  const { t } = useZeit();
+  const p = useZeichnen(1);
+  const wach = ereignis(szene, versatz, 0, 'hellwach');
+  const morgen = ereignis(szene, versatz, 1, 'sieben');
+  const weit = ausschlag(t, wach, 0.9);
+  const tag = ab(t, morgen, 0.4);
+  const klingeln = morgen !== null && t >= morgen ? Math.sin(t * 40) * 8 * Math.max(0.3, Math.exp(-(t - morgen) * 0.8)) : 0;
+  const augenAuf = tag < 0.5;
+  return (
+    <SVG groesse={groesse}>
+      <g transform="translate(100 112) scale(1.25) translate(-100 -112)">
+      {/* Bett */}
+      <g stroke={FARBEN.neben} strokeWidth={6} opacity={p}>
+        <line x1="26" y1="104" x2="26" y2="178" />
+        <line x1="26" y1="160" x2="176" y2="160" />
+        <line x1="176" y1="148" x2="176" y2="178" />
+      </g>
+      <rect x="26" y="140" width="150" height="20" rx="6" stroke={FARBEN.neben} strokeWidth={5} pathLength={1} strokeDasharray={1} strokeDashoffset={1 - p} />
+      <ellipse cx="52" cy="134" rx="18" ry="7" stroke={FARBEN.neben} strokeWidth={5} opacity={p} />
+      {/* Figur */}
+      <g opacity={p} transform={`translate(0 ${Math.sin(t * 1.6) * 1})`}>
+        <circle cx="58" cy="118" r="15" stroke={FARBEN.neben} strokeWidth={6} />
+        {augenAuf ? (
+          <>
+            <circle cx="53" cy="116" r={2.5 + 2.5 * weit} fill={FARBEN.text} />
+            <circle cx="63" cy="116" r={2.5 + 2.5 * weit} fill={FARBEN.text} />
+          </>
+        ) : (
+          <>
+            <line x1="49" y1="117" x2="56" y2="117" stroke={FARBEN.text} strokeWidth={3} />
+            <line x1="60" y1="117" x2="67" y2="117" stroke={FARBEN.text} strokeWidth={3} />
+          </>
+        )}
+        <path d="M76 140 C76 120 104 112 172 120 L172 140" stroke={FARBEN.akzent} strokeWidth={6} />
+      </g>
+      {/* Handy-Leuchten nachts */}
+      {tag < 1 ? (
+        <g opacity={(1 - tag) * ab(t, 0.9, 0.3)}>
+          <circle cx="88" cy="104" r={14 + 2 * Math.sin(t * 7)} fill={FARBEN.highlight} opacity={0.2} />
+          <rect x="82" y="94" width="12" height="20" rx="3" stroke={FARBEN.highlight} strokeWidth={4} />
+        </g>
+      ) : null}
+      <g opacity={ab(t, 0.8, 0.3)}>
+        <SonneMond x={150} y={38} mond={1 - tag} t={t} />
+      </g>
+      {/* Wecker */}
+      <g opacity={tag} transform={`rotate(${klingeln} 110 50)`}>
+        <circle cx="110" cy="54" r="14" stroke={FARBEN.neben} strokeWidth={5} />
+        <line x1="110" y1="54" x2="110" y2="46" stroke={FARBEN.akzent} strokeWidth={4} />
+        <line x1="110" y1="54" x2="116" y2="56" stroke={FARBEN.akzent} strokeWidth={4} />
+        <path d="M96 40 A8 8 0 0 1 104 36" stroke={FARBEN.neben} strokeWidth={5} />
+        <path d="M116 36 A8 8 0 0 1 124 40" stroke={FARBEN.neben} strokeWidth={5} />
+      </g>
+      {tag > 0 ? (
+        <g opacity={0.8 * tag} stroke={FARBEN.akzent} strokeWidth={4}>
+          <line x1="88" y1="44" x2="80" y2="40" />
+          <line x1="132" y1="44" x2="140" y2="40" />
+          <line x1="88" y1="62" x2="80" y2="66" />
+          <line x1="132" y1="62" x2="140" y2="66" />
+        </g>
+      ) : null}
+      {/* Z Z steigen auf */}
+      {tag > 0
+        ? [0, 1, 2].map((i) => {
+            const phase = ((t - (morgen ?? 0)) * 0.6 + i / 3) % 1;
+            return (
+              <text key={i} x={72 - phase * 18} y={100 - phase * 44} fontFamily="Nunito, sans-serif" fontWeight={800} fontSize={14 + 8 * phase} fill={FARBEN.neben} opacity={tag * Math.sin(Math.PI * phase)}>
+                Z
+              </text>
+            );
+          })
+        : null}
+      </g>
+    </SVG>
+  );
+};
+
 export const Grafik: React.FC<{ name?: GrafikName; groesse?: number; szene?: Szene; versatz?: number }> = ({
   name = 'keine',
   groesse = 520,
@@ -710,6 +881,12 @@ export const Grafik: React.FC<{ name?: GrafikName; groesse?: number; szene?: Sze
         return <Torte groesse={groesse} szene={szene} versatz={versatz} />;
       case 'stolpern':
         return <Stolpern groesse={groesse} szene={szene} versatz={versatz} />;
+      case 'uhr':
+        return <Uhr groesse={groesse} szene={szene} versatz={versatz} />;
+      case 'akku':
+        return <Akku groesse={groesse} szene={szene} versatz={versatz} />;
+      case 'bett':
+        return <Bett groesse={groesse} szene={szene} versatz={versatz} />;
       default:
         return null;
     }

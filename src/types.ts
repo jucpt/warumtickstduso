@@ -13,6 +13,9 @@ export type GrafikName =
   | 'scheinwerfer'
   | 'torte'
   | 'stolpern'
+  | 'uhr'
+  | 'akku'
+  | 'bett'
   | 'keine';
 
 export type SzenenTyp = 'hook' | 'schritt' | 'beispiel' | 'merke' | 'outro';
