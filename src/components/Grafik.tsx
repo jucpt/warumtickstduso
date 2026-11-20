@@ -890,6 +890,135 @@ const Sonne: React.FC<GrafikProps> = ({ groesse, szene, versatz = 0 }) => {
   );
 };
 
+// Fernseher: Film flimmert, Fortschrittsbalken läuft weiter, Antenne mit gelbem Lichtpunkt.
+// Ereignis 1 (Standard: Betonungswort): ein gelangweiltes Gesicht erscheint – der Film ist schlecht.
+const Fernseher: React.FC<GrafikProps> = ({ groesse, szene, versatz = 0 }) => {
+  const { t } = useZeit();
+  const p = useZeichnen(0.9);
+  const an = ab(t, 0.8, 0.3);
+  const gesicht = ab(t, ereignis(szene, versatz, 0), 0.4);
+  const fortschritt = Math.min(0.96, 0.15 + t * 0.06);
+  return (
+    <SVG groesse={groesse}>
+      <line x1="84" y1="44" x2="66" y2="14" stroke={FARBEN.neben} strokeWidth={5} opacity={p} />
+      <line x1="116" y1="44" x2="134" y2="14" stroke={FARBEN.neben} strokeWidth={5} opacity={p} />
+      <circle cx="134" cy="14" r={10 + 2 * Math.sin(t * 4)} fill={FARBEN.highlight} opacity={0.25 * p} />
+      <circle cx="134" cy="14" r="5" fill={FARBEN.highlight} opacity={p} />
+      <rect x="28" y="44" width="144" height="104" rx="14" stroke={FARBEN.neben} strokeWidth={7} pathLength={1} strokeDasharray={1} strokeDashoffset={1 - p} />
+      <line x1="76" y1="148" x2="64" y2="172" stroke={FARBEN.neben} strokeWidth={6} opacity={p} />
+      <line x1="124" y1="148" x2="136" y2="172" stroke={FARBEN.neben} strokeWidth={6} opacity={p} />
+      <g opacity={an}>
+        {/* Flimmern */}
+        {[0, 1, 2, 3].map((i) => {
+          const y = 62 + ((t * 40 + i * 18) % 64);
+          return <line key={i} x1="44" y1={y} x2={156} y2={y} stroke={FARBEN.akzent} strokeWidth={3} opacity={0.18} />;
+        })}
+        <g opacity={1 - gesicht}>
+          <path d="M92 76 L118 94 L92 112 Z" fill={FARBEN.akzent} opacity={0.8 + 0.2 * Math.sin(t * 4)} />
+        </g>
+        <g opacity={gesicht} transform={`translate(100 92) scale(${0.7 + 0.3 * gesicht}) translate(-100 -92)`}>
+          <line x1="78" y1="84" x2="90" y2="84" stroke={FARBEN.text} strokeWidth={5} />
+          <line x1="110" y1="84" x2="122" y2="84" stroke={FARBEN.text} strokeWidth={5} />
+          <path d="M84 110 Q100 100 116 110" stroke={FARBEN.text} strokeWidth={5} />
+        </g>
+        <line x1="44" y1="134" x2="156" y2="134" stroke={FARBEN.neben} strokeWidth={5} opacity={0.35} />
+        <line x1="44" y1="134" x2={44 + 112 * fortschritt} y2="134" stroke={FARBEN.akzent} strokeWidth={5} />
+        <circle cx={44 + 112 * fortschritt} cy="134" r="5" fill={FARBEN.akzent} />
+      </g>
+    </SVG>
+  );
+};
+
+// Versunkene Kosten: Münzen fallen nacheinander ins Wasser und versinken (Wellenringe).
+// Ereignis 1 (z. B. „investiert“): ein ganzer Schwall Münzen auf einmal.
+const Muenzen: React.FC<GrafikProps> = ({ groesse, szene, versatz = 0 }) => {
+  const { t } = useZeit();
+  const p = useZeichnen(0.9);
+  const schwall = ereignis(szene, versatz, 0, 'investiert');
+  const WASSER = 112;
+  const muenzen: { start: number; x: number }[] = [];
+  for (let i = 0; i < 40; i++) muenzen.push({ start: 0.9 + i * 0.7, x: 100 + ((i * 37) % 50) - 25 });
+  if (schwall !== null) for (let i = 0; i < 5; i++) muenzen.push({ start: schwall + i * 0.09, x: 70 + i * 15 });
+  const welle = (x: number) => 3 * Math.sin(x / 12 + t * 3);
+  const wasserPfad = Array.from({ length: 41 }, (_, i) => {
+    const x = 20 + i * 4;
+    return `${i === 0 ? 'M' : 'L'}${x} ${(WASSER + welle(x)).toFixed(1)}`;
+  }).join(' ');
+  return (
+    <SVG groesse={groesse}>
+      <path d={wasserPfad} stroke={FARBEN.neben} strokeWidth={6} pathLength={1} strokeDasharray={1} strokeDashoffset={1 - p} />
+      {muenzen.map((m, i) => {
+        const z = t - m.start;
+        if (z < 0 || z > 2.2) return null;
+        const fallZeit = 0.55;
+        const y = z < fallZeit ? 10 + (WASSER - 10) * (z / fallZeit) ** 2 : WASSER + (z - fallZeit) * 32;
+        const unter = z >= fallZeit;
+        const deck = unter ? Math.max(0, 1 - (z - fallZeit) / 1.4) : 1;
+        const dreh = Math.cos(z * 9 + i);
+        return (
+          <g key={i}>
+            <ellipse cx={m.x} cy={y} rx={13 * Math.max(0.25, Math.abs(dreh))} ry="13" stroke={unter ? FARBEN.akzent : FARBEN.highlight} strokeWidth={5} opacity={deck * (unter ? 0.6 : 1)} />
+            {unter && z - fallZeit < 0.7 ? (
+              <ellipse cx={m.x} cy={WASSER} rx={8 + (z - fallZeit) * 50} ry={2 + (z - fallZeit) * 6} stroke={FARBEN.neben} strokeWidth={3} opacity={(1 - (z - fallZeit) / 0.7) * 0.7} />
+            ) : null}
+          </g>
+        );
+      })}
+      {/* Grund mit versunkenen Münzen */}
+      <g opacity={0.45 * p} stroke={FARBEN.akzent} strokeWidth={4}>
+        <ellipse cx="74" cy="176" rx="12" ry="5" />
+        <ellipse cx="100" cy="180" rx="12" ry="5" />
+        <ellipse cx="126" cy="175" rx="12" ry="5" />
+        <ellipse cx="88" cy="168" rx="12" ry="5" />
+      </g>
+    </SVG>
+  );
+};
+
+// Waage: Ereignis 1 (z. B. „Verluste“): links fällt ein Gewicht hinein, die Waage kippt deutlich.
+// Ereignis 2 (z. B. „Gewinne“): rechts gleich großes Gewicht – die Waage hebt sich nur halb, Verluste wiegen schwerer.
+const Waage: React.FC<GrafikProps> = ({ groesse, szene, versatz = 0 }) => {
+  const { t } = useZeit();
+  const p = useZeichnen(1);
+  const e1 = ereignis(szene, versatz, 0, 'Verluste');
+  const e2 = ereignis(szene, versatz, 1, 'Gewinne');
+  const links = ab(t, e1, 0.5);
+  const rechts = ab(t, e2, 0.5);
+  const winkel = -16 * links + 7 * rechts + Math.sin(t * 2) * 1.2 + zucken(t, e1, 3) + zucken(t, e2, 2);
+  const a = (winkel * Math.PI) / 180;
+  const arm = 62;
+  const lx = 100 - arm * Math.cos(a);
+  const ly = 58 - arm * Math.sin(a);
+  const rx = 100 + arm * Math.cos(a);
+  const ry = 58 + arm * Math.sin(a);
+  const schale = (x: number, y: number, zeichen: string, gewicht: number, fall: number) => (
+    <g>
+      <line x1={x} y1={y} x2={x - 22} y2={y + 44} stroke={FARBEN.neben} strokeWidth={3} />
+      <line x1={x} y1={y} x2={x + 22} y2={y + 44} stroke={FARBEN.neben} strokeWidth={3} />
+      <path d={`M${x - 30} ${y + 44} Q${x} ${y + 66} ${x + 30} ${y + 44} Z`} stroke={FARBEN.neben} strokeWidth={5} />
+      <text x={x} y={y + 90} textAnchor="middle" fontFamily="Nunito, sans-serif" fontWeight={800} fontSize={24} fill={FARBEN.akzent}>
+        {zeichen}
+      </text>
+      {gewicht > 0 ? (
+        <rect x={x - 12} y={y + 18 - (1 - fall) * 60} width="24" height="22" rx="5" fill={FARBEN.akzent} opacity={gewicht} />
+      ) : null}
+    </g>
+  );
+  return (
+    <SVG groesse={groesse}>
+      <line x1="100" y1="58" x2="100" y2="176" stroke={FARBEN.neben} strokeWidth={7} pathLength={1} strokeDasharray={1} strokeDashoffset={1 - p} />
+      <line x1="70" y1="176" x2="130" y2="176" stroke={FARBEN.neben} strokeWidth={7} opacity={p} />
+      <g opacity={p}>
+        <line x1={lx} y1={ly} x2={rx} y2={ry} stroke={FARBEN.neben} strokeWidth={6} />
+        {schale(lx, ly, '−', links > 0 ? 1 : 0, links)}
+        {schale(rx, ry, '+', rechts > 0 ? 1 : 0, rechts)}
+        <circle cx="100" cy="58" r={11 + Math.sin(t * 4)} fill={FARBEN.highlight} opacity={0.25} />
+        <circle cx="100" cy="58" r="6" fill={FARBEN.highlight} />
+      </g>
+    </SVG>
+  );
+};
+
 export const Grafik: React.FC<{ name?: GrafikName; groesse?: number; szene?: Szene; versatz?: number }> = ({
   name = 'keine',
   groesse = 520,
@@ -938,6 +1067,12 @@ export const Grafik: React.FC<{ name?: GrafikName; groesse?: number; szene?: Sze
         return <Bett groesse={groesse} szene={szene} versatz={versatz} />;
       case 'sonne':
         return <Sonne groesse={groesse} szene={szene} versatz={versatz} />;
+      case 'fernseher':
+        return <Fernseher groesse={groesse} szene={szene} versatz={versatz} />;
+      case 'muenzen':
+        return <Muenzen groesse={groesse} szene={szene} versatz={versatz} />;
+      case 'waage':
+        return <Waage groesse={groesse} szene={szene} versatz={versatz} />;
       default:
         return null;
     }

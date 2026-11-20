@@ -17,6 +17,9 @@ export type GrafikName =
   | 'akku'
   | 'bett'
   | 'sonne'
+  | 'fernseher'
+  | 'muenzen'
+  | 'waage'
   | 'keine';
 
 export type SzenenTyp = 'hook' | 'schritt' | 'beispiel' | 'merke' | 'outro';

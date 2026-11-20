@@ -8,7 +8,70 @@
       "highlight": "DU",
       "grafik": "fernseher",
       "sprechtext": "Der Film ist schlecht, aber du schaust weiter? Das hat einen Namen.",
-      "dauer": 5.7
+      "dauer": 4.3,
+      "audio": "audio/folge-06/szene-1.mp3",
+      "woerter": [
+        {
+          "wort": "Der",
+          "start": 0.15,
+          "ende": 0.33
+        },
+        {
+          "wort": "Film",
+          "start": 0.33,
+          "ende": 0.55
+        },
+        {
+          "wort": "ist",
+          "start": 0.55,
+          "ende": 0.73
+        },
+        {
+          "wort": "schlecht,",
+          "start": 0.73,
+          "ende": 1.14
+        },
+        {
+          "wort": "aber",
+          "start": 1.26,
+          "ende": 1.52
+        },
+        {
+          "wort": "du",
+          "start": 1.52,
+          "ende": 1.68
+        },
+        {
+          "wort": "schaust",
+          "start": 1.68,
+          "ende": 2.09
+        },
+        {
+          "wort": "weiter?",
+          "start": 2.09,
+          "ende": 2.46
+        },
+        {
+          "wort": "Das",
+          "start": 2.82,
+          "ende": 2.99
+        },
+        {
+          "wort": "hat",
+          "start": 2.99,
+          "ende": 3.16
+        },
+        {
+          "wort": "einen",
+          "start": 3.16,
+          "ende": 3.41
+        },
+        {
+          "wort": "Namen.",
+          "start": 3.41,
+          "ende": 3.67
+        }
+      ]
     },
     {
       "typ": "schritt",
@@ -16,7 +79,190 @@
       "highlight": "Sunk-Cost-Effekt",
       "grafik": "muenzen",
       "sprechtext": "Psychologen nennen das den Sunk-Cost-Effekt, auf Deutsch: Effekt der versunkenen Kosten. Wir machen weiter, nur weil wir schon Zeit, Geld oder Mühe investiert haben. Und je mehr wir schon reingesteckt haben, desto schwerer fällt das Aufhören.",
-      "dauer": 16.2
+      "dauer": 14.07,
+      "audio": "audio/folge-06/szene-2.mp3",
+      "woerter": [
+        {
+          "wort": "Psychologen",
+          "start": 0.15,
+          "ende": 0.83
+        },
+        {
+          "wort": "nennen",
+          "start": 0.95,
+          "ende": 1.32
+        },
+        {
+          "wort": "das",
+          "start": 1.32,
+          "ende": 1.53
+        },
+        {
+          "wort": "den",
+          "start": 1.53,
+          "ende": 1.74
+        },
+        {
+          "wort": "Sunk-Cost-Effekt,",
+          "start": 1.74,
+          "ende": 2.64
+        },
+        {
+          "wort": "auf",
+          "start": 2.92,
+          "ende": 3.12
+        },
+        {
+          "wort": "Deutsch:",
+          "start": 3.12,
+          "ende": 3.51
+        },
+        {
+          "wort": "Effekt",
+          "start": 3.82,
+          "ende": 4.19
+        },
+        {
+          "wort": "der",
+          "start": 4.19,
+          "ende": 4.4
+        },
+        {
+          "wort": "versunkenen",
+          "start": 4.4,
+          "ende": 5.04
+        },
+        {
+          "wort": "Kosten.",
+          "start": 5.04,
+          "ende": 5.42
+        },
+        {
+          "wort": "Wir",
+          "start": 5.78,
+          "ende": 5.94
+        },
+        {
+          "wort": "machen",
+          "start": 5.94,
+          "ende": 6.22
+        },
+        {
+          "wort": "weiter,",
+          "start": 6.22,
+          "ende": 6.5
+        },
+        {
+          "wort": "nur",
+          "start": 6.86,
+          "ende": 7.03
+        },
+        {
+          "wort": "weil",
+          "start": 7.03,
+          "ende": 7.24
+        },
+        {
+          "wort": "wir",
+          "start": 7.24,
+          "ende": 7.41
+        },
+        {
+          "wort": "schon",
+          "start": 7.41,
+          "ende": 7.66
+        },
+        {
+          "wort": "Zeit,",
+          "start": 7.66,
+          "ende": 7.87
+        },
+        {
+          "wort": "Geld",
+          "start": 8.07,
+          "ende": 8.3
+        },
+        {
+          "wort": "oder",
+          "start": 8.3,
+          "ende": 8.54
+        },
+        {
+          "wort": "Mühe",
+          "start": 8.54,
+          "ende": 8.78
+        },
+        {
+          "wort": "investiert",
+          "start": 8.78,
+          "ende": 9.3
+        },
+        {
+          "wort": "haben.",
+          "start": 9.3,
+          "ende": 9.58
+        },
+        {
+          "wort": "Und",
+          "start": 9.94,
+          "ende": 10.11
+        },
+        {
+          "wort": "je",
+          "start": 10.11,
+          "ende": 10.24
+        },
+        {
+          "wort": "mehr",
+          "start": 10.24,
+          "ende": 10.45
+        },
+        {
+          "wort": "wir",
+          "start": 10.45,
+          "ende": 10.62
+        },
+        {
+          "wort": "schon",
+          "start": 10.62,
+          "ende": 10.88
+        },
+        {
+          "wort": "reingesteckt",
+          "start": 10.88,
+          "ende": 11.43
+        },
+        {
+          "wort": "haben,",
+          "start": 11.43,
+          "ende": 11.69
+        },
+        {
+          "wort": "desto",
+          "start": 11.97,
+          "ende": 12.23
+        },
+        {
+          "wort": "schwerer",
+          "start": 12.23,
+          "ende": 12.62
+        },
+        {
+          "wort": "fällt",
+          "start": 12.62,
+          "ende": 12.88
+        },
+        {
+          "wort": "das",
+          "start": 12.88,
+          "ende": 13.06
+        },
+        {
+          "wort": "Aufhören.",
+          "start": 13.06,
+          "ende": 13.45
+        }
+      ]
     },
     {
       "typ": "schritt",
@@ -28,7 +274,140 @@
         "Gewinne"
       ],
       "sprechtext": "Dahinter steckt die Verlustaversion: Verluste fühlen sich etwa doppelt so stark an wie gleich große Gewinne. Aufhören fühlt sich an, als hätten wir das Investierte verloren.",
-      "dauer": 11.8
+      "dauer": 10.0,
+      "audio": "audio/folge-06/szene-3.mp3",
+      "woerter": [
+        {
+          "wort": "Dahinter",
+          "start": 0.15,
+          "ende": 0.63
+        },
+        {
+          "wort": "steckt",
+          "start": 0.63,
+          "ende": 1.01
+        },
+        {
+          "wort": "die",
+          "start": 1.01,
+          "ende": 1.23
+        },
+        {
+          "wort": "Verlustaversion:",
+          "start": 1.23,
+          "ende": 2.1
+        },
+        {
+          "wort": "Verluste",
+          "start": 2.41,
+          "ende": 2.83
+        },
+        {
+          "wort": "fühlen",
+          "start": 2.83,
+          "ende": 3.15
+        },
+        {
+          "wort": "sich",
+          "start": 3.15,
+          "ende": 3.38
+        },
+        {
+          "wort": "etwa",
+          "start": 3.38,
+          "ende": 3.62
+        },
+        {
+          "wort": "doppelt",
+          "start": 3.62,
+          "ende": 3.99
+        },
+        {
+          "wort": "so",
+          "start": 3.99,
+          "ende": 4.13
+        },
+        {
+          "wort": "stark",
+          "start": 4.13,
+          "ende": 4.4
+        },
+        {
+          "wort": "an",
+          "start": 4.4,
+          "ende": 4.54
+        },
+        {
+          "wort": "wie",
+          "start": 4.84,
+          "ende": 5.03
+        },
+        {
+          "wort": "gleich",
+          "start": 5.03,
+          "ende": 5.36
+        },
+        {
+          "wort": "große",
+          "start": 5.36,
+          "ende": 5.64
+        },
+        {
+          "wort": "Gewinne.",
+          "start": 5.64,
+          "ende": 6.01
+        },
+        {
+          "wort": "Aufhören",
+          "start": 6.37,
+          "ende": 6.77
+        },
+        {
+          "wort": "fühlt",
+          "start": 6.77,
+          "ende": 7.03
+        },
+        {
+          "wort": "sich",
+          "start": 7.03,
+          "ende": 7.26
+        },
+        {
+          "wort": "an,",
+          "start": 7.26,
+          "ende": 7.39
+        },
+        {
+          "wort": "als",
+          "start": 7.51,
+          "ende": 7.7
+        },
+        {
+          "wort": "hätten",
+          "start": 7.7,
+          "ende": 8.02
+        },
+        {
+          "wort": "wir",
+          "start": 8.02,
+          "ende": 8.2
+        },
+        {
+          "wort": "das",
+          "start": 8.2,
+          "ende": 8.39
+        },
+        {
+          "wort": "Investierte",
+          "start": 8.39,
+          "ende": 8.94
+        },
+        {
+          "wort": "verloren.",
+          "start": 8.94,
+          "ende": 9.35
+        }
+      ]
     },
     {
       "typ": "schritt",
@@ -40,7 +419,120 @@
         "verbringen"
       ],
       "sprechtext": "Aber: Die Kinokarte ist bezahlt, egal ob du bleibst oder gehst. Die einzige Frage ist, wie du die nächste Stunde verbringen willst.",
-      "dauer": 10.1
+      "dauer": 8.35,
+      "audio": "audio/folge-06/szene-4.mp3",
+      "woerter": [
+        {
+          "wort": "Aber:",
+          "start": 0.15,
+          "ende": 0.75
+        },
+        {
+          "wort": "Die",
+          "start": 1.11,
+          "ende": 1.3
+        },
+        {
+          "wort": "Kinokarte",
+          "start": 1.3,
+          "ende": 1.77
+        },
+        {
+          "wort": "ist",
+          "start": 1.77,
+          "ende": 1.96
+        },
+        {
+          "wort": "bezahlt,",
+          "start": 1.96,
+          "ende": 2.34
+        },
+        {
+          "wort": "egal",
+          "start": 2.49,
+          "ende": 2.77
+        },
+        {
+          "wort": "ob",
+          "start": 2.77,
+          "ende": 2.94
+        },
+        {
+          "wort": "du",
+          "start": 2.94,
+          "ende": 3.11
+        },
+        {
+          "wort": "bleibst",
+          "start": 3.11,
+          "ende": 3.57
+        },
+        {
+          "wort": "oder",
+          "start": 3.57,
+          "ende": 3.85
+        },
+        {
+          "wort": "gehst.",
+          "start": 3.85,
+          "ende": 4.19
+        },
+        {
+          "wort": "Die",
+          "start": 4.51,
+          "ende": 4.72
+        },
+        {
+          "wort": "einzige",
+          "start": 4.72,
+          "ende": 5.14
+        },
+        {
+          "wort": "Frage",
+          "start": 5.14,
+          "ende": 5.45
+        },
+        {
+          "wort": "ist,",
+          "start": 5.45,
+          "ende": 5.66
+        },
+        {
+          "wort": "wie",
+          "start": 5.92,
+          "ende": 6.09
+        },
+        {
+          "wort": "du",
+          "start": 6.09,
+          "ende": 6.21
+        },
+        {
+          "wort": "die",
+          "start": 6.21,
+          "ende": 6.37
+        },
+        {
+          "wort": "nächste",
+          "start": 6.37,
+          "ende": 6.7
+        },
+        {
+          "wort": "Stunde",
+          "start": 6.7,
+          "ende": 6.98
+        },
+        {
+          "wort": "verbringen",
+          "start": 6.98,
+          "ende": 7.43
+        },
+        {
+          "wort": "willst.",
+          "start": 7.43,
+          "ende": 7.72
+        }
+      ]
     },
     {
       "typ": "beispiel",
@@ -48,7 +540,140 @@
       "highlight": "noch ein Teller",
       "grafik": "keine",
       "sprechtext": "Am Buffet bist du längst satt, holst dir aber noch einen Teller, weil es ja bezahlt ist. Das Geld bekommst du dadurch nicht zurück, nur Bauchweh.",
-      "dauer": 11.8
+      "dauer": 8.56,
+      "audio": "audio/folge-06/szene-5.mp3",
+      "woerter": [
+        {
+          "wort": "Am",
+          "start": 0.15,
+          "ende": 0.3
+        },
+        {
+          "wort": "Buffet",
+          "start": 0.3,
+          "ende": 0.68
+        },
+        {
+          "wort": "bist",
+          "start": 0.68,
+          "ende": 0.94
+        },
+        {
+          "wort": "du",
+          "start": 0.94,
+          "ende": 1.1
+        },
+        {
+          "wort": "längst",
+          "start": 1.1,
+          "ende": 1.47
+        },
+        {
+          "wort": "satt,",
+          "start": 1.47,
+          "ende": 1.74
+        },
+        {
+          "wort": "holst",
+          "start": 2.1,
+          "ende": 2.33
+        },
+        {
+          "wort": "dir",
+          "start": 2.33,
+          "ende": 2.48
+        },
+        {
+          "wort": "aber",
+          "start": 2.48,
+          "ende": 2.67
+        },
+        {
+          "wort": "noch",
+          "start": 2.67,
+          "ende": 2.86
+        },
+        {
+          "wort": "einen",
+          "start": 2.86,
+          "ende": 3.09
+        },
+        {
+          "wort": "Teller,",
+          "start": 3.09,
+          "ende": 3.36
+        },
+        {
+          "wort": "weil",
+          "start": 3.59,
+          "ende": 3.83
+        },
+        {
+          "wort": "es",
+          "start": 3.83,
+          "ende": 3.98
+        },
+        {
+          "wort": "ja",
+          "start": 3.98,
+          "ende": 4.13
+        },
+        {
+          "wort": "bezahlt",
+          "start": 4.13,
+          "ende": 4.51
+        },
+        {
+          "wort": "ist.",
+          "start": 4.51,
+          "ende": 4.71
+        },
+        {
+          "wort": "Das",
+          "start": 5.04,
+          "ende": 5.21
+        },
+        {
+          "wort": "Geld",
+          "start": 5.21,
+          "ende": 5.43
+        },
+        {
+          "wort": "bekommst",
+          "start": 5.43,
+          "ende": 5.82
+        },
+        {
+          "wort": "du",
+          "start": 5.82,
+          "ende": 5.95
+        },
+        {
+          "wort": "dadurch",
+          "start": 5.95,
+          "ende": 6.3
+        },
+        {
+          "wort": "nicht",
+          "start": 6.3,
+          "ende": 6.56
+        },
+        {
+          "wort": "zurück,",
+          "start": 6.56,
+          "ende": 6.86
+        },
+        {
+          "wort": "nur",
+          "start": 7.19,
+          "ende": 7.42
+        },
+        {
+          "wort": "Bauchweh.",
+          "start": 7.42,
+          "ende": 7.91
+        }
+      ]
     },
     {
       "typ": "merke",
@@ -56,14 +681,310 @@
       "highlight": "ab jetzt",
       "grafik": "keine",
       "sprechtext": "Merk dir: Was schon weg ist, kommt nicht zurück. Frag dich lieber: Würde ich heute neu damit anfangen? Wenn nicht, darfst du aufhören. Das gilt für Filme, Bücher, Projekte und manchmal sogar für Beziehungen.",
-      "dauer": 15.3
+      "dauer": 12.92,
+      "audio": "audio/folge-06/szene-6.mp3",
+      "woerter": [
+        {
+          "wort": "Merk",
+          "start": 0.15,
+          "ende": 0.44
+        },
+        {
+          "wort": "dir:",
+          "start": 0.44,
+          "ende": 0.67
+        },
+        {
+          "wort": "Was",
+          "start": 0.89,
+          "ende": 1.08
+        },
+        {
+          "wort": "schon",
+          "start": 1.08,
+          "ende": 1.35
+        },
+        {
+          "wort": "weg",
+          "start": 1.35,
+          "ende": 1.54
+        },
+        {
+          "wort": "ist,",
+          "start": 1.54,
+          "ende": 1.72
+        },
+        {
+          "wort": "kommt",
+          "start": 1.86,
+          "ende": 2.12
+        },
+        {
+          "wort": "nicht",
+          "start": 2.12,
+          "ende": 2.39
+        },
+        {
+          "wort": "zurück.",
+          "start": 2.39,
+          "ende": 2.69
+        },
+        {
+          "wort": "Frag",
+          "start": 3.05,
+          "ende": 3.28
+        },
+        {
+          "wort": "dich",
+          "start": 3.28,
+          "ende": 3.51
+        },
+        {
+          "wort": "lieber:",
+          "start": 3.51,
+          "ende": 3.83
+        },
+        {
+          "wort": "Würde",
+          "start": 4.18,
+          "ende": 4.45
+        },
+        {
+          "wort": "ich",
+          "start": 4.45,
+          "ende": 4.63
+        },
+        {
+          "wort": "heute",
+          "start": 4.63,
+          "ende": 4.9
+        },
+        {
+          "wort": "neu",
+          "start": 4.9,
+          "ende": 5.08
+        },
+        {
+          "wort": "damit",
+          "start": 5.08,
+          "ende": 5.35
+        },
+        {
+          "wort": "anfangen?",
+          "start": 5.35,
+          "ende": 5.75
+        },
+        {
+          "wort": "Wenn",
+          "start": 6.11,
+          "ende": 6.31
+        },
+        {
+          "wort": "nicht,",
+          "start": 6.31,
+          "ende": 6.55
+        },
+        {
+          "wort": "darfst",
+          "start": 6.74,
+          "ende": 7.03
+        },
+        {
+          "wort": "du",
+          "start": 7.03,
+          "ende": 7.16
+        },
+        {
+          "wort": "aufhören.",
+          "start": 7.16,
+          "ende": 7.53
+        },
+        {
+          "wort": "Das",
+          "start": 7.89,
+          "ende": 8.09
+        },
+        {
+          "wort": "gilt",
+          "start": 8.09,
+          "ende": 8.34
+        },
+        {
+          "wort": "für",
+          "start": 8.34,
+          "ende": 8.54
+        },
+        {
+          "wort": "Filme,",
+          "start": 8.54,
+          "ende": 8.83
+        },
+        {
+          "wort": "Bücher,",
+          "start": 9.19,
+          "ende": 9.57
+        },
+        {
+          "wort": "Projekte",
+          "start": 9.93,
+          "ende": 10.5
+        },
+        {
+          "wort": "und",
+          "start": 10.83,
+          "ende": 11.0
+        },
+        {
+          "wort": "manchmal",
+          "start": 11.0,
+          "ende": 11.37
+        },
+        {
+          "wort": "sogar",
+          "start": 11.37,
+          "ende": 11.62
+        },
+        {
+          "wort": "für",
+          "start": 11.62,
+          "ende": 11.79
+        },
+        {
+          "wort": "Beziehungen.",
+          "start": 11.79,
+          "ende": 12.28
+        }
+      ]
     },
     {
       "typ": "outro",
       "titel": "Wobei machst DU zu lange weiter?",
       "highlight": "DU",
       "sprechtext": "Wobei hältst du zu lange durch, nur weil du schon so viel investiert hast? Schreib es in die Kommentare und folg mir für mehr.",
-      "dauer": 10.9
+      "dauer": 7.1,
+      "audio": "audio/folge-06/szene-7.mp3",
+      "woerter": [
+        {
+          "wort": "Wobei",
+          "start": 0.15,
+          "ende": 0.5
+        },
+        {
+          "wort": "hältst",
+          "start": 0.5,
+          "ende": 0.9
+        },
+        {
+          "wort": "du",
+          "start": 0.9,
+          "ende": 1.08
+        },
+        {
+          "wort": "zu",
+          "start": 1.08,
+          "ende": 1.25
+        },
+        {
+          "wort": "lange",
+          "start": 1.25,
+          "ende": 1.6
+        },
+        {
+          "wort": "durch,",
+          "start": 1.6,
+          "ende": 1.95
+        },
+        {
+          "wort": "nur",
+          "start": 2.19,
+          "ende": 2.36
+        },
+        {
+          "wort": "weil",
+          "start": 2.36,
+          "ende": 2.56
+        },
+        {
+          "wort": "du",
+          "start": 2.56,
+          "ende": 2.69
+        },
+        {
+          "wort": "schon",
+          "start": 2.69,
+          "ende": 2.93
+        },
+        {
+          "wort": "so",
+          "start": 2.93,
+          "ende": 3.06
+        },
+        {
+          "wort": "viel",
+          "start": 3.06,
+          "ende": 3.26
+        },
+        {
+          "wort": "investiert",
+          "start": 3.26,
+          "ende": 3.72
+        },
+        {
+          "wort": "hast?",
+          "start": 3.72,
+          "ende": 3.92
+        },
+        {
+          "wort": "Schreib",
+          "start": 4.25,
+          "ende": 4.6
+        },
+        {
+          "wort": "es",
+          "start": 4.6,
+          "ende": 4.73
+        },
+        {
+          "wort": "in",
+          "start": 4.73,
+          "ende": 4.86
+        },
+        {
+          "wort": "die",
+          "start": 4.86,
+          "ende": 5.04
+        },
+        {
+          "wort": "Kommentare",
+          "start": 5.04,
+          "ende": 5.52
+        },
+        {
+          "wort": "und",
+          "start": 5.52,
+          "ende": 5.69
+        },
+        {
+          "wort": "folg",
+          "start": 5.69,
+          "ende": 5.91
+        },
+        {
+          "wort": "mir",
+          "start": 5.91,
+          "ende": 6.08
+        },
+        {
+          "wort": "für",
+          "start": 6.08,
+          "ende": 6.26
+        },
+        {
+          "wort": "mehr.",
+          "start": 6.26,
+          "ende": 6.48
+        }
+      ]
     }
   ]
 }
