@@ -9,6 +9,7 @@ export type GrafikName =
   | 'zusammen'
   | 'spielautomat'
   | 'stoppuhr'
+  | 'turm'
   | 'keine';
 
 export type SzenenTyp = 'hook' | 'schritt' | 'beispiel' | 'merke' | 'outro';

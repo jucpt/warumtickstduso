@@ -469,6 +469,74 @@ const Stoppuhr: React.FC<GrafikProps> = ({ groesse, szene, versatz = 0 }) => {
   );
 };
 
+// Turm aus Bauklötzen: Klötze fallen nacheinander ins Bild, der Turm wackelt (gelber Lichtpunkt oben).
+// Ereignis 1 (z. B. „umgefallen“): der Turm kippt, die Klötze fallen auseinander.
+// Ereignis 2 (z. B. „Ich bin da“): über den Klötzen erscheint ein pulsierendes Herz.
+const KLOETZE = [
+  // Start (links oben), Ziel nach dem Umfallen, Drehung
+  { x: 85, y: 146, zx: 85, zy: 146, dreh: 0 },
+  { x: 85, y: 116, zx: 128, zy: 146, dreh: 90 },
+  { x: 85, y: 86, zx: 36, zy: 147, dreh: -98 },
+  { x: 85, y: 56, zx: 142, zy: 118, dreh: 205 },
+];
+
+const Turm: React.FC<GrafikProps> = ({ groesse, szene, versatz = 0 }) => {
+  const { t } = useZeit();
+  const boden = useZeichnen(0.6);
+  const fall = ereignis(szene, versatz, 0, 'umgefallen') ?? 2.5;
+  const herzZeit = ereignis(szene, versatz, 1, 'Ich bin da');
+  const wackeln = t < fall ? Math.sin(t * 3.2) * (1.2 + Math.min(2.5, t * 0.6)) : 0;
+  const herz = ab(t, herzZeit, 0.35);
+  const herzPuls = 1 + 0.08 * Math.max(0, Math.sin(t * 6));
+  const staub = ausschlag(t, fall + 0.5, 0.5);
+  return (
+    <SVG groesse={groesse}>
+      <line x1="24" y1="178" x2="184" y2="178" stroke={FARBEN.neben} strokeWidth={5} opacity={0.5} pathLength={1} strokeDasharray={1} strokeDashoffset={1 - boden} />
+      <g transform={`rotate(${wackeln} 100 178)`}>
+        {KLOETZE.map((k, i) => {
+          const da = ab(t, 0.25 + i * 0.25, 0.3);
+          // Fallen: oberster Klotz zuerst, waagerecht gleichmäßig, senkrecht beschleunigt (Schwerkraft)
+          const roh = Math.max(0, Math.min(1, (t - fall - (KLOETZE.length - 1 - i) * 0.06) / 0.5));
+          const aufprall = roh >= 1 ? Math.abs(Math.sin((t - fall - 0.5) * 18)) * Math.exp(-(t - fall - 0.5) * 8) * 6 : 0;
+          const x = k.x + (k.zx - k.x) * roh;
+          const y = k.y + (k.zy - k.y) * roh * roh - aufprall - (1 - da) * 50;
+          return (
+            <rect
+              key={i}
+              x={x}
+              y={y}
+              width="30"
+              height="30"
+              rx="5"
+              stroke={i % 2 ? FARBEN.akzent : FARBEN.neben}
+              strokeWidth={6}
+              opacity={da}
+              transform={`rotate(${k.dreh * roh} ${x + 15} ${y + 15})`}
+            />
+          );
+        })}
+        {t < fall ? (
+          <g opacity={ab(t, 1.2, 0.3)}>
+            <circle cx="100" cy="44" r={12} fill={FARBEN.highlight} opacity={0.25 + 0.1 * Math.sin(t * 5)} />
+            <circle cx="100" cy="44" r="6" fill={FARBEN.highlight} />
+          </g>
+        ) : null}
+      </g>
+      <g opacity={staub} stroke={FARBEN.neben} strokeWidth={4}>
+        <line x1="34" y1="170" x2="22" y2="162" />
+        <line x1="166" y1="170" x2="180" y2="160" />
+        <line x1="100" y1="168" x2="100" y2="156" />
+      </g>
+      {herz > 0 ? (
+        <g transform={`translate(100 74) scale(${0.3 * herz * herzPuls}) translate(-100 -105)`} opacity={herz}>
+          <path d={HERZ} stroke={FARBEN.akzent} strokeWidth={20} fill={FARBEN.akzent} />
+          <circle cx="152" cy="52" r="16" fill={FARBEN.highlight} />
+        </g>
+      ) : null}
+    </SVG>
+  );
+};
+
 export const Grafik: React.FC<{ name?: GrafikName; groesse?: number; szene?: Szene; versatz?: number }> = ({
   name = 'keine',
   groesse = 520,
@@ -501,6 +569,8 @@ export const Grafik: React.FC<{ name?: GrafikName; groesse?: number; szene?: Sze
         return <Spielautomat groesse={groesse} szene={szene} versatz={versatz} />;
       case 'stoppuhr':
         return <Stoppuhr groesse={groesse} szene={szene} versatz={versatz} />;
+      case 'turm':
+        return <Turm groesse={groesse} szene={szene} versatz={versatz} />;
       default:
         return null;
     }
