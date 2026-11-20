@@ -10,6 +10,9 @@ Juli ist angehender Erzieher und hat Erfahrung in der Kinder- und Jugendpsychiat
 | #1 | Warum rastet DEIN Kind sofort aus? (Wutanfälle) | fertig (Julis Stimme, 61,9 s) |
 | #2 | Warum kannst DU nicht aufhören zu scrollen? | fertig (Julis Stimme, 69,8 s) |
 | #3 | Sagst DU auch „Hör auf zu weinen“? (Ko-Regulation) | fertig (Julis Stimme, 63,1 s) |
+| #4 | Denkst DU, alle schauen dich an? (Spotlight-Effekt) | fertig (Julis Stimme, 63,0 s) |
+| #5 | Ist DEIN Kind morgens nur faul? (Teenager-Schlaf) | Skript fertig (`skripte/folge-05-aufnahme.txt`), Juli nimmt auf; Grafiken `uhr`, `akku`, `bett` noch bauen |
+| #6 | Schaust DU schlechte Filme zu Ende? (Sunk Cost) | Skript fertig (`skripte/folge-06-aufnahme.txt`), Juli nimmt auf; Grafiken `fernseher`, `muenzen`, `waage` noch bauen |
 
 Diese Tabelle nach jeder fertigen Folge aktualisieren. Themen im Wechsel: Kinder-Themen und Themen für alle (z. B. Spotlight-Effekt, Sunk Cost, Prokrastination, Teenager-Schlaf).
 
