@@ -537,6 +537,139 @@ const Turm: React.FC<GrafikProps> = ({ groesse, szene, versatz = 0 }) => {
   );
 };
 
+// Scheinwerfer: Lampe mit gelbem Lichtpunkt, Lichtkegel schwenkt leicht und flackert, mittendrin eine Figur.
+// Ereignis 1 (Standard „Scheinwerfer“ bzw. Highlight): der Kegel blitzt hell auf.
+const Scheinwerfer: React.FC<GrafikProps> = ({ groesse, szene, versatz = 0 }) => {
+  const { t } = useZeit();
+  const p = useZeichnen(0.9);
+  const an = ab(t, 0.7, 0.25);
+  const blitz = ausschlag(t, ereignis(szene, versatz, 0, 'Scheinwerfer'), 0.7);
+  const schwenk = Math.sin(t * 1.2) * 5;
+  const flackern = 0.1 + 0.04 * Math.sin(t * 9) + 0.03 * Math.sin(t * 23) + 0.2 * blitz;
+  return (
+    <SVG groesse={groesse}>
+      <ellipse cx={100 + schwenk * 2.2} cy="174" rx={44} ry={8} stroke={FARBEN.akzent} strokeWidth={5} opacity={0.6 * an} />
+      <g transform={`rotate(${schwenk} 100 44)`}>
+        <path d="M86 46 L48 172 L152 172 L114 46 Z" fill={FARBEN.akzent} opacity={flackern * an} />
+        <line x1="86" y1="46" x2="48" y2="172" stroke={FARBEN.akzent} strokeWidth={5} opacity={0.8 * an} />
+        <line x1="114" y1="46" x2="152" y2="172" stroke={FARBEN.akzent} strokeWidth={5} opacity={0.8 * an} />
+      </g>
+      {/* Figur im Licht */}
+      <g opacity={an} transform={`translate(${schwenk * 1.6} ${Math.sin(t * 2.4) * 1.5})`}>
+        <circle cx="100" cy="122" r="11" stroke={FARBEN.neben} strokeWidth={6} />
+        <path d="M80 170 C80 148 88 138 100 138 C112 138 120 148 120 170" stroke={FARBEN.neben} strokeWidth={6} />
+      </g>
+      {/* Lampe */}
+      <path d="M80 18 H120 L114 44 H86 Z" stroke={FARBEN.neben} strokeWidth={6} pathLength={1} strokeDasharray={1} strokeDashoffset={1 - p} />
+      <line x1="100" y1="18" x2="100" y2="6" stroke={FARBEN.neben} strokeWidth={6} opacity={p} />
+      <circle cx="100" cy="46" r={13 + 6 * blitz} fill={FARBEN.highlight} opacity={(0.25 + 0.3 * blitz) * an} />
+      <circle cx="100" cy="46" r="6" fill={FARBEN.highlight} opacity={an} />
+    </SVG>
+  );
+};
+
+// Kreisdiagramm: Ereignis 1 (z. B. „Hälfte“) füllt 50 %, Ereignis 2 (z. B. „Viertel“) schrumpft auf 25 %.
+// Die Schätzung bleibt danach gestrichelt sichtbar, damit man den Unterschied sieht.
+const Torte: React.FC<GrafikProps> = ({ groesse, szene, versatz = 0 }) => {
+  const { t } = useZeit();
+  const p = useZeichnen(1);
+  const e1 = ereignis(szene, versatz, 0, 'Hälfte');
+  const e2 = ereignis(szene, versatz, 1, 'Viertel');
+  const anteil = 0.5 * ab(t, e1, 0.5) - 0.25 * ab(t, e2, 0.6);
+  const cx = 100;
+  const cy = 98;
+  const r = 62;
+  const punkt = (f: number, rr = r) => {
+    const a = f * 2 * Math.PI - Math.PI / 2;
+    return [cx + rr * Math.cos(a), cy + rr * Math.sin(a)];
+  };
+  const sektor = (f: number) => {
+    if (f <= 0.001) return '';
+    const [x, y] = punkt(f);
+    return `M${cx} ${cy} L${cx} ${cy - r} A${r} ${r} 0 ${f > 0.5 ? 1 : 0} 1 ${x.toFixed(2)} ${y.toFixed(2)} Z`;
+  };
+  const [lx, ly] = punkt(anteil, r);
+  const puls = 1 + 0.03 * Math.sin(t * 3);
+  const zahl = e2 !== null && t >= e2 ? '25 %' : e1 !== null && t >= e1 ? '50 %' : '';
+  const zahlPop = Math.max(ausschlag(t, e1, 0.5), ausschlag(t, e2, 0.5));
+  return (
+    <SVG groesse={groesse}>
+      <g transform={`translate(${cx} ${cy}) scale(${puls}) translate(${-cx} ${-cy})`}>
+        <circle cx={cx} cy={cy} r={r} stroke={FARBEN.neben} strokeWidth={7} pathLength={1} strokeDasharray={1} strokeDashoffset={1 - p} />
+        {e2 !== null && t >= e2 ? <path d={sektor(0.5)} stroke={FARBEN.neben} strokeWidth={4} strokeDasharray="8 10" opacity={0.6} /> : null}
+        {anteil > 0.001 ? <path d={sektor(anteil)} fill={FARBEN.akzent} stroke={FARBEN.akzent} strokeWidth={5} /> : null}
+        {anteil > 0.001 ? (
+          <>
+            <circle cx={lx} cy={ly} r="13" fill={FARBEN.highlight} opacity={0.25} />
+            <circle cx={lx} cy={ly} r="6" fill={FARBEN.highlight} />
+          </>
+        ) : null}
+      </g>
+      {zahl ? (
+        <text x={cx} y="192" textAnchor="middle" fontFamily="Nunito, sans-serif" fontWeight={800} fontSize={30 * (1 + 0.25 * zahlPop)} fill={FARBEN.text}>
+          {zahl}
+        </text>
+      ) : null}
+    </SVG>
+  );
+};
+
+// Figur läuft auf der Stelle, vor ihr ein Stein (gelber Lichtpunkt). Ereignis 1 (z. B. „stolperst“): sie stolpert.
+// Danach schwebt eine Gedankenwolke mit dem Stein über ihr. Ereignis 2 (z. B. „vergessen“): die Wolke zerplatzt.
+const Stolpern: React.FC<GrafikProps> = ({ groesse, szene, versatz = 0 }) => {
+  const { t } = useZeit();
+  const p = useZeichnen(0.9);
+  const stolper = ereignis(szene, versatz, 0, 'stolperst') ?? 1.5;
+  const weg = ereignis(szene, versatz, 1, 'vergessen');
+  const kipp = ausschlag(t, stolper, 1.1);
+  const schritt = Math.sin(t * 7) * 20 * (1 - kipp);
+  const dreh = 38 * kipp + zucken(t, stolper, 4);
+  const wolke = ab(t, stolper + 0.7, 0.4) * (1 - ab(t, weg, 0.25));
+  const puff = ausschlag(t, weg, 0.6);
+  const staub = ausschlag(t, stolper + 0.15, 0.6);
+  const bein = (w: number) => {
+    const a = (w * Math.PI) / 180;
+    return { x2: 82 + Math.sin(a) * 44, y2: 126 + Math.cos(a) * 44 };
+  };
+  const arm = (w: number) => {
+    const a = ((w + 30) * Math.PI) / 180;
+    return { x2: 82 + Math.sin(a) * 26, y2: 96 + Math.cos(a) * 26 - 30 * kipp };
+  };
+  return (
+    <SVG groesse={groesse}>
+      <line x1="24" y1="172" x2="180" y2="172" stroke={FARBEN.neben} strokeWidth={5} opacity={0.5} pathLength={1} strokeDasharray={1} strokeDashoffset={1 - p} />
+      <rect x="112" y="162" width="18" height="10" rx="4" stroke={FARBEN.akzent} strokeWidth={5} opacity={p} />
+      {t < stolper ? <circle cx="121" cy="152" r={4 + Math.sin(t * 5)} fill={FARBEN.highlight} opacity={p} /> : null}
+      <g transform={`rotate(${dreh} 90 170) translate(82 170) scale(1.3) translate(-82 -170)`} opacity={p}>
+        <circle cx="82" cy="70" r="12" stroke={FARBEN.neben} strokeWidth={6} />
+        <line x1="82" y1="82" x2="82" y2="126" stroke={FARBEN.neben} strokeWidth={6} />
+        <line x1="82" y1="96" {...arm(schritt)} stroke={FARBEN.neben} strokeWidth={6} />
+        <line x1="82" y1="96" {...arm(-schritt)} stroke={FARBEN.neben} strokeWidth={6} />
+        <line x1="82" y1="126" {...bein(schritt)} stroke={FARBEN.neben} strokeWidth={6} />
+        <line x1="82" y1="126" {...bein(-schritt)} stroke={FARBEN.neben} strokeWidth={6} />
+      </g>
+      <g opacity={staub} stroke={FARBEN.neben} strokeWidth={4}>
+        <line x1="104" y1="166" x2="96" y2="156" />
+        <line x1="138" y1="166" x2="148" y2="156" />
+      </g>
+      {wolke > 0.01 ? (
+        <g transform={`translate(146 46) scale(${1.35 * wolke * (1 + 0.04 * Math.sin(t * 3))}) translate(-146 -46)`}>
+          <circle cx="112" cy="80" r="4" fill={FARBEN.neben} />
+          <circle cx="122" cy="68" r="6" fill={FARBEN.neben} />
+          <path d="M126 52 C122 38 138 30 146 38 C152 26 172 30 170 44 C182 46 182 64 168 64 L132 64 C120 64 118 52 126 52 Z" stroke={FARBEN.neben} strokeWidth={5} />
+          <rect x="140" y="46" width="14" height="8" rx="3" stroke={FARBEN.akzent} strokeWidth={4} />
+        </g>
+      ) : null}
+      <g opacity={puff} stroke={FARBEN.akzent} strokeWidth={4}>
+        <line x1="146" y1="30" x2="146" y2="18" />
+        <line x1="170" y1="38" x2="180" y2="30" />
+        <line x1="122" y1="38" x2="112" y2="30" />
+        <line x1="176" y1="60" x2="188" y2="62" />
+      </g>
+    </SVG>
+  );
+};
+
 export const Grafik: React.FC<{ name?: GrafikName; groesse?: number; szene?: Szene; versatz?: number }> = ({
   name = 'keine',
   groesse = 520,
@@ -571,6 +704,12 @@ export const Grafik: React.FC<{ name?: GrafikName; groesse?: number; szene?: Sze
         return <Stoppuhr groesse={groesse} szene={szene} versatz={versatz} />;
       case 'turm':
         return <Turm groesse={groesse} szene={szene} versatz={versatz} />;
+      case 'scheinwerfer':
+        return <Scheinwerfer groesse={groesse} szene={szene} versatz={versatz} />;
+      case 'torte':
+        return <Torte groesse={groesse} szene={szene} versatz={versatz} />;
+      case 'stolpern':
+        return <Stolpern groesse={groesse} szene={szene} versatz={versatz} />;
       default:
         return null;
     }

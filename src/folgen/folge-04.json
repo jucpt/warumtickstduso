@@ -42,7 +42,11 @@
       "typ": "beispiel",
       "titel": "Du stolperst und denkst noch abends daran.",
       "highlight": "noch abends",
-      "grafik": "keine",
+      "grafik": "stolpern",
+      "momente": [
+        "stolperst",
+        "vergessen"
+      ],
       "sprechtext": "Du stolperst auf dem Weg zur Arbeit und denkst noch abends daran. Und die Leute, die es gesehen haben? Die haben es höchstwahrscheinlich längst vergessen.",
       "dauer": 11.4
     },
