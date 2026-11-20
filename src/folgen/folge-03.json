@@ -8,7 +8,70 @@
       "highlight": "DU",
       "grafik": "sprechblase",
       "sprechtext": "Sagst du auch „Hör auf zu weinen“? Das macht es oft schlimmer.",
-      "dauer": 5.7
+      "dauer": 4.85,
+      "audio": "audio/folge-03/szene-1.mp3",
+      "woerter": [
+        {
+          "wort": "Sagst",
+          "start": 0.15,
+          "ende": 0.58
+        },
+        {
+          "wort": "du",
+          "start": 0.58,
+          "ende": 0.8
+        },
+        {
+          "wort": "auch",
+          "start": 0.8,
+          "ende": 1.17
+        },
+        {
+          "wort": "„Hör",
+          "start": 1.52,
+          "ende": 1.74
+        },
+        {
+          "wort": "auf",
+          "start": 1.74,
+          "ende": 1.96
+        },
+        {
+          "wort": "zu",
+          "start": 1.96,
+          "ende": 2.13
+        },
+        {
+          "wort": "weinen“?",
+          "start": 2.13,
+          "ende": 2.51
+        },
+        {
+          "wort": "Das",
+          "start": 2.87,
+          "ende": 3.07
+        },
+        {
+          "wort": "macht",
+          "start": 3.07,
+          "ende": 3.37
+        },
+        {
+          "wort": "es",
+          "start": 3.37,
+          "ende": 3.52
+        },
+        {
+          "wort": "oft",
+          "start": 3.52,
+          "ende": 3.72
+        },
+        {
+          "wort": "schlimmer.",
+          "start": 3.72,
+          "ende": 4.21
+        }
+      ]
     },
     {
       "typ": "schritt",
@@ -16,7 +79,170 @@
       "highlight": "Ausschalter",
       "grafik": "welle",
       "sprechtext": "Ein Gefühl lässt sich nicht auf Kommando abstellen, nicht mal bei Erwachsenen. Bei Kindern erst recht nicht: Wie in meinem Video zu Wutanfällen erklärt, ist die Bremse im Gehirn noch im Bau.",
-      "dauer": 14.4
+      "dauer": 10.96,
+      "audio": "audio/folge-03/szene-2.mp3",
+      "woerter": [
+        {
+          "wort": "Ein",
+          "start": 0.15,
+          "ende": 0.35
+        },
+        {
+          "wort": "Gefühl",
+          "start": 0.35,
+          "ende": 0.72
+        },
+        {
+          "wort": "lässt",
+          "start": 0.72,
+          "ende": 1.03
+        },
+        {
+          "wort": "sich",
+          "start": 1.03,
+          "ende": 1.28
+        },
+        {
+          "wort": "nicht",
+          "start": 1.28,
+          "ende": 1.6
+        },
+        {
+          "wort": "auf",
+          "start": 1.6,
+          "ende": 1.8
+        },
+        {
+          "wort": "Kommando",
+          "start": 1.8,
+          "ende": 2.27
+        },
+        {
+          "wort": "abstellen,",
+          "start": 2.27,
+          "ende": 2.79
+        },
+        {
+          "wort": "nicht",
+          "start": 3.03,
+          "ende": 3.3
+        },
+        {
+          "wort": "mal",
+          "start": 3.3,
+          "ende": 3.48
+        },
+        {
+          "wort": "bei",
+          "start": 3.48,
+          "ende": 3.66
+        },
+        {
+          "wort": "Erwachsenen.",
+          "start": 3.66,
+          "ende": 4.19
+        },
+        {
+          "wort": "Bei",
+          "start": 4.55,
+          "ende": 4.74
+        },
+        {
+          "wort": "Kindern",
+          "start": 4.74,
+          "ende": 5.12
+        },
+        {
+          "wort": "erst",
+          "start": 5.12,
+          "ende": 5.36
+        },
+        {
+          "wort": "recht",
+          "start": 5.36,
+          "ende": 5.65
+        },
+        {
+          "wort": "nicht:",
+          "start": 5.65,
+          "ende": 5.93
+        },
+        {
+          "wort": "Wie",
+          "start": 6.29,
+          "ende": 6.48
+        },
+        {
+          "wort": "in",
+          "start": 6.48,
+          "ende": 6.62
+        },
+        {
+          "wort": "meinem",
+          "start": 6.62,
+          "ende": 6.95
+        },
+        {
+          "wort": "Video",
+          "start": 6.95,
+          "ende": 7.23
+        },
+        {
+          "wort": "zu",
+          "start": 7.23,
+          "ende": 7.37
+        },
+        {
+          "wort": "Wutanfällen",
+          "start": 7.37,
+          "ende": 7.93
+        },
+        {
+          "wort": "erklärt,",
+          "start": 7.93,
+          "ende": 8.3
+        },
+        {
+          "wort": "ist",
+          "start": 8.62,
+          "ende": 8.81
+        },
+        {
+          "wort": "die",
+          "start": 8.81,
+          "ende": 8.99
+        },
+        {
+          "wort": "Bremse",
+          "start": 8.99,
+          "ende": 9.31
+        },
+        {
+          "wort": "im",
+          "start": 9.31,
+          "ende": 9.45
+        },
+        {
+          "wort": "Gehirn",
+          "start": 9.45,
+          "ende": 9.78
+        },
+        {
+          "wort": "noch",
+          "start": 9.78,
+          "ende": 10.01
+        },
+        {
+          "wort": "im",
+          "start": 10.01,
+          "ende": 10.15
+        },
+        {
+          "wort": "Bau.",
+          "start": 10.15,
+          "ende": 10.33
+        }
+      ]
     },
     {
       "typ": "schritt",
@@ -24,7 +250,135 @@
       "highlight": "falsch",
       "grafik": "gehirn",
       "sprechtext": "Beim Kind kommt oft an: Was du fühlst, ist falsch. Das Gefühl verschwindet dadurch nicht. Es wird nur versteckt, oder es wird sogar noch größer.",
-      "dauer": 11.4
+      "dauer": 9.01,
+      "audio": "audio/folge-03/szene-3.mp3",
+      "woerter": [
+        {
+          "wort": "Beim",
+          "start": 0.15,
+          "ende": 0.41
+        },
+        {
+          "wort": "Kind",
+          "start": 0.41,
+          "ende": 0.68
+        },
+        {
+          "wort": "kommt",
+          "start": 0.68,
+          "ende": 1.0
+        },
+        {
+          "wort": "oft",
+          "start": 1.0,
+          "ende": 1.21
+        },
+        {
+          "wort": "an:",
+          "start": 1.21,
+          "ende": 1.37
+        },
+        {
+          "wort": "Was",
+          "start": 1.73,
+          "ende": 1.95
+        },
+        {
+          "wort": "du",
+          "start": 1.95,
+          "ende": 2.11
+        },
+        {
+          "wort": "fühlst,",
+          "start": 2.11,
+          "ende": 2.49
+        },
+        {
+          "wort": "ist",
+          "start": 2.49,
+          "ende": 2.71
+        },
+        {
+          "wort": "falsch.",
+          "start": 2.71,
+          "ende": 3.1
+        },
+        {
+          "wort": "Das",
+          "start": 3.46,
+          "ende": 3.62
+        },
+        {
+          "wort": "Gefühl",
+          "start": 3.62,
+          "ende": 3.92
+        },
+        {
+          "wort": "verschwindet",
+          "start": 3.92,
+          "ende": 4.47
+        },
+        {
+          "wort": "dadurch",
+          "start": 4.47,
+          "ende": 4.81
+        },
+        {
+          "wort": "nicht.",
+          "start": 4.81,
+          "ende": 5.06
+        },
+        {
+          "wort": "Es",
+          "start": 5.18,
+          "ende": 5.33
+        },
+        {
+          "wort": "wird",
+          "start": 5.33,
+          "ende": 5.57
+        },
+        {
+          "wort": "nur",
+          "start": 5.57,
+          "ende": 5.77
+        },
+        {
+          "wort": "versteckt,",
+          "start": 5.77,
+          "ende": 6.25
+        },
+        {
+          "wort": "oder",
+          "start": 6.61,
+          "ende": 6.89
+        },
+        {
+          "wort": "es",
+          "start": 6.89,
+          "ende": 7.06
+        },
+        {
+          "wort": "wird",
+          "start": 7.06,
+          "ende": 7.34
+        },
+        {
+          "wort": "sogar",
+          "start": 7.34,
+          "ende": 7.68
+        },
+        {
+          "wort": "noch",
+          "start": 7.68,
+          "ende": 7.96
+        },
+        {
+          "wort": "größer.",
+          "start": 7.96,
+          "ende": 8.36
+        }
+      ]
     },
     {
       "typ": "schritt",
@@ -32,7 +386,130 @@
       "highlight": "ansteckend",
       "grafik": "herz",
       "sprechtext": "Was stattdessen hilft, heißt Ko-Regulation. Kinder leihen sich unsere Ruhe. Eine ruhige Stimme, Nähe, langsames Atmen: Das Nervensystem des Kindes orientiert sich an unserem.",
-      "dauer": 10.9
+      "dauer": 11.83,
+      "audio": "audio/folge-03/szene-4.mp3",
+      "woerter": [
+        {
+          "wort": "Was",
+          "start": 0.15,
+          "ende": 0.34
+        },
+        {
+          "wort": "stattdessen",
+          "start": 0.34,
+          "ende": 0.91
+        },
+        {
+          "wort": "hilft,",
+          "start": 0.91,
+          "ende": 1.19
+        },
+        {
+          "wort": "heißt",
+          "start": 1.37,
+          "ende": 1.77
+        },
+        {
+          "wort": "Ko-Regulation.",
+          "start": 1.77,
+          "ende": 2.7
+        },
+        {
+          "wort": "Kinder",
+          "start": 3.06,
+          "ende": 3.37
+        },
+        {
+          "wort": "leihen",
+          "start": 3.37,
+          "ende": 3.67
+        },
+        {
+          "wort": "sich",
+          "start": 3.67,
+          "ende": 3.89
+        },
+        {
+          "wort": "unsere",
+          "start": 3.89,
+          "ende": 4.2
+        },
+        {
+          "wort": "Ruhe.",
+          "start": 4.2,
+          "ende": 4.42
+        },
+        {
+          "wort": "Eine",
+          "start": 4.64,
+          "ende": 4.91
+        },
+        {
+          "wort": "ruhige",
+          "start": 4.91,
+          "ende": 5.28
+        },
+        {
+          "wort": "Stimme,",
+          "start": 5.28,
+          "ende": 5.66
+        },
+        {
+          "wort": "Nähe,",
+          "start": 6.02,
+          "ende": 6.47
+        },
+        {
+          "wort": "langsames",
+          "start": 6.59,
+          "ende": 7.41
+        },
+        {
+          "wort": "Atmen:",
+          "start": 7.41,
+          "ende": 7.89
+        },
+        {
+          "wort": "Das",
+          "start": 8.25,
+          "ende": 8.46
+        },
+        {
+          "wort": "Nervensystem",
+          "start": 8.46,
+          "ende": 9.16
+        },
+        {
+          "wort": "des",
+          "start": 9.16,
+          "ende": 9.37
+        },
+        {
+          "wort": "Kindes",
+          "start": 9.37,
+          "ende": 9.74
+        },
+        {
+          "wort": "orientiert",
+          "start": 9.74,
+          "ende": 10.32
+        },
+        {
+          "wort": "sich",
+          "start": 10.32,
+          "ende": 10.59
+        },
+        {
+          "wort": "an",
+          "start": 10.59,
+          "ende": 10.75
+        },
+        {
+          "wort": "unserem.",
+          "start": 10.75,
+          "ende": 11.17
+        }
+      ]
     },
     {
       "typ": "beispiel",
@@ -44,7 +521,160 @@
         "Ich bin da"
       ],
       "sprechtext": "Statt „Hör auf zu weinen“ versuch mal: „Du bist gerade richtig traurig, weil dein Turm umgefallen ist. Ich bin da.“ Studien zeigen: Gefühle in Worte zu fassen, kann sie abschwächen.",
-      "dauer": 13.5
+      "dauer": 12.06,
+      "audio": "audio/folge-03/szene-5.mp3",
+      "woerter": [
+        {
+          "wort": "Statt",
+          "start": 0.15,
+          "ende": 0.56
+        },
+        {
+          "wort": "„Hör",
+          "start": 0.79,
+          "ende": 1.01
+        },
+        {
+          "wort": "auf",
+          "start": 1.01,
+          "ende": 1.23
+        },
+        {
+          "wort": "zu",
+          "start": 1.23,
+          "ende": 1.4
+        },
+        {
+          "wort": "weinen“",
+          "start": 1.4,
+          "ende": 1.79
+        },
+        {
+          "wort": "versuch",
+          "start": 2.0,
+          "ende": 2.42
+        },
+        {
+          "wort": "mal:",
+          "start": 2.42,
+          "ende": 2.63
+        },
+        {
+          "wort": "„Du",
+          "start": 2.99,
+          "ende": 3.14
+        },
+        {
+          "wort": "bist",
+          "start": 3.14,
+          "ende": 3.39
+        },
+        {
+          "wort": "gerade",
+          "start": 3.39,
+          "ende": 3.73
+        },
+        {
+          "wort": "richtig",
+          "start": 3.73,
+          "ende": 4.13
+        },
+        {
+          "wort": "traurig,",
+          "start": 4.13,
+          "ende": 4.52
+        },
+        {
+          "wort": "weil",
+          "start": 4.88,
+          "ende": 5.13
+        },
+        {
+          "wort": "dein",
+          "start": 5.13,
+          "ende": 5.38
+        },
+        {
+          "wort": "Turm",
+          "start": 5.38,
+          "ende": 5.63
+        },
+        {
+          "wort": "umgefallen",
+          "start": 5.63,
+          "ende": 6.18
+        },
+        {
+          "wort": "ist.",
+          "start": 6.18,
+          "ende": 6.38
+        },
+        {
+          "wort": "Ich",
+          "start": 6.74,
+          "ende": 7.08
+        },
+        {
+          "wort": "bin",
+          "start": 7.08,
+          "ende": 7.42
+        },
+        {
+          "wort": "da.“",
+          "start": 7.42,
+          "ende": 7.67
+        },
+        {
+          "wort": "Studien",
+          "start": 8.03,
+          "ende": 8.44
+        },
+        {
+          "wort": "zeigen:",
+          "start": 8.44,
+          "ende": 8.8
+        },
+        {
+          "wort": "Gefühle",
+          "start": 8.8,
+          "ende": 9.21
+        },
+        {
+          "wort": "in",
+          "start": 9.21,
+          "ende": 9.36
+        },
+        {
+          "wort": "Worte",
+          "start": 9.36,
+          "ende": 9.67
+        },
+        {
+          "wort": "zu",
+          "start": 9.67,
+          "ende": 9.83
+        },
+        {
+          "wort": "fassen,",
+          "start": 9.83,
+          "ende": 10.18
+        },
+        {
+          "wort": "kann",
+          "start": 10.5,
+          "ende": 10.72
+        },
+        {
+          "wort": "sie",
+          "start": 10.72,
+          "ende": 10.89
+        },
+        {
+          "wort": "abschwächen.",
+          "start": 10.89,
+          "ende": 11.43
+        }
+      ]
     },
     {
       "typ": "merke",
@@ -58,14 +688,225 @@
         "Erwachsene"
       ],
       "sprechtext": "Merk dir: Erst verbinden, dann erklären. Ein Kind, das sich verstanden fühlt, beruhigt sich meist schneller. Und das gilt übrigens auch für Erwachsene.",
-      "dauer": 10.5
+      "dauer": 8.87,
+      "audio": "audio/folge-03/szene-6.mp3",
+      "woerter": [
+        {
+          "wort": "Merk",
+          "start": 0.15,
+          "ende": 0.51
+        },
+        {
+          "wort": "dir:",
+          "start": 0.51,
+          "ende": 0.8
+        },
+        {
+          "wort": "Erst",
+          "start": 0.99,
+          "ende": 1.26
+        },
+        {
+          "wort": "verbinden,",
+          "start": 1.26,
+          "ende": 1.8
+        },
+        {
+          "wort": "dann",
+          "start": 1.94,
+          "ende": 2.17
+        },
+        {
+          "wort": "erklären.",
+          "start": 2.17,
+          "ende": 2.57
+        },
+        {
+          "wort": "Ein",
+          "start": 2.93,
+          "ende": 3.12
+        },
+        {
+          "wort": "Kind,",
+          "start": 3.12,
+          "ende": 3.34
+        },
+        {
+          "wort": "das",
+          "start": 3.34,
+          "ende": 3.53
+        },
+        {
+          "wort": "sich",
+          "start": 3.53,
+          "ende": 3.76
+        },
+        {
+          "wort": "verstanden",
+          "start": 3.76,
+          "ende": 4.26
+        },
+        {
+          "wort": "fühlt,",
+          "start": 4.26,
+          "ende": 4.53
+        },
+        {
+          "wort": "beruhigt",
+          "start": 4.89,
+          "ende": 5.23
+        },
+        {
+          "wort": "sich",
+          "start": 5.23,
+          "ende": 5.41
+        },
+        {
+          "wort": "meist",
+          "start": 5.41,
+          "ende": 5.64
+        },
+        {
+          "wort": "schneller.",
+          "start": 5.64,
+          "ende": 6.01
+        },
+        {
+          "wort": "Und",
+          "start": 6.37,
+          "ende": 6.55
+        },
+        {
+          "wort": "das",
+          "start": 6.55,
+          "ende": 6.72
+        },
+        {
+          "wort": "gilt",
+          "start": 6.72,
+          "ende": 6.95
+        },
+        {
+          "wort": "übrigens",
+          "start": 6.95,
+          "ende": 7.35
+        },
+        {
+          "wort": "auch",
+          "start": 7.35,
+          "ende": 7.57
+        },
+        {
+          "wort": "für",
+          "start": 7.57,
+          "ende": 7.74
+        },
+        {
+          "wort": "Erwachsene.",
+          "start": 7.74,
+          "ende": 8.23
+        }
+      ]
     },
     {
       "typ": "outro",
       "titel": "Welchen Satz hast DU als Kind oft gehört?",
       "highlight": "DU",
       "sprechtext": "Welchen Satz hast du als Kind oft gehört? Schreib es in die Kommentare und folg mir für mehr.",
-      "dauer": 8.3
+      "dauer": 5.48,
+      "audio": "audio/folge-03/szene-7.mp3",
+      "woerter": [
+        {
+          "wort": "Welchen",
+          "start": 0.15,
+          "ende": 0.54
+        },
+        {
+          "wort": "Satz",
+          "start": 0.54,
+          "ende": 0.79
+        },
+        {
+          "wort": "hast",
+          "start": 0.79,
+          "ende": 1.04
+        },
+        {
+          "wort": "du",
+          "start": 1.04,
+          "ende": 1.18
+        },
+        {
+          "wort": "als",
+          "start": 1.18,
+          "ende": 1.38
+        },
+        {
+          "wort": "Kind",
+          "start": 1.38,
+          "ende": 1.63
+        },
+        {
+          "wort": "oft",
+          "start": 1.63,
+          "ende": 1.83
+        },
+        {
+          "wort": "gehört?",
+          "start": 1.83,
+          "ende": 2.17
+        },
+        {
+          "wort": "Schreib",
+          "start": 2.53,
+          "ende": 2.87
+        },
+        {
+          "wort": "es",
+          "start": 2.87,
+          "ende": 3.0
+        },
+        {
+          "wort": "in",
+          "start": 3.0,
+          "ende": 3.12
+        },
+        {
+          "wort": "die",
+          "start": 3.12,
+          "ende": 3.29
+        },
+        {
+          "wort": "Kommentare",
+          "start": 3.29,
+          "ende": 3.76
+        },
+        {
+          "wort": "und",
+          "start": 3.9,
+          "ende": 4.07
+        },
+        {
+          "wort": "folg",
+          "start": 4.07,
+          "ende": 4.28
+        },
+        {
+          "wort": "mir",
+          "start": 4.28,
+          "ende": 4.45
+        },
+        {
+          "wort": "für",
+          "start": 4.45,
+          "ende": 4.62
+        },
+        {
+          "wort": "mehr.",
+          "start": 4.62,
+          "ende": 4.83
+        }
+      ]
     }
   ]
 }
