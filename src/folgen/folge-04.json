@@ -1,0 +1,65 @@
+{
+  "nummer": 4,
+  "thema": "Der Spotlight-Effekt: Warum dich weniger Leute beobachten, als du denkst",
+  "szenen": [
+    {
+      "typ": "hook",
+      "titel": "Denkst DU, alle schauen dich an?",
+      "highlight": "DU",
+      "grafik": "scheinwerfer",
+      "sprechtext": "Du denkst, alle haben deinen Fleck gesehen? Haben sie nicht.",
+      "dauer": 4.8
+    },
+    {
+      "typ": "schritt",
+      "titel": "Das ist der Spotlight-Effekt",
+      "highlight": "Spotlight-Effekt",
+      "grafik": "scheinwerfer",
+      "sprechtext": "Psychologen nennen das den Spotlight-Effekt. Wir glauben, ein Scheinwerfer ist auf uns gerichtet und alle bemerken jeden Fehler, jedes Outfit, jeden Versprecher.",
+      "dauer": 10.1
+    },
+    {
+      "typ": "schritt",
+      "titel": "Gedacht die Hälfte, wirklich ein Viertel",
+      "highlight": "ein Viertel",
+      "grafik": "torte",
+      "momente": [
+        "Hälfte",
+        "Viertel"
+      ],
+      "sprechtext": "In einem bekannten Experiment mussten Studierende ein peinliches T-Shirt tragen. Sie dachten, etwa die Hälfte der anderen würde es bemerken. Tatsächlich war es nur rund ein Viertel.",
+      "dauer": 12.2
+    },
+    {
+      "typ": "schritt",
+      "titel": "Alle sind mit sich selbst beschäftigt",
+      "highlight": "sich selbst",
+      "grafik": "gehirn",
+      "sprechtext": "Warum? Jeder Mensch ist in seinem eigenen Film die Hauptfigur. Die anderen sind gerade genauso mit sich beschäftigt: mit ihrem Aussehen, ihren Sorgen, ihrem nächsten Satz.",
+      "dauer": 11.8
+    },
+    {
+      "typ": "beispiel",
+      "titel": "Du stolperst und denkst noch abends daran.",
+      "highlight": "noch abends",
+      "grafik": "keine",
+      "sprechtext": "Du stolperst auf dem Weg zur Arbeit und denkst noch abends daran. Und die Leute, die es gesehen haben? Die haben es höchstwahrscheinlich längst vergessen.",
+      "dauer": 11.4
+    },
+    {
+      "typ": "merke",
+      "titel": "Niemand achtet so sehr auf dich wie du selbst.",
+      "highlight": "du selbst",
+      "grafik": "herz",
+      "sprechtext": "Merk dir: Niemand achtet so sehr auf dich wie du selbst. Das kann ganz schön entlasten, beim nächsten Vortrag oder beim nächsten Fleck auf dem Shirt.",
+      "dauer": 11.8
+    },
+    {
+      "typ": "outro",
+      "titel": "Was war DEIN peinlichster Moment?",
+      "highlight": "DEIN",
+      "sprechtext": "Was war dein peinlichster Moment, an den sich wahrscheinlich keiner mehr erinnert? Schreib es in die Kommentare und folg mir für mehr.",
+      "dauer": 10.1
+    }
+  ]
+}
