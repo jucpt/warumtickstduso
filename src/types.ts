@@ -20,6 +20,8 @@ export type GrafikName =
   | 'fernseher'
   | 'muenzen'
   | 'waage'
+  | 'teller'
+  | 'wegweiser'
   | 'keine';
 
 export type SzenenTyp = 'hook' | 'schritt' | 'beispiel' | 'merke' | 'outro';

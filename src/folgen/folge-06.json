@@ -538,7 +538,11 @@
       "typ": "beispiel",
       "titel": "Längst satt und trotzdem noch ein Teller.",
       "highlight": "noch ein Teller",
-      "grafik": "keine",
+      "grafik": "teller",
+      "momente": [
+        "Teller",
+        "Bauchweh"
+      ],
       "sprechtext": "Am Buffet bist du längst satt, holst dir aber noch einen Teller, weil es ja bezahlt ist. Das Geld bekommst du dadurch nicht zurück, nur Bauchweh.",
       "dauer": 8.56,
       "audio": "audio/folge-06/szene-5.mp3",
@@ -679,7 +683,11 @@
       "typ": "merke",
       "titel": "Es zählt nur, was ab jetzt kommt.",
       "highlight": "ab jetzt",
-      "grafik": "keine",
+      "grafik": "wegweiser",
+      "momente": [
+        "zurück",
+        "aufhören"
+      ],
       "sprechtext": "Merk dir: Was schon weg ist, kommt nicht zurück. Frag dich lieber: Würde ich heute neu damit anfangen? Wenn nicht, darfst du aufhören. Das gilt für Filme, Bücher, Projekte und manchmal sogar für Beziehungen.",
       "dauer": 12.92,
       "audio": "audio/folge-06/szene-6.mp3",

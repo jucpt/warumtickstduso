@@ -1019,6 +1019,104 @@ const Waage: React.FC<GrafikProps> = ({ groesse, szene, versatz = 0 }) => {
   );
 };
 
+// Teller: normale Portion mit Dampf. Ereignis 1 (z. B. „Teller“): weitere Portionen stapeln sich schnell.
+// Ereignis 2 (z. B. „Bauchweh“): der Teller wackelt, Wellenlinien zeigen: zu viel.
+const PORTIONEN: [number, number, number][] = [
+  // x, y, Radius – die ersten zwei liegen von Anfang an da
+  [86, 128, 14], [112, 128, 13], [99, 112, 13], [76, 112, 11], [122, 112, 11], [98, 96, 12], [99, 80, 10],
+];
+
+const Teller: React.FC<GrafikProps> = ({ groesse, szene, versatz = 0 }) => {
+  const { t } = useZeit();
+  const p = useZeichnen(0.9);
+  const nachschlag = ereignis(szene, versatz, 0, 'Teller');
+  const weh = ereignis(szene, versatz, 1, 'Bauchweh');
+  const wackeln = weh !== null && t >= weh ? Math.sin(t * 22) * 5 * Math.exp(-(t - weh) * 1.2) + Math.sin(t * 3) * 1.5 : 0;
+  const ubel = ab(t, weh, 0.4);
+  const hoechste = PORTIONEN.reduce((m, [, y], i) => {
+    const da = i < 2 ? ab(t, 0.7 + i * 0.2, 0.3) : ab(t, nachschlag === null ? null : nachschlag + (i - 2) * 0.12, 0.25);
+    return da > 0.5 ? Math.min(m, y) : m;
+  }, 140);
+  return (
+    <SVG groesse={groesse}>
+      <g transform="translate(100 110) scale(1.3) translate(-100 -110)">
+      <g transform={`rotate(${wackeln} 100 140)`}>
+        <line x1="22" y1="100" x2="22" y2="150" stroke={FARBEN.neben} strokeWidth={5} opacity={p} />
+        <line x1="16" y1="100" x2="16" y2="116" stroke={FARBEN.neben} strokeWidth={4} opacity={p} />
+        <line x1="28" y1="100" x2="28" y2="116" stroke={FARBEN.neben} strokeWidth={4} opacity={p} />
+        <path d="M178 100 C188 112 186 124 178 128 L178 150" stroke={FARBEN.neben} strokeWidth={5} opacity={p} />
+        <ellipse cx="100" cy="142" rx="66" ry="17" stroke={FARBEN.neben} strokeWidth={7} pathLength={1} strokeDasharray={1} strokeDashoffset={1 - p} />
+        <ellipse cx="100" cy="142" rx="44" ry="10" stroke={FARBEN.neben} strokeWidth={4} opacity={0.5 * p} />
+        {PORTIONEN.map(([x, y, r], i) => {
+          const da = i < 2 ? ab(t, 0.7 + i * 0.2, 0.3) : ab(t, nachschlag === null ? null : nachschlag + (i - 2) * 0.12, 0.25);
+          if (da <= 0) return null;
+          return <circle key={i} cx={x} cy={y - (1 - da) * 40} r={r} stroke={i % 2 ? FARBEN.akzent : FARBEN.neben} strokeWidth={5} opacity={da} />;
+        })}
+        <circle cx="99" cy={hoechste - 18} r={4 + Math.sin(t * 5)} fill={FARBEN.highlight} opacity={ab(t, 1.0, 0.3)} />
+      </g>
+      {/* Dampf */}
+      <g opacity={(1 - ubel) * ab(t, 1.0, 0.4) * 0.7} stroke={FARBEN.neben} strokeWidth={4}>
+        {[0, 1, 2].map((i) => {
+          const ph = (t * 0.7 + i / 3) % 1;
+          const x = 80 + i * 20;
+          const y = hoechste - 26 - ph * 30;
+          return <path key={i} d={`M${x} ${y + 14} C${x - 6} ${y + 8} ${x + 6} ${y + 4} ${x} ${y - 2}`} opacity={Math.sin(Math.PI * ph)} />;
+        })}
+      </g>
+      {/* Übelkeit */}
+      <g opacity={ubel} stroke={FARBEN.akzent} strokeWidth={4}>
+        {[0, 1, 2].map((i) => {
+          const y = 24 + i * 14 + Math.sin(t * 4 + i) * 2;
+          return <path key={i} d={`M128 ${y} q8 -6 16 0 q8 6 16 0 q8 -6 16 0`} />;
+        })}
+      </g>
+      </g>
+    </SVG>
+  );
+};
+
+// Wegweiser: ein Pfeil zeigt zurück, einer nach vorne. Ereignis 1 (z. B. „zurück“): der Pfeil nach hinten wird
+// durchgestrichen und blass. Ereignis 2 (z. B. „aufhören“): der Pfeil nach vorne leuchtet auf (gelber Lichtpunkt).
+const Wegweiser: React.FC<GrafikProps> = ({ groesse, szene, versatz = 0 }) => {
+  const { t } = useZeit();
+  const p = useZeichnen(1);
+  const zurueck = ab(t, ereignis(szene, versatz, 0, 'zurück'), 0.4);
+  const vorTime = ereignis(szene, versatz, 1, 'aufhören');
+  const vor = ab(t, vorTime, 0.4);
+  const puls = ausschlag(t, vorTime, 0.8);
+  const schwingen = Math.sin(t * 1.8) * 2;
+  return (
+    <SVG groesse={groesse}>
+      <g transform="translate(100 110) scale(1.25) translate(-100 -110)">
+      <line x1="100" y1="44" x2="100" y2="176" stroke={FARBEN.neben} strokeWidth={7} pathLength={1} strokeDasharray={1} strokeDashoffset={1 - p} />
+      <line x1="70" y1="176" x2="130" y2="176" stroke={FARBEN.neben} strokeWidth={6} opacity={p} />
+      {/* zurück */}
+      <g opacity={p * (1 - 0.55 * zurueck)} transform={`rotate(${-schwingen * 0.5} 100 72)`}>
+        <path d="M148 56 H66 L48 72 L66 88 H148 Z" stroke={FARBEN.neben} strokeWidth={6} />
+        <line x1="78" y1="72" x2="128" y2="72" stroke={FARBEN.neben} strokeWidth={4} opacity={0.6} />
+      </g>
+      {zurueck > 0 ? (
+        <g stroke={FARBEN.akzent} strokeWidth={6}>
+          <line x1="62" y1="52" x2={62 + 88 * zurueck} y2={52 + 40 * zurueck} />
+          <line x1="150" y1="52" x2={150 - 88 * zurueck} y2={52 + 40 * zurueck} />
+        </g>
+      ) : null}
+      {/* nach vorne */}
+      <g opacity={p} transform={`rotate(${schwingen} 100 120) translate(100 120) scale(${1 + 0.08 * puls}) translate(-100 -120)`}>
+        <path d="M52 104 H134 L152 120 L134 136 H52 Z" fill={FARBEN.akzent} fillOpacity={0.15 + 0.6 * vor} stroke={vor > 0.5 ? FARBEN.akzent : FARBEN.neben} strokeWidth={6} />
+        <line x1="64" y1="120" x2="122" y2="120" stroke={vor > 0.5 ? FARBEN.text : FARBEN.neben} strokeWidth={4} opacity={0.7} />
+        {vor > 0 ? (
+          <>
+            <circle cx="152" cy="120" r={14 + 3 * Math.sin(t * 5)} fill={FARBEN.highlight} opacity={0.25 * vor} />
+            <circle cx="152" cy="120" r="6" fill={FARBEN.highlight} opacity={vor} />
+          </>
+        ) : null}
+      </g>
+      </g>
+    </SVG>
+  );
+};
+
 export const Grafik: React.FC<{ name?: GrafikName; groesse?: number; szene?: Szene; versatz?: number }> = ({
   name = 'keine',
   groesse = 520,
@@ -1073,6 +1171,10 @@ export const Grafik: React.FC<{ name?: GrafikName; groesse?: number; szene?: Sze
         return <Muenzen groesse={groesse} szene={szene} versatz={versatz} />;
       case 'waage':
         return <Waage groesse={groesse} szene={szene} versatz={versatz} />;
+      case 'teller':
+        return <Teller groesse={groesse} szene={szene} versatz={versatz} />;
+      case 'wegweiser':
+        return <Wegweiser groesse={groesse} szene={szene} versatz={versatz} />;
       default:
         return null;
     }
