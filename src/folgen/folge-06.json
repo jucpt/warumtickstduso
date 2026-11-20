@@ -1,0 +1,69 @@
+{
+  "nummer": 6,
+  "thema": "Sunk Cost: Warum du einen schlechten Film trotzdem zu Ende schaust",
+  "szenen": [
+    {
+      "typ": "hook",
+      "titel": "Schaust DU schlechte Filme zu Ende?",
+      "highlight": "DU",
+      "grafik": "fernseher",
+      "sprechtext": "Der Film ist schlecht, aber du schaust weiter? Das hat einen Namen.",
+      "dauer": 5.7
+    },
+    {
+      "typ": "schritt",
+      "titel": "Das ist der Sunk-Cost-Effekt",
+      "highlight": "Sunk-Cost-Effekt",
+      "grafik": "muenzen",
+      "sprechtext": "Psychologen nennen das den Sunk-Cost-Effekt, auf Deutsch: Effekt der versunkenen Kosten. Wir machen weiter, nur weil wir schon Zeit, Geld oder Mühe investiert haben. Und je mehr wir schon reingesteckt haben, desto schwerer fällt das Aufhören.",
+      "dauer": 16.2
+    },
+    {
+      "typ": "schritt",
+      "titel": "Verluste wiegen doppelt",
+      "highlight": "doppelt",
+      "grafik": "waage",
+      "momente": [
+        "Verluste",
+        "Gewinne"
+      ],
+      "sprechtext": "Dahinter steckt die Verlustaversion: Verluste fühlen sich etwa doppelt so stark an wie gleich große Gewinne. Aufhören fühlt sich an, als hätten wir das Investierte verloren.",
+      "dauer": 11.8
+    },
+    {
+      "typ": "schritt",
+      "titel": "Das Geld ist so oder so weg",
+      "highlight": "so oder so",
+      "grafik": "stoppuhr",
+      "momente": [
+        "nächste",
+        "verbringen"
+      ],
+      "sprechtext": "Aber: Die Kinokarte ist bezahlt, egal ob du bleibst oder gehst. Die einzige Frage ist, wie du die nächste Stunde verbringen willst.",
+      "dauer": 10.1
+    },
+    {
+      "typ": "beispiel",
+      "titel": "Längst satt und trotzdem noch ein Teller.",
+      "highlight": "noch ein Teller",
+      "grafik": "keine",
+      "sprechtext": "Am Buffet bist du längst satt, holst dir aber noch einen Teller, weil es ja bezahlt ist. Das Geld bekommst du dadurch nicht zurück, nur Bauchweh.",
+      "dauer": 11.8
+    },
+    {
+      "typ": "merke",
+      "titel": "Es zählt nur, was ab jetzt kommt.",
+      "highlight": "ab jetzt",
+      "grafik": "keine",
+      "sprechtext": "Merk dir: Was schon weg ist, kommt nicht zurück. Frag dich lieber: Würde ich heute neu damit anfangen? Wenn nicht, darfst du aufhören. Das gilt für Filme, Bücher, Projekte und manchmal sogar für Beziehungen.",
+      "dauer": 15.3
+    },
+    {
+      "typ": "outro",
+      "titel": "Wobei machst DU zu lange weiter?",
+      "highlight": "DU",
+      "sprechtext": "Wobei hältst du zu lange durch, nur weil du schon so viel investiert hast? Schreib es in die Kommentare und folg mir für mehr.",
+      "dauer": 10.9
+    }
+  ]
+}

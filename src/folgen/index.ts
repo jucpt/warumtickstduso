@@ -4,5 +4,7 @@ import folge01 from './folge-01.json';
 import folge02 from './folge-02.json';
 import folge03 from './folge-03.json';
 import folge04 from './folge-04.json';
+import folge05 from './folge-05.json';
+import folge06 from './folge-06.json';
 
-export const folgen: Folge[] = [folge01 as Folge, folge02 as Folge, folge03 as Folge, folge04 as Folge];
+export const folgen: Folge[] = [folge01 as Folge, folge02 as Folge, folge03 as Folge, folge04 as Folge, folge05 as Folge, folge06 as Folge];
