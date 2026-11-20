@@ -705,7 +705,11 @@
       "typ": "merke",
       "titel": "Nicht faul, sondern anders getaktet.",
       "highlight": "anders getaktet",
-      "grafik": "keine",
+      "grafik": "sonne",
+      "momente": [
+        "Aufstehzeiten",
+        "abends"
+      ],
       "sprechtext": "Merk dir: nicht faul, sondern anders getaktet. Was helfen kann: feste Aufstehzeiten, auch am Wochenende, morgens viel Tageslicht und abends weniger Bildschirm.",
       "dauer": 10.23,
       "audio": "audio/folge-05/szene-6.mp3",

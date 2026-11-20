@@ -16,6 +16,7 @@ export type GrafikName =
   | 'uhr'
   | 'akku'
   | 'bett'
+  | 'sonne'
   | 'keine';
 
 export type SzenenTyp = 'hook' | 'schritt' | 'beispiel' | 'merke' | 'outro';

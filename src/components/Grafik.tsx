@@ -841,6 +841,55 @@ const Bett: React.FC<GrafikProps> = ({ groesse, szene, versatz = 0 }) => {
   );
 };
 
+// Sonnenaufgang: Horizont mit Morgenschimmer. Ereignis 1 (z. B. „Tageslicht“): die Sonne geht auf, Strahlen drehen sich.
+// Ereignis 2 (z. B. „abends“): die Sonne geht unter, der Mond erscheint, ein Handy daneben wird dunkel.
+const Sonne: React.FC<GrafikProps> = ({ groesse, szene, versatz = 0 }) => {
+  const { t } = useZeit();
+  const p = useZeichnen(0.9);
+  const clipId = `himmel-${React.useId().replace(/[^a-zA-Z0-9]/g, '')}`;
+  const auf = ab(t, ereignis(szene, versatz, 0, 'Tageslicht'), 0.9);
+  const abendZeit = ereignis(szene, versatz, 1, 'abends');
+  const unter = ab(t, abendZeit, 0.8);
+  const hoehe = auf * (1 - unter);
+  const sy = 160 - 78 * hoehe;
+  const handy = ab(t, abendZeit, 0.3);
+  const handyAus = ab(t, abendZeit === null ? null : abendZeit + 0.6, 0.5);
+  return (
+    <SVG groesse={groesse}>
+      <g transform="translate(100 110) scale(1.3) translate(-100 -110)">
+      <defs>
+        <clipPath id={clipId}>
+          <rect x="0" y="-40" width="200" height="182" />
+        </clipPath>
+      </defs>
+      <g clipPath={`url(#${clipId})`}>
+        <circle cx="100" cy={sy} r={38 + 4 * Math.sin(t * 3)} fill={FARBEN.highlight} opacity={0.12 + 0.18 * hoehe} />
+        <g transform={`rotate(${t * 25} 100 ${sy})`} opacity={hoehe}>
+          {Array.from({ length: 10 }, (_, i) => {
+            const a = (i / 10) * 2 * Math.PI;
+            return <line key={i} x1={100 + 30 * Math.cos(a)} y1={sy + 30 * Math.sin(a)} x2={100 + 42 * Math.cos(a)} y2={sy + 42 * Math.sin(a)} stroke={FARBEN.highlight} strokeWidth={6} />;
+          })}
+        </g>
+        <circle cx="100" cy={sy} r="22" stroke={FARBEN.highlight} strokeWidth={7} />
+      </g>
+      <line x1="20" y1="142" x2="180" y2="142" stroke={FARBEN.neben} strokeWidth={6} pathLength={1} strokeDasharray={1} strokeDashoffset={1 - p} />
+      <g opacity={0.5 * p} stroke={FARBEN.neben} strokeWidth={5}>
+        <line x1="44" y1="160" x2="84" y2="160" />
+        <line x1="116" y1="160" x2="156" y2="160" />
+        <line x1="72" y1="176" x2="128" y2="176" />
+      </g>
+      <g opacity={unter}>
+        <path d="M44 30 A16 16 0 1 0 58 54 A12 12 0 1 1 44 30 Z" stroke={FARBEN.neben} strokeWidth={5} />
+      </g>
+      <g opacity={handy} transform="translate(150 70)">
+        <rect x="-12" y="-22" width="24" height="44" rx="6" stroke={FARBEN.neben} strokeWidth={5} />
+        <rect x="-6" y="-14" width="12" height="26" rx="2" fill={FARBEN.akzent} opacity={1 - handyAus} />
+      </g>
+      </g>
+    </SVG>
+  );
+};
+
 export const Grafik: React.FC<{ name?: GrafikName; groesse?: number; szene?: Szene; versatz?: number }> = ({
   name = 'keine',
   groesse = 520,
@@ -887,6 +936,8 @@ export const Grafik: React.FC<{ name?: GrafikName; groesse?: number; szene?: Sze
         return <Akku groesse={groesse} szene={szene} versatz={versatz} />;
       case 'bett':
         return <Bett groesse={groesse} szene={szene} versatz={versatz} />;
+      case 'sonne':
+        return <Sonne groesse={groesse} szene={szene} versatz={versatz} />;
       default:
         return null;
     }
