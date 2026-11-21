@@ -9,7 +9,7 @@ Juli ist angehender Erzieher und hat Erfahrung in der Kinder- und Jugendpsychiat
 |---|---|---|
 | #1 | Warum rastet DEIN Kind sofort aus? (Wutanfälle) | fertig (Julis Stimme, Adobe-verbessert, 61,9 s) |
 | #2 | Warum kannst DU nicht aufhören zu scrollen? | fertig (Julis Stimme, Adobe-verbessert, 69,8 s) |
-| #3 | Sagst DU auch „Hör auf zu weinen“? (Ko-Regulation) | fertig (Julis Stimme, 63,1 s) |
+| #3 | Sagst DU auch „Hör auf zu weinen“? (Ko-Regulation) | fertig (Julis Stimme, Adobe-verbessert, 63,1 s) |
 | #4 | Denkst DU, alle schauen dich an? (Spotlight-Effekt) | fertig (Julis Stimme, 63,0 s) |
 | #5 | Ist DEIN Kind morgens nur faul? (Teenager-Schlaf) | fertig (Julis Stimme, 65,1 s) |
 | #6 | Schaust DU schlechte Filme zu Ende? (Sunk Cost) | fertig (Julis Stimme, 65,3 s) |
@@ -68,7 +68,7 @@ Ziel: Niemand wischt weg. Deshalb gilt in jedem Video:
    - ElevenLabs: `npm run stimme -- XX` (erzeugt pro Szene eine MP3, setzt Dauer und Wort-Zeitstempel für die Untertitel).
    - Oder Julis eigene Aufnahme: MP3s nach `public/audio/folge-XX/szene-N.mp3`, bei jeder Szene `"audio"` eintragen und `dauer` an die Länge anpassen (mit ffprobe messen, sonst Juli fragen). Hat Juli alles in einer Datei mit Pausen aufgenommen, die Datei an den Pausen schneiden (ffmpeg `silencedetect`).
    - Danach prüfen: Gesamtlänge über 61 Sekunden? Sonst Ergänzungen vorschlagen.
-   - **Adobe-verbesserte Stimme nachträglich einsetzen** (Folge 1–2 erledigt, 3–6 folgen): Juli legt die verbesserten WAVs nach `public/audio/folge-XX/`. Sie sind sampelgenau gleich lang wie `original/szene-N.m4a`. Die aktuellen `szene-N.mp3` sind daraus entstanden, teils nur geschnitten (Folge 1), teils zusätzlich mit Tempo ca. 1,03 und gekürzten Pausen (Folge 2). Deshalb immer mit den Skripten arbeiten, die den Zeitverlauf der alten MP3 per Kreuzkorrelation nachbauen; dann bleiben `dauer` und `woerter` unverändert gültig:
+   - **Adobe-verbesserte Stimme nachträglich einsetzen** (Folge 1–3 erledigt, 4–6 folgen): Juli legt die verbesserten WAVs nach `public/audio/folge-XX/`. Sie sind sampelgenau gleich lang wie `original/szene-N.m4a`. Die aktuellen `szene-N.mp3` sind daraus entstanden, teils nur geschnitten (Folge 1), teils zusätzlich mit Tempo ca. 1,03 und gekürzten Pausen (Folge 2 und 3). Deshalb immer mit den Skripten arbeiten, die den Zeitverlauf der alten MP3 per Kreuzkorrelation nachbauen; dann bleiben `dauer` und `woerter` unverändert gültig:
      1. `python3 scripts/adobe/warp.py XX /tmp/arbeit` (sucht WAVs `Szene-N-…`/`Script-N-…`, gibt Tempo pro Sprechabschnitt aus)
      2. `python3 scripts/adobe/fin.py XX /tmp/arbeit` (-19,3 LUFS pro Szene, True Peak unter -1,5 dBTP, MP3 44,1 kHz mono 160 kbit/s, prüft Versatz zur alten MP3; muss unter ca. 25 ms bleiben)
      3. Alte MP3s nach `vor-adobe/`, WAVs nach `adobe-verbessert/szene-N.wav`, neue MP3s aus `/tmp/arbeit` nach `public/audio/folge-XX/`, neu rendern.
