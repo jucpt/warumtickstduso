@@ -7,7 +7,7 @@ Juli ist angehender Erzieher und hat Erfahrung in der Kinder- und Jugendpsychiat
 
 | Folge | Thema | Stand |
 |---|---|---|
-| #1 | Warum rastet DEIN Kind sofort aus? (Wutanfälle) | fertig (Julis Stimme, 61,9 s) |
+| #1 | Warum rastet DEIN Kind sofort aus? (Wutanfälle) | fertig (Julis Stimme, Adobe-verbessert, 61,9 s) |
 | #2 | Warum kannst DU nicht aufhören zu scrollen? | fertig (Julis Stimme, 69,8 s) |
 | #3 | Sagst DU auch „Hör auf zu weinen“? (Ko-Regulation) | fertig (Julis Stimme, 63,1 s) |
 | #4 | Denkst DU, alle schauen dich an? (Spotlight-Effekt) | fertig (Julis Stimme, 63,0 s) |
@@ -68,6 +68,8 @@ Ziel: Niemand wischt weg. Deshalb gilt in jedem Video:
    - ElevenLabs: `npm run stimme -- XX` (erzeugt pro Szene eine MP3, setzt Dauer und Wort-Zeitstempel für die Untertitel).
    - Oder Julis eigene Aufnahme: MP3s nach `public/audio/folge-XX/szene-N.mp3`, bei jeder Szene `"audio"` eintragen und `dauer` an die Länge anpassen (mit ffprobe messen, sonst Juli fragen). Hat Juli alles in einer Datei mit Pausen aufgenommen, die Datei an den Pausen schneiden (ffmpeg `silencedetect`).
    - Danach prüfen: Gesamtlänge über 61 Sekunden? Sonst Ergänzungen vorschlagen.
+   - **Adobe-verbesserte Stimme nachträglich einsetzen** (Folge 1 erledigt, 2–6 folgen): Juli legt die verbesserten WAVs nach `public/audio/folge-XX/`. Sie sind sampelgenau gleich lang wie `original/szene-N.m4a`. Die aktuellen `szene-N.mp3` sind nur ein Ausschnitt daraus (kein Tempo, keine Schnitte innen). Startversatz per Kreuzkorrelation Original ↔ aktuelle MP3 bestimmen, WAV mit gleichem Start und gleicher Länge schneiden (20 ms Fade-in, 30 ms Fade-out), dann bleiben `dauer` und `woerter` unverändert gültig. Lautheit: **-19,3 LUFS** pro Szene, True Peak unter -1,5 dBTP (Gain + `alimiter`), MP3 44,1 kHz mono 160 kbit/s. Ablage: WAVs nach `adobe-verbessert/szene-N.wav`, alte MP3s nach `vor-adobe/`. Danach Versatz neu ↔ alt prüfen (Folge 1: unter 16 ms) und neu rendern.
+   - Rendern in der Cloud: Chrome-Download ist blockiert, deshalb `--browser-executable=/opt/pw-browsers/chromium_headless_shell` an `npx remotion render`/`still` anhängen.
 8. **Vorschau:** `npm start`, Juli schaut sie an.
 9. **Rendern** nach seinem OK: `npm run render -- XX` → `out/folge-XX.mp4` und `out/folge-XX-cover.png`.
 10. **Stand-Tabelle** oben aktualisieren.
